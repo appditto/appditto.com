@@ -1,0 +1,270 @@
+@charset "utf-8";
+
+/*! Colors START */
+$blue: #4082FF;
+$orange:#FF5C00;
+$grey: #413D4D;
+$white: #ffffff; 
+$light: #FCFCFC;
+$light2: rgb(242, 242, 245);
+$red: #FF4500;/*! Colors END */
+
+/*! Fonts START */
+$font-family-sans-serif: "Neue Hans Kendrick", sans-serif; /*! Font END */
+
+/*! Color Variables START */
+$theme-colors: (
+  "primary": $blue,
+  "secondary": $blue,
+  "info": $blue,
+  "dark": $grey,
+  "success": $blue,
+  "light": $light,
+  "danger": $red
+); /*! Color Variables END */
+
+/*! Font Import Start */
+@font-face {
+    font-family: 'Neue Hans Kendrick';
+    src: url('fonts/Neue-Hans-Kendrick-Light.eot'); /* IE9 Compat Modes */
+    src: url('fonts/Neue-Hans-Kendrick-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('fonts/Neue-Hans-Kendrick-Light.woff2') format('woff2'), /* Super Modern Browsers */
+         url('fonts/Neue-Hans-Kendrick-Light.woff') format('woff'), /* Pretty Modern Browsers */
+         url('fonts/Neue-Hans-Kendrick-Light.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Neue Hans Kendrick';
+    src: url('fonts/Neue-Hans-Kendrick-Regular.eot'); /* IE9 Compat Modes */
+    src: url('fonts/Neue-Hans-Kendrick-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('fonts/Neue-Hans-Kendrick-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('fonts/Neue-Hans-Kendrick-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+         url('fonts/Neue-Hans-Kendrick-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Neue Hans Kendrick';
+    src: url('fonts/Neue-Hans-Kendrick-ExtraBold.eot'); /* IE9 Compat Modes */
+    src: url('fonts/Neue-Hans-Kendrick-ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('fonts/Neue-Hans-Kendrick-ExtraBold.woff2') format('woff2'), /* Super Modern Browsers */
+         url('fonts/Neue-Hans-Kendrick-ExtraBold.woff') format('woff'), /* Pretty Modern Browsers */
+         url('fonts/Neue-Hans-Kendrick-ExtraBold.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-weight: 700;
+    font-style: normal;
+}/*! Font Import END */
+
+/*! Bootstrap START */
+@import "scss/functions.scss"; 
+@import "scss/variables.scss"; 
+@import "scss/mixins.scss"; 
+@import "scss/grid.scss"; 
+@import "scss/navbar.scss"; 
+@import "scss/nav.scss";
+@import "scss/utilities.scss"; 
+@import "scss/mixins.scss"; 
+@import "scss/transitions.scss"; 
+@import "scss/reboot.scss"; 
+@import "scss/type.scss"; 
+@import "scss/buttons.scss";
+@import "scss/list-group.scss";  
+@import "scss/forms.scss"; 
+@import "scss/card.scss"; /*! Bootstrap END */
+
+/*! Body & Hero START */
+body{
+    background-color: $light;
+    color: $grey;
+}
+h1, .h1 {
+    @include media-breakpoint-only(lg) {
+        font-size: 2rem;
+      }
+      @include media-breakpoint-only(xl) {
+        font-size: 2rem;
+      }
+      @include media-breakpoint-only(md) {
+        font-size: 2rem;
+      }
+      @include media-breakpoint-only(sm) {
+        font-size: 1.7rem;
+      }
+      @include media-breakpoint-only(xs) {
+        font-size: 1.7rem;
+      }
+}
+h2, .h2 {
+    @include media-breakpoint-only(lg) {
+        font-size: 1.7rem;
+      }
+      @include media-breakpoint-only(xl) {
+        font-size: 1.7rem;
+      }
+      @include media-breakpoint-only(md) {
+        font-size: 1.7rem;
+      }
+      @include media-breakpoint-only(sm) {
+        font-size: 1.5rem;
+      }
+      @include media-breakpoint-only(xs) {
+        font-size: 1.5rem;
+      }
+}
+h3, .h3 {
+    @include media-breakpoint-only(lg) {
+        font-size: 1.5rem;
+      }
+      @include media-breakpoint-only(xl) {
+        font-size: 1.5rem;
+      }
+      @include media-breakpoint-only(md) {
+        font-size: 1.5rem;
+      }
+      @include media-breakpoint-only(sm) {
+        font-size: 1.3rem;
+      }
+      @include media-breakpoint-only(xs) {
+        font-size: 1.3rem;
+      }
+}
+h6, .h6 {
+    font-size: 1.2rem;
+    line-height: 1.75rem;
+}
+
+p, .p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+/*! Body & Hero END */
+
+/*! Buttons (Custom) START */
+.btn-lg{
+    padding-top: 0.8rem;
+    padding-bottom: 0.4rem;
+    box-shadow: 0px 8px 16px 0px rgba($blue, 0.25) !important;
+}
+.btn-lg:hover{
+    box-shadow: 0px 8px 30px 0px rgba($blue, 0.25) !important;
+}
+/*! BTN NOWRAP FIX START */
+.btn {
+    white-space: normal;
+} /*! BTN NOWRAP FIX END */
+/*! Buttons (Custom) END */
+
+/*! Width Mixins START */
+.mw-90{
+    min-width: 90%;
+} 
+.w-90{
+    width: 90%;
+}
+.w-85{
+    width: 85%;
+}
+.w-80{
+    min-width: 80%;
+}
+.w-70{
+    min-width: 70%;
+} 
+.w-49{
+    width: 49%;
+}/*! Width Mixins End */
+
+/*! Cards START */
+.card-columns {
+    @include media-breakpoint-only(lg) {
+      column-count: 5;
+    }
+    @include media-breakpoint-only(xl) {
+      column-count: 5;
+    }
+    @include media-breakpoint-only(md) {
+        column-count: 3;
+    }
+    @include media-breakpoint-only(sm) {
+        column-count: 1;
+    }
+    @include media-breakpoint-only(xs) {
+        column-count: 1;
+        margin:0.7rem;
+    }
+}/*! Cards END */
+
+/*! Dividers START */
+.divider{
+    height: 2px;
+    border-radius: 6px;
+}
+.divider2 {
+    height: 2px;
+    opacity: 0.8;
+}
+.divider-v{
+    width: 1px;
+    border-radius: 2px;
+} /*! Dividers END */
+
+/*! Button Hover Cancel START */
+@media screen and (max-width: map-get($grid-breakpoints, sm)) {
+    .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+        background-color: $blue;
+    }
+    .btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus {
+        background-color: $blue;
+    }
+    .btn-info:hover, .btn-info:active, .btn-info:focus {
+        background-color: $blue;
+    }
+    .btn-light:hover, .btn-light:active, .btn-light:focus {
+        background-color: $blue;
+    }
+}/*! Button Hover Cancel END */
+
+/*! Miscellaneous START */
+.z-top {
+    z-index: $zindex-fixed;
+}
+.absolute {
+    position: absolute;
+}
+.list-group-item{
+    border: none;
+    padding: 0rem 0.5rem;
+    background: none;
+}
+a:hover{
+    color:$blue;
+}
+/*! Miscellaneous END */
+
+.blogcard{
+    box-shadow: 0rem 0rem 0rem 0rem rgba($color: $blue, $alpha: 0);
+    padding: 1.5rem;
+    border-radius: 0.8rem;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    background-color: $light2;
+}
+
+.blogcard:hover{
+    box-shadow: 0rem 1.3rem 2.6rem rgba($color: $blue, $alpha: 0.25);
+    transform: translate(0,-0.5rem);
+    background-color: $light;
+    border-width: 0.0em;
+}
+
+.my-rounded{
+    border-radius: 0.4rem;
+}
+
+.datetag{
+    box-shadow: 0rem 0.25rem 0.5rem rgba($color: $blue, $alpha: 0.2);
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+}

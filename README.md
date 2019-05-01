@@ -1,2 +1,2 @@
-# appditto.com
-The home page of Appditto
+# The Home Page of Appditto
+We build beautiful apps, in record time.
