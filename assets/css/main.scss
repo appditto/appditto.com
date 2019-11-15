@@ -1,0 +1,54 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 599px,
+  md: 899px,
+  lg: 900px,
+  xl: 1200px
+);
+$theme-colors: (
+  'primary': #4082ff,
+  'danger': #ff4136
+);
+// Include Bootstrap and BootstrapVue SCSS files
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+@import 'fonts.scss';
+
+body {
+  color: #383c44;
+}
+.my-container {
+  max-width: 1200px;
+}
+
+.logo-horizontal {
+  height: 2.75rem;
+  margin: auto 0;
+}
+
+h5 {
+  line-height: 1.8rem;
+}
+
+.my-card {
+  border-radius: 1rem;
+  -moz-box-shadow: 0 1rem 2rem 0 rgba($primary, 0.2);
+  -webkit-box-shadow: 0 1rem 2rem 0 rgba($primary, 0.2);
+  box-shadow: 0 1rem 2rem 0 rgba($primary, 0.2);
+}
+
+.my-card-top {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.store-button {
+  height: 2.75rem;
+}
+
+.app-icon {
+  width: 10rem;
+}
+
+.stars-icon {
+  height: 2.75rem;
+}
