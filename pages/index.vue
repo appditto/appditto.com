@@ -102,9 +102,27 @@
       <b-container fluid class="my-container">
         <h2 class="w800 text-center">Check Out Our Apps</h2>
         <b-row align-v="center" align-h="center" class="mt-0 mt-md-5">
-          <AppCard appName="Natrium" rating="4.9" />
-          <AppCard appName="Blaise" rating="4.8" />
-          <AppCard appName="Kalium" rating="4.5" />
+          <AppCard
+            website="natrium.io"
+            playStore="play.google.com/store/apps/details?id=co.banano.natriumwallet"
+            appStore="itunes.apple.com/us/app/natrium/id1451425707"
+            appName="Natrium"
+            rating="4.9"
+          />
+          <AppCard
+            website="blaisewallet.com"
+            playStore="play.google.com/store/apps/details?id=com.appditto.blaise"
+            appStore="apps.apple.com/us/app/blaise-pascal-wallet/id1473011216"
+            appName="Blaise"
+            rating="4.8"
+          />
+          <AppCard
+            website="kalium.banano.cc"
+            playStore="play.google.com/store/apps/details?id=com.banano.kaliumwallet&hl=en_US"
+            appStore="itunes.apple.com/us/app/kalium/id1449623414"
+            appName="Kalium"
+            rating="4.5"
+          />
         </b-row>
       </b-container>
       <img

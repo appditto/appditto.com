@@ -1,6 +1,6 @@
 <template>
   <b-col cols="12" md="4" class="mt-4 mt-md-0">
-    <a href="https://natrium.io" target="_blank">
+    <a :href="'https://' + website" target="_blank">
       <div class="my-card">
         <b-col class="p-0">
           <div class="my-card-top bg-primary py-4">
@@ -34,13 +34,25 @@
                 />
               </b-row>
               <b-row align-h="center" class="mt-2">
-                <b-btn variant="primary" size="lg" rounded class="mt-3 mx-2"
+                <b-btn
+                  :href="'https://' + playStore"
+                  target="_blank"
+                  variant="primary"
+                  size="lg"
+                  rounded
+                  class="mt-3 mx-2"
                   ><img
                     src="~/static/images/buttons/playstore-button.svg"
                     alt="Play Store Button"
                     class="store-button"
                 /></b-btn>
-                <b-btn variant="primary" size="lg" rounded class="mt-3 mx-2"
+                <b-btn
+                  :href="'https://' + appStore"
+                  target="_blank"
+                  variant="primary"
+                  size="lg"
+                  rounded
+                  class="mt-3 mx-2"
                   ><img
                     src="~/static/images/buttons/appstore-button.svg"
                     alt="App Store Button"
@@ -60,7 +72,10 @@ export default Vue.extend({
   name: 'AppCard',
   props: {
     appName: null,
-    rating: null
+    rating: null,
+    playStore: null,
+    appStore: null,
+    website: null
   }
 })
 </script>
