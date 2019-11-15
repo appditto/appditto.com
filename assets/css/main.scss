@@ -32,9 +32,19 @@ h5 {
 
 .my-card {
   border-radius: 1rem;
-  -moz-box-shadow: 0 1rem 2rem 0 rgba($primary, 0.2);
-  -webkit-box-shadow: 0 1rem 2rem 0 rgba($primary, 0.2);
-  box-shadow: 0 1rem 2rem 0 rgba($primary, 0.2);
+  -moz-box-shadow: 0 0.75rem 1.5rem 0 rgba($primary, 0.15);
+  -webkit-box-shadow: 0 0.75rem 1.5rem 0 rgba($primary, 0.15);
+  box-shadow: 0 0.75rem 1.5rem 0 rgba($primary, 0.15);
+  transition: all 0.25s ease;
+  transform: scale(1);
+}
+
+.my-card:hover {
+  transform: scale(1.05);
+  -moz-box-shadow: 0 1.5rem 3rem 0 rgba($primary, 0.1);
+  -webkit-box-shadow: 0 1.5rem 3rem 0 rgba($primary, 0.1);
+  box-shadow: 0 1.5rem 3rem 0 rgba($primary, 0.1);
+  transform: scale(1.05);
 }
 
 .my-card-top {
@@ -51,4 +61,12 @@ h5 {
 
 .stars-icon {
   height: 2.75rem;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  outline: none;
+  text-decoration: none;
 }
