@@ -12,7 +12,7 @@
                       appName.toLowerCase() +
                       '-icon.png')
                   "
-                  alt="Natrium"
+                  :alt="appName"
                   class="app-icon justify-self-center"
                 />
               </b-row>
@@ -21,7 +21,7 @@
           </div>
           <div class="my-card-bottom py-4">
             <b-col>
-              <p class="text-center text-primary w700 h4">
+              <p class="text-center text-primary w700 h5">
                 User Rating
               </p>
               <b-row align-h="center">
@@ -30,10 +30,10 @@
                     require('~/static/images/stars/stars-' + rating + '.svg')
                   "
                   :alt="'Star' + rating"
-                  class="stars-icon px-5"
+                  class="stars-icon"
                 />
               </b-row>
-              <b-row align-h="center" class="mt-2">
+              <b-row align-h="center" class="mt-3">
                 <b-btn
                   :href="'https://' + playStore"
                   target="_blank"

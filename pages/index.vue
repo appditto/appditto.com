@@ -1,10 +1,10 @@
 <template>
   <div>
-    <!-- Navbar -->
-    <b-container fluid class="my-container">
+    <b-container fluid class="my-container px-4">
+      <!-- Navbar -->
       <Navbar />
       <!-- Hero -->
-      <section class="py-4">
+      <section class="py-4 py-md-0">
         <b-row align-v="center" align-h="center">
           <b-col cols="12" md="6">
             <h1 class="text-center text-md-left w800">
@@ -17,7 +17,7 @@
               >
             </b-row>
           </b-col>
-          <b-col cols="12" md="6" class="mt-4 mt-md-0">
+          <b-col cols="12" md="5" class="mt-4 mt-md-0">
             <img
               src="~/static/images/hero-phones.png"
               alt="Hero"
@@ -28,31 +28,33 @@
       </section>
       <!-- Single codebase -->
       <section class="py-5">
-        <b-row align-v="center" align-h="between">
-          <b-col cols="12" md="5" class="mt-4 mt-md-0">
+        <b-row align-v="center" align-h="around">
+          <b-col cols="12" md="4" class="mt-4 mt-md-0">
             <img
               src="~/static/images/single-codebase.svg"
               alt="Single codebase"
               class="w-100"
             />
           </b-col>
-          <b-col cols="12" md="6" class="px-md-5">
-            <h2 class="text-center text-md-left w800">
-              Less maintenance,<br />more
-              <span class="text-primary">uptime</span>.
-            </h2>
-            <h5 class="w400">
-              The apps we build run natively both on iOS and Android, and they
-              are built from a single code base. That means less maintenance,
-              better and more continuous user engagement.
-            </h5>
+          <b-col cols="12" md="7" class="px-md-5">
+            <div class="pl-md-5">
+              <h2 class="text-center text-md-left w800">
+                Less maintenance,<br />more
+                <span class="text-primary">uptime</span>.
+              </h2>
+              <h5 class="w400">
+                The apps we build run natively both on iOS and Android, and they
+                are built from a single code base. That means less maintenance,
+                better and more continuous user engagement.
+              </h5>
+            </div>
           </b-col>
         </b-row>
       </section>
       <!-- Fast and efficient -->
       <section class="py-5">
-        <b-row align-v="center" align-h="between">
-          <b-col cols="12" md="6" class="px-md-5">
+        <b-row align-v="center" align-h="around">
+          <b-col cols="12" md="6" class="px-md-5" order="2" order-lg="1">
             <h2 class="text-center text-md-left w800">
               <span class="text-primary">Fast</span> and
               <span class="text-primary">efficient</span>.
@@ -63,7 +65,7 @@
               So, we bring more value while costing less.
             </h5>
           </b-col>
-          <b-col cols="12" md="5" class="mt-4 mt-md-0">
+          <b-col cols="12" md="5" class="mt-4 mt-md-0" order="1" order-lg="2">
             <img
               src="~/static/images/fast-efficient.svg"
               alt="Fast and efficient"
@@ -74,7 +76,7 @@
       </section>
       <!-- Cutting edge -->
       <section class="py-5">
-        <b-row align-v="center" align-h="between">
+        <b-row align-v="center" align-h="around">
           <b-col cols="12" md="5" class="mt-4 mt-md-0">
             <img
               src="~/static/images/cutting-edge.svg"
@@ -98,8 +100,8 @@
       </section>
     </b-container>
     <!-- Apps -->
-    <section class="py-5 mb-5">
-      <b-container fluid class="my-container">
+    <section class="py-5 mt-md-4">
+      <b-container fluid class="my-container px-4">
         <h2 class="w800 text-center">Check Out Our Apps</h2>
         <b-row align-v="center" align-h="center" class="mt-0 mt-md-5">
           <AppCard
@@ -131,16 +133,46 @@
         class="w-100 mt-4"
       />
     </section>
+    <b-container fluid class="my-container px-4">
+      <!-- Blog -->
+      <section class="py-5">
+        <b-row align-h="center">
+          <b-col cols="12"
+            ><h2 class="w800 text-center">Read Our Blog</h2></b-col
+          >
+          <BlogCard
+            header="Automate Your Flutter Workflow Using GitLab CI/CD and Fastlane"
+            alt="Flutter Automation"
+            img="flutter-automation.png"
+          />
+          <BlogCard
+            header="Natrium v2.1 — Security Audit & More"
+            alt="Natrium Audit"
+            img="natrium-audit.png"
+          />
+          <BlogCard
+            header="Meet Blaise — Simple, Sleek, & Secure Pascal Wallet now available on the iOS App Store and Google Play Store"
+            alt="Blaise Release"
+            img="blaise-release.png"
+          />
+        </b-row>
+      </section>
+    </b-container>
+    <!-- Footer -->
+    <Footer />
   </div>
 </template>
-
 <script>
 import Navbar from '~/components/Navbar.vue'
 import AppCard from '~/components/AppCard.vue'
+import BlogCard from '~/components/BlogCard.vue'
+import Footer from '~/components/Footer.vue'
 export default {
   components: {
     Navbar,
-    AppCard
+    AppCard,
+    BlogCard,
+    Footer
   }
 }
 </script>
