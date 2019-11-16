@@ -1,5 +1,5 @@
 <template>
-  <b-col cols="12" md="4" class="mt-5 mt-md-4">
+  <b-col cols="12" md="4" class="mt-4">
     <a href="">
       <div class="blog-card overflow-hidden">
         <b-row align-h="center">

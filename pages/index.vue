@@ -179,28 +179,26 @@
               Want to have a chat?<br />Send an email or fill the form.
             </h2>
             <b-row align-h="center">
-              <b-col cols="12" md="3">
+              <b-col cols="12" md="3" v-if="!expanded">
                 <b-btn
-                v-if="!expanded"
-                href="mailto:hello@appditto.com"
-                variant="primary"
-                size="lg"
-                rounded
-                class="w800 mt-3 grow-2 btn-shdw-primary w-100"
-                >Send an Email</b-btn
-              >
+                  href="mailto:hello@appditto.com"
+                  variant="primary"
+                  size="lg"
+                  rounded
+                  class="w800 mt-3 grow-2 btn-shdw-primary w-100"
+                  >Send an Email</b-btn
+                >
               </b-col>
               <b-col cols="12" md="3">
                 <b-btn
-                :variant="expanded?'outline-primary':'primary'"
-                size="lg"
-                rounded
-                @click="expanded = !expanded"
-                class="w800 mt-3 grow-2 btn-shdw-primary w-100 border-2"
-                >{{expanded? "Close": "Contact Form"}}</b-btn
-              >
+                  :variant="expanded ? 'outline-primary' : 'primary'"
+                  size="lg"
+                  rounded
+                  @click="expanded = !expanded"
+                  class="w800 mt-3 grow-2 btn-shdw-primary w-100 border-2"
+                  >{{ expanded ? 'Close' : 'Contact Form' }}</b-btn
+                >
               </b-col>
-
             </b-row>
             <!-- FORM -->
             <MyForm :expanded="expanded" />

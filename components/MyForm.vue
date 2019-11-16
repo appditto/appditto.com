@@ -1,7 +1,7 @@
 <template>
   <TransitionExpand>
     <div v-if="expanded">
-      <b-row align-h="center">
+      <b-row align-h="center" class="px-3">
         <form
           action="https://getform.io/f/98bf4ab2-6ad6-456e-b321-a00f4f018c3d"
           method="POST"
@@ -52,17 +52,17 @@
               </b-col>
               <b-col cols="12">
                 <b-row align-h="center">
-                <b-col cols="12" lg="6">
-                  <b-btn
-                    variant="primary"
-                    size="lg"
-                    rounded
-                    class="w800 px-5 mt-2 grow-2 btn-shdw-primary w-100"
-                    type="submit"
-                  >
-                    Send
-                  </b-btn>
-                </b-col>
+                  <b-col cols="12" lg="6">
+                    <b-btn
+                      variant="primary"
+                      size="lg"
+                      rounded
+                      class="w800 px-5 mt-2 grow-2 btn-shdw-primary w-100"
+                      type="submit"
+                    >
+                      Send
+                    </b-btn>
+                  </b-col>
                 </b-row>
               </b-col>
             </b-row>
