@@ -1,7 +1,7 @@
 <template>
   <TransitionExpand>
     <div v-if="expanded">
-      <b-row align-h="center" class="px-3">
+      <b-row align-h="center">
         <form
           action="https://getform.io/f/98bf4ab2-6ad6-456e-b321-a00f4f018c3d"
           method="POST"

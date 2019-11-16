@@ -4,6 +4,7 @@
       <SocialButton name="Twitter" url="twitter.com/appditto" />
       <SocialButton name="Medium" url="medium.com/@appditto" />
       <SocialButton name="GitHub" url="github.com/appditto" />
+      <b-col cols="12" class="d-block d-md-none"></b-col>
       <SocialButton name="Reddit" url="reddit.com/u/appditto" />
       <SocialButton name="Instagram" url="instagram.com/appditto" />
       <SocialButton name="Dribbble" url="dribbble.com/appditto" />

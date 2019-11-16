@@ -8,8 +8,10 @@
         <b-row align-v="center" align-h="center">
           <b-col cols="12" md="6">
             <h1 class="text-center text-md-left w800">
-              We build <span class="text-primary">beautiful apps</span>,<br />in
-              <span class="text-primary">record time</span>.
+              We build <span class="text-primary">beautiful apps</span>,<br
+                class="d-none d-xl-block"
+              />
+              in <span class="text-primary">record time</span>.
             </h1>
             <b-row class="px-3 justify-content-center justify-content-md-start">
               <b-btn
@@ -108,7 +110,7 @@
     <section class="py-5 mt-md-4">
       <b-container fluid class="my-container px-4">
         <h2 class="w800 text-center">Check Out Our Apps</h2>
-        <b-row align-v="center" align-h="center" class="mt-0 mt-md-5">
+        <b-row align-v="center" align-h="center" class="mt-0 mt-md-4">
           <AppCard
             website="natrium.io"
             playStore="play.google.com/store/apps/details?id=co.banano.natriumwallet"
@@ -135,7 +137,7 @@
       <img
         src="~/static/images/testimonials.png"
         alt="Testimonials"
-        class="w-100 mt-4"
+        class="w-100 mt-4 d-none d-md-block"
       />
     </section>
     <b-container fluid class="my-container px-4">
@@ -163,7 +165,7 @@
         </b-row>
       </section>
       <!-- Contact -->
-      <section class="py-5">
+      <section class="pt-2 pb-5">
         <b-row align-h="center">
           <b-col cols="12">
             <b-row align-h="center">
