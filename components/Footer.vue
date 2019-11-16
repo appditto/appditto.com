@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="bg-primary pt-4 pb-1 mt-4">
+  <b-container fluid class="bg-primary pt-4 pb-1 mt-5">
     <b-row align-h="center">
       <SocialButton name="Twitter" url="twitter.com/appditto" />
       <SocialButton name="Medium" url="medium.com/@appditto" />

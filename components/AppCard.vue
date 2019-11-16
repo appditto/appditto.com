@@ -40,7 +40,7 @@
                   variant="primary"
                   size="lg"
                   rounded
-                  class="mt-3 mx-2"
+                  class="mt-3 mx-2 grow-2 btn-shdw-primary"
                   ><img
                     src="~/static/images/buttons/playstore-button.svg"
                     alt="Play Store Button"
@@ -52,7 +52,7 @@
                   variant="primary"
                   size="lg"
                   rounded
-                  class="mt-3 mx-2"
+                  class="mt-3 mx-2 grow-2 btn-shdw-primary"
                   ><img
                     src="~/static/images/buttons/appstore-button.svg"
                     alt="App Store Button"
