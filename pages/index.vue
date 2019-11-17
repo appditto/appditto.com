@@ -34,9 +34,9 @@
         </b-row>
       </section>
       <!-- Single codebase -->
-      <section class="py-5">
+      <section class="py-4 py-md-5">
         <b-row align-v="center" align-h="around">
-          <b-col cols="12" md="4" class="mt-4 mt-md-0">
+          <b-col cols="11" md="4" class="mt-4 mt-md-0">
             <img
               src="~/static/images/single-codebase.svg"
               alt="Single codebase"
@@ -45,11 +45,11 @@
           </b-col>
           <b-col cols="12" md="7" class="px-md-5">
             <div class="pl-md-5">
-              <h2 class="text-center text-md-left w800">
+              <h2 class="text-center text-md-left w800 mt-2 mt-md-0">
                 Less maintenance,<br />more
                 <span class="text-primary">uptime</span>.
               </h2>
-              <h5 class="w400">
+              <h5 class="w400 mt-3">
                 The apps we build run natively both on iOS and Android, and they
                 are built from a single code base. That means less maintenance,
                 better and more continuous user engagement.
@@ -59,20 +59,20 @@
         </b-row>
       </section>
       <!-- Fast and efficient -->
-      <section class="py-5">
+      <section class="py-4 py-md-5">
         <b-row align-v="center" align-h="around">
-          <b-col cols="12" md="6" class="px-md-5" order="2" order-lg="1">
-            <h2 class="text-center text-md-left w800">
+          <b-col cols="12" md="6" class="px-md-5" order="2" order-md="1">
+            <h2 class="text-center text-md-left w800 mt-2 mt-md-0">
               <span class="text-primary">Fast</span> and
               <span class="text-primary">efficient</span>.
             </h2>
-            <h5 class="w400">
+            <h5 class="w400 mt-3">
               Since we don’t have to deal with the problems of both iOS and
               Android seperately, we can work much faster and more efficiently.
               So, we bring more value while costing less.
             </h5>
           </b-col>
-          <b-col cols="12" md="5" class="mt-4 mt-md-0" order="1" order-lg="2">
+          <b-col cols="11" md="5" class="mt-4 mt-md-0" order="1" order-md="2">
             <img
               src="~/static/images/fast-efficient.svg"
               alt="Fast and efficient"
@@ -82,9 +82,9 @@
         </b-row>
       </section>
       <!-- Cutting edge -->
-      <section class="py-5">
+      <section class="py-4 py-md-5">
         <b-row align-v="center" align-h="around">
-          <b-col cols="12" md="5" class="mt-4 mt-md-0">
+          <b-col cols="11" md="5" class="mt-4 mt-md-0">
             <img
               src="~/static/images/cutting-edge.svg"
               alt="Cutting-edge"
@@ -92,11 +92,11 @@
             />
           </b-col>
           <b-col cols="12" md="6" class="px-md-5">
-            <h2 class="text-center text-md-left w800">
+            <h2 class="text-center text-md-left w800 mt-2 mt-md-0">
               Always <span class="text-primary">up to date</span> with
               <span class="text-primary">cutting-edge</span> tech.
             </h2>
-            <h5 class="w400">
+            <h5 class="w400 mt-3">
               We’re following upcoming trends in software development very
               closely, to get you ahead of the competition. That’s why we are
               currently using Google’s cross-platform application development
@@ -109,7 +109,7 @@
     <!-- Apps -->
     <section class="py-5 mt-md-4">
       <b-container fluid class="my-container px-4">
-        <h2 class="w800 text-center">Check out Our Apss</h2>
+        <h2 class="w800 text-center">Check out Our Apps</h2>
         <b-row align-v="center" align-h="center" class="mt-0 mt-md-4">
           <AppCard
             website="natrium.io"
@@ -137,7 +137,12 @@
       <img
         src="~/static/images/testimonials.png"
         alt="Testimonials"
-        class="w-100 mt-4 d-none d-md-block"
+        class="w-100 mt-4 d-none d-lg-block"
+      />
+      <img
+        src="~/static/images/testimonials-md.png"
+        alt="Testimonials Md"
+        class="w-100 mt-4 d-none d-md-block d-lg-none"
       />
     </section>
     <b-container fluid class="my-container px-4">

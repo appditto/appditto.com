@@ -1,13 +1,14 @@
 <template>
   <TransitionExpand>
     <div v-if="expanded">
-      <b-row align-h="center">
+      <b-row align-h="center" class="px-1">
         <form
           action="https://getform.io/f/aa62bed4-c38a-49a0-a635-5a067ee993aa"
           method="POST"
         >
           <b-col
             cols="12"
+            md="9"
             lg="8"
             class="bg-white mx-auto mt-4 px-4 px-md-5 py-4 rounded-2 form-card"
           >
