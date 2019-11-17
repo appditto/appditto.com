@@ -3,7 +3,7 @@
     <div v-if="expanded">
       <b-row align-h="center">
         <form
-          action="https://getform.io/f/98bf4ab2-6ad6-456e-b321-a00f4f018c3d"
+          action="https://getform.io/f/aa62bed4-c38a-49a0-a635-5a067ee993aa"
           method="POST"
         >
           <b-col

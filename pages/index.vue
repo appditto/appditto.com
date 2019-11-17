@@ -109,7 +109,7 @@
     <!-- Apps -->
     <section class="py-5 mt-md-4">
       <b-container fluid class="my-container px-4">
-        <h2 class="w800 text-center">Check Out Our Apps</h2>
+        <h2 class="w800 text-center">Check out Our Apss</h2>
         <b-row align-v="center" align-h="center" class="mt-0 mt-md-4">
           <AppCard
             website="natrium.io"
@@ -148,19 +148,22 @@
             ><h2 class="w800 text-center">Read Our Blog</h2></b-col
           >
           <BlogCard
-            header="Automate Your Flutter Workflow Using GitLab CI/CD and Fastlane"
+            :title="blogPostOneTitle"
             alt="Flutter Automation"
-            img="flutter-automation.png"
+            :thumbnail="blogPostOneThumbnail"
+            :link="blogPostOneLink"
           />
           <BlogCard
-            header="Natrium v2.1 — Security Audit & More"
+            :title="blogPostTwoTitle"
             alt="Natrium Audit"
-            img="natrium-audit.png"
+            :thumbnail="blogPostTwoThumbnail"
+            :link="blogPostTwoLink"
           />
           <BlogCard
-            header="Meet Blaise — Simple, Sleek, & Secure Pascal Wallet now available on the iOS App Store and Google Play Store"
+            :title="blogPostThreeTitle"
             alt="Blaise Release"
-            img="blaise-release.png"
+            :thumbnail="blogPostThreeThumbnail"
+            :link="blogPostThreeLink"
           />
         </b-row>
       </section>
@@ -218,6 +221,7 @@ import AppCard from '~/components/AppCard.vue'
 import BlogCard from '~/components/BlogCard.vue'
 import Footer from '~/components/Footer.vue'
 import MyForm from '~/components/MyForm.vue'
+import Axios from 'axios'
 export default {
   components: {
     Navbar,
@@ -228,8 +232,36 @@ export default {
   },
   data() {
     return {
-      expanded: false
+      expanded: false,
+      blogPostOneTitle: '',
+      blogPostTwoTitle: '',
+      blogPostThreeTitle: '',
+      blogPostOneThumbnail: '',
+      blogPostTwoThumbnail: '',
+      blogPostThreeThumbnail: '',
+      blogPostOneLink: '',
+      blogPostTwoLink: '',
+      blogPostThreeLink: ''
     }
+  },
+
+  mounted: function() {
+    Axios.get(
+      'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@appditto'
+    )
+      .then(response => {
+        const items = response.data.items
+        this.blogPostOneTitle = items[0].title.replace(/amp;/g, ' ')
+        this.blogPostTwoTitle = items[1].title.replace(/amp;/g, ' ')
+        this.blogPostThreeTitle = items[2].title.replace(/amp;/g, ' ')
+        this.blogPostOneThumbnail = items[0].thumbnail
+        this.blogPostTwoThumbnail = items[1].thumbnail
+        this.blogPostThreeThumbnail = items[2].thumbnail
+        this.blogPostOneLink = items[0].guid
+        this.blogPostTwoLink = items[1].guid
+        this.blogPostThreeLink = items[2].guid
+      })
+      .catch(err => console.log(err))
   }
 }
 </script>
