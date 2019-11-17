@@ -170,7 +170,7 @@ h1 {
   font-size: 1.9rem;
 }
 
-@include respond-above(sm) {
+@include respond-above(md) {
   h1 {
     font-size: 2.25rem;
   }

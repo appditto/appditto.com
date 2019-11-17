@@ -4,7 +4,7 @@
       ><img
         src="~/static/images/appditto-logos/appditto-logo-horizontal.svg"
         alt="Appditto Logo Horizontal"
-        class="logo-horizontal"
+        class="logo-horizontal grow-2"
     /></a>
   </b-row>
 </template>
