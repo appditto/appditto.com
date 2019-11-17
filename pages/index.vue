@@ -189,7 +189,7 @@
               Want to have a chat?<br />Send an email or fill the form.
             </h2>
             <b-row align-h="center">
-              <b-col cols="12" md="3" v-if="!expanded">
+              <b-col cols="12" md="4" lg="3" v-if="!expanded">
                 <b-btn
                   href="mailto:hello@appditto.com"
                   variant="primary"
@@ -199,7 +199,7 @@
                   >Send an Email</b-btn
                 >
               </b-col>
-              <b-col cols="12" md="3">
+              <b-col cols="12" md="4" lg="3">
                 <b-btn
                   :variant="expanded ? 'outline-primary' : 'primary'"
                   size="lg"
