@@ -1,16 +1,10 @@
-$grid-breakpoints: (
-  xs: 0,
-  sm: 599px,
-  md: 899px,
-  lg: 900px,
-  xl: 1200px
-);
 $theme-colors: (
   'primary': #4082ff,
   'danger': #ff4136,
   'dark': #383c44,
   'light': #ffffff
 );
+@import 'mixins.scss';
 // Include Bootstrap and BootstrapVue SCSS files
 @import '~bootstrap/scss/bootstrap.scss';
 @import '~bootstrap-vue/src/index.scss';
@@ -169,4 +163,14 @@ textarea {
   outline: none;
   background-color: rgba($primary, 0.05);
   font-size: 1.25rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+}
+
+@include respond-above(sm) {
+  h1 {
+    font-size: 2.25rem;
+  }
 }

@@ -7,7 +7,7 @@
       <section class="py-4 py-md-0">
         <b-row align-v="center" align-h="center">
           <b-col cols="12" md="6">
-            <h1 class="text-center text-md-left w800">
+            <h1 class="text-center text-md-left w800 mt-3">
               We build <span class="text-primary">beautiful apps</span>,<br
                 class="d-none d-xl-block"
               />
