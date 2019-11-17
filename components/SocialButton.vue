@@ -2,7 +2,7 @@
   <a :href="'https://' + url" target="_blank" class="grow-1">
     <img
       :src="
-        require('~/static/images/social-icons/' +
+        require('~/assets/images/social-icons/' +
           name.toLowerCase() +
           '-icon.svg')
       "

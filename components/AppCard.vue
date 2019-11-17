@@ -8,7 +8,7 @@
               <b-row align-h="center">
                 <img
                   :src="
-                    require('~/static/images/app-icons/' +
+                    require('~/assets/images/app-icons/' +
                       appName.toLowerCase() +
                       '-icon.png')
                   "
@@ -27,7 +27,7 @@
               <b-row align-h="center">
                 <img
                   :src="
-                    require('~/static/images/stars/stars-' + rating + '.svg')
+                    require('~/assets/images/stars/stars-' + rating + '.svg')
                   "
                   :alt="'Star' + rating"
                   class="stars-icon"
@@ -42,7 +42,7 @@
                   rounded
                   class="mt-3 mx-2 grow-2 btn-shdw-primary"
                   ><img
-                    src="~/static/images/buttons/playstore-button.svg"
+                    src="~/assets/images/buttons/playstore-button.svg"
                     alt="Play Store Button"
                     class="store-button"
                 /></b-btn>
@@ -54,7 +54,7 @@
                   rounded
                   class="mt-3 mx-2 grow-2 btn-shdw-primary"
                   ><img
-                    src="~/static/images/buttons/appstore-button.svg"
+                    src="~/assets/images/buttons/appstore-button.svg"
                     alt="App Store Button"
                     class="store-button"
                 /></b-btn>

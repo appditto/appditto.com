@@ -2,7 +2,7 @@
   <b-row align-h="between" class="px-2 py-3">
     <a href="/"
       ><img
-        src="~/static/images/appditto-logos/appditto-logo-horizontal.svg"
+        src="~/assets/images/appditto-logos/appditto-logo-horizontal.svg"
         alt="Appditto Logo Horizontal"
         class="logo-horizontal grow-2"
     /></a>

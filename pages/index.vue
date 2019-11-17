@@ -26,7 +26,7 @@
           </b-col>
           <b-col cols="12" md="5" class="mt-4 mt-md-0">
             <img
-              src="~/static/images/hero-phones.png"
+              src="~/assets/images/hero-phones.png"
               alt="Hero"
               class="w-100"
             />
@@ -38,7 +38,7 @@
         <b-row align-v="center" align-h="around">
           <b-col cols="11" md="4" class="mt-4 mt-md-0">
             <img
-              src="~/static/images/single-codebase.svg"
+              src="~/assets/images/single-codebase.svg"
               alt="Single codebase"
               class="w-100"
             />
@@ -74,7 +74,7 @@
           </b-col>
           <b-col cols="11" md="5" class="mt-4 mt-md-0" order="1" order-md="2">
             <img
-              src="~/static/images/fast-efficient.svg"
+              src="~/assets/images/fast-efficient.svg"
               alt="Fast and efficient"
               class="w-100"
             />
@@ -86,7 +86,7 @@
         <b-row align-v="center" align-h="around">
           <b-col cols="11" md="5" class="mt-4 mt-md-0">
             <img
-              src="~/static/images/cutting-edge.svg"
+              src="~/assets/images/cutting-edge.svg"
               alt="Cutting-edge"
               class="w-100"
             />
@@ -135,12 +135,12 @@
         </b-row>
       </b-container>
       <img
-        src="~/static/images/testimonials.png"
+        src="~/assets/images/testimonials.png"
         alt="Testimonials"
         class="w-100 mt-4 d-none d-lg-block"
       />
       <img
-        src="~/static/images/testimonials-md.png"
+        src="~/assets/images/testimonials-md.png"
         alt="Testimonials Md"
         class="w-100 mt-4 d-none d-md-block d-lg-none"
       />
@@ -179,7 +179,7 @@
             <b-row align-h="center">
               <b-col cols="12" md="5">
                 <img
-                  src="~/static/images/chat.svg"
+                  src="~/assets/images/chat.svg"
                   alt="Chat"
                   class="w-100 mt-4"
                 />
