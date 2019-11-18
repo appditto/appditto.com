@@ -1,0 +1,5 @@
+aiohttp
+aiosmtplib
+aioredis
+python-dotenv
+uvloop

@@ -14,7 +14,7 @@
           >
             <b-row>
               <b-col cols="12" md="6" class="mt-3">
-                <h5 class="text-primary w800 mx-2">Name</h5>
+                <h5 class="text-primary w800 mx-2" :class="{'text-danger' : hasNameError}">Name</h5>
                 <div class="form-group">
                   <input
                     class="form-control"
@@ -22,11 +22,17 @@
                     name="name"
                     placeholder="Your name"
                     required="required"
+                    @blur="nameUnfocus"
+                    @input="nameChange"
+                    v-model="name"
                   />
+                  <small class="text-danger" :style="{visibility: hasNameError ? 'visible' : 'hidden'}">
+                    Name is required
+                  </small>
                 </div>
               </b-col>
               <b-col cols="12" md="6" class="mt-3">
-                <h5 class="text-primary w800 mx-2">Email</h5>
+                <h5 class="text-primary w800 mx-2" :class="{'text-danger' : hasEmailError}">Email</h5>
                 <div class="form-group">
                   <input
                     class="form-control"
@@ -34,11 +40,16 @@
                     name="email"
                     placeholder="Your email address"
                     required="required"
+                    @blur="emailUnfocus"
+                    v-model="email"
                   />
+                  <small class="text-danger" :style="{visibility: hasEmailError ? 'visible' : 'hidden'}">
+                    Invalid email
+                  </small>
                 </div>
               </b-col>
-              <b-col cols="12" class="mt-3">
-                <h5 class="text-primary w800 mx-2">
+              <b-col cols="12" class="mt-2">
+                <h5 class="text-primary w800 mx-2" :class="{'text-danger' : hasMessageError}">
                   Message
                 </h5>
                 <div class="form-group">
@@ -48,7 +59,12 @@
                     name="message"
                     placeholder="Your message"
                     required="required"
+                    @blur="messageUnfocus"
+                    v-model="messageContent"
                   ></textarea>
+                  <small class="text-danger" :style="{visibility: hasMessageError ? 'visible' : 'hidden'}">
+                    Message must be at least 50 characters
+                  </small>
                 </div>
               </b-col>
               <b-col cols="12">
@@ -78,11 +94,49 @@ import Vue from 'vue'
 import TransitionExpand from '~/components/TransitionExpand.vue'
 export default Vue.extend({
   name: 'MyForm',
+  data() {
+    return {
+      hasNameError: false,
+      hasEmailError: false,
+      hasMessageError: false,
+      name: '',
+      email: '',
+      messageContent: ''
+    }
+  },
   components: {
     TransitionExpand
   },
   props: {
     expanded: false
+  },
+  methods: {
+    nameUnfocus() {
+      if (this.name.length == 0) {
+        this.hasNameError = true
+      } else {
+        this.hasNameError = false
+      }
+    },
+    nameChange() {
+      if (this.name.length > 0) {
+        this.hasNameError = false
+      }
+    },
+    emailUnfocus() {
+      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
+        this.hasEmailError = false
+      } else {
+        this.hasEmailError = true
+      }
+    },
+    messageUnfocus() {
+      if (this.messageContent.length < 50) {
+        this.hasMessageError = true;
+      } else {
+        this.hasMessageError = false;
+      }
+    }
   }
 })
 </script>
