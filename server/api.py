@@ -50,8 +50,9 @@ def valid_email(email : str) -> bool:
     return False
 
 async def send_email(message : MIMEText):
-    smtp_client = aiosmtplib.SMTP(hostname=MAIL_SERVER, port=25, username=MAIL_USERNAME, password=MAIL_PASSWORD)
+    smtp_client = aiosmtplib.SMTP(hostname=MAIL_SERVER, port=25)
     await smtp_client.connect()
+    smtp_client.login(MAIL_USERNAME, MAIL_PASSWORD)
     await smtp_client.send_message(message)
     await smtp_client.quit()
 
