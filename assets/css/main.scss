@@ -1,9 +1,7 @@
-$theme-colors: (
-  'primary': #4082ff,
+$theme-colors: ('primary': #4082ff,
   'danger': #ff4136,
   'dark': #383c44,
-  'light': #ffffff
-);
+  'light': #ffffff);
 @import 'mixins.scss';
 // Include Bootstrap and BootstrapVue SCSS files
 @import '~bootstrap/scss/bootstrap.scss';
@@ -13,6 +11,7 @@ $theme-colors: (
 body {
   color: #383c44;
 }
+
 .my-container {
   max-width: 1200px;
 }
@@ -70,13 +69,14 @@ h5 {
   transition: all 0.25s ease;
   transform: scale(1);
 }
+
 .store-button {
-  height: 2.75rem;
+  height: 2.35rem;
 }
 
 .app-icon {
-  width: 10rem;
-  height: 10rem;
+  width: 9rem;
+  height: 9rem;
 }
 
 .stars-icon {
@@ -119,6 +119,7 @@ a:active {
   -webkit-box-shadow: 0 0.5rem 1rem 0 rgba($primary, 0.2);
   box-shadow: 0 0.5rem 1rem 0 rgba($primary, 0.2);
 }
+
 .btn-shdw-primary:hover {
   -moz-box-shadow: 0 1rem 2rem 0 rgba($primary, 0.1);
   -webkit-box-shadow: 0 1rem 2rem 0 rgba($primary, 0.1);
@@ -140,23 +141,33 @@ textarea {
 .form-control::-webkit-input-placeholder {
   color: rgba($primary, 0.35);
   font-weight: 500;
-} /* WebKit, Blink, Edge */
+}
+
+/* WebKit, Blink, Edge */
 .form-control:-moz-placeholder {
   color: rgba($primary, 0.35);
   font-weight: 500;
-} /* Mozilla Firefox 4 to 18 */
+}
+
+/* Mozilla Firefox 4 to 18 */
 .form-control::-moz-placeholder {
   color: rgba($primary, 0.35);
   font-weight: 500;
-} /* Mozilla Firefox 19+ */
+}
+
+/* Mozilla Firefox 19+ */
 .form-control:-ms-input-placeholder {
   color: rgba($primary, 0.35);
   font-weight: 500;
-} /* Internet Explorer 10-11 */
+}
+
+/* Internet Explorer 10-11 */
 .form-control::-ms-input-placeholder {
   color: rgba($primary, 0.35);
   font-weight: 500;
-} /* Microsoft Edge */
+}
+
+/* Microsoft Edge */
 
 .form-control {
   font-weight: 500;

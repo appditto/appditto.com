@@ -108,7 +108,7 @@
     </b-container>
     <!-- Apps -->
     <section class="py-5 mt-md-4">
-      <b-container fluid class="my-container px-4">
+      <b-container fluid class="my-container px-3">
         <h2 class="w800 text-center">Check out Our Apps</h2>
         <b-row align-v="center" align-h="center" class="mt-0 mt-md-4">
           <AppCard
@@ -228,15 +228,12 @@ import Footer from '~/components/Footer.vue'
 import MyForm from '~/components/MyForm.vue'
 import Axios from 'axios'
 export default {
-  components: {
-    Navbar,
-    AppCard,
-    BlogCard,
-    MyForm,
-    Footer
-  },
   data() {
     return {
+      homePageDescription:
+        "We're building beautiful apps for businesses in record time, using cutting-edge tech.",
+      homePageTitle: 'Appditto | Beautiful apps in record time',
+      homePagePreview: 'https://appditto.com/images/preview.jpg',
       expanded: false,
       blogPostOneTitle: '',
       blogPostTwoTitle: '',
@@ -249,7 +246,78 @@ export default {
       blogPostThreeLink: ''
     }
   },
-
+  head() {
+    return {
+      title: this.homePageTitle,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.homePageDescription
+        },
+        // Google / Search Engine Tags
+        {
+          itemprop: 'name',
+          content: this.homePageTitle
+        },
+        {
+          itemprop: 'description',
+          content: this.homePageDescription
+        },
+        {
+          itemprop: 'image',
+          content: this.homePagePreview
+        },
+        // Facebook Meta Tags
+        {
+          property: 'og:url',
+          content: 'https://appditto.com'
+        },
+        {
+          property: 'og:type',
+          content: 'website'
+        },
+        {
+          property: 'og:title',
+          content: this.homePageTitle
+        },
+        {
+          property: 'og:description',
+          content: this.homePageDescription
+        },
+        {
+          property: 'og:image',
+          content: this.homePagePreview
+        },
+        // Twitter Meta Tags
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image'
+        },
+        {
+          name: 'twitter:title',
+          content: this.homePageTitle
+        },
+        {
+          name: 'twitter:description',
+          content: this.homePageDescription
+        },
+        {
+          name: 'twitter:image',
+          content: this.homePagePreview
+        }
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    }
+  },
+  components: {
+    Navbar,
+    AppCard,
+    BlogCard,
+    MyForm,
+    Footer
+  },
   mounted: function() {
     Axios.get(
       'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@appditto'

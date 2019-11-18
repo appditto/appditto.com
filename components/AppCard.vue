@@ -3,7 +3,7 @@
     <a :href="'https://' + website" target="_blank">
       <div class="my-card">
         <b-col class="p-0">
-          <div class="my-card-top bg-primary py-4">
+          <div class="my-card-top bg-primary py-3">
             <b-col>
               <b-row align-h="center">
                 <img
@@ -19,7 +19,7 @@
               <p class="text-center text-white w700 h3">{{ appName }}</p>
             </b-col>
           </div>
-          <div class="my-card-bottom py-4">
+          <div class="my-card-bottom py-4 px-2">
             <b-col>
               <p class="text-center text-primary w700 h5">
                 User Rating
@@ -40,7 +40,7 @@
                   variant="primary"
                   size="lg"
                   rounded
-                  class="mt-3 mx-2 grow-2 btn-shdw-primary"
+                  class="mt-3 mx-2 grow-2 btn-shdw-primary px-2"
                   ><img
                     src="~/assets/images/buttons/playstore-button.svg"
                     alt="Play Store Button"
@@ -52,7 +52,7 @@
                   variant="primary"
                   size="lg"
                   rounded
-                  class="mt-3 mx-2 grow-2 btn-shdw-primary"
+                  class="mt-3 mx-2 grow-2 btn-shdw-primary px-2"
                   ><img
                     src="~/assets/images/buttons/appstore-button.svg"
                     alt="App Store Button"
