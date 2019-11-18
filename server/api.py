@@ -12,6 +12,7 @@ import asyncio
 import ipaddress
 import logging
 import re
+import os
 import uvloop
 
 uvloop.install()
@@ -24,6 +25,7 @@ parser.add_argument('--port', type=int, help='Port for betsy to listen on', defa
 parser.add_argument('--log-file', type=str, help='Log file location', default='/tmp/apdditocom_api.log')
 parser.add_argument('--recipient', type=str, help='Email to send to', default='hello@appditto.com')
 parser.add_argument('--sender', type=str, help='Email sender', default='noreply@mail.appditto.com')
+parser.add_argument('--mail-server', type=str, help='Mail server', default='mail.appditto.com')
 parser.add_argument('--debug', action='store_true', help='Runs in debug mode if specified', default=False)
 options = parser.parse_args()
 
@@ -35,6 +37,9 @@ LISTEN_PORT = int(options.port)
 DEBUG = options.debug
 EMAIL_RECIPIENT = options.recipient
 EMAIL_SENDER = options.sender
+MAIL_SERVER = options.mail_server
+MAIL_USERNAME = os.getenv('MAIL_USER', 'user')
+MAIL_PASSWORD = os.getenv('MAIL_PASSWORD', '1234')
 
 ### Utils
 
@@ -45,7 +50,7 @@ def valid_email(email : str) -> bool:
     return False
 
 async def send_email(message : MIMEText):
-    smtp_client = aiosmtplib.SMTP(hostname="127.0.0.1", port=25)
+    smtp_client = aiosmtplib.SMTP(hostname=MAIL_SERVER, port=25, username=MAIL_USERNAME, password=MAIL_PASSWORD)
     await smtp_client.connect()
     await smtp_client.send_message(message)
     await smtp_client.quit()
