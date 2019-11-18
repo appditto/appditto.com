@@ -42,7 +42,7 @@
 import Vue from 'vue'
 import MyForm from '~/components/MyForm.vue'
 export default Vue.extend({
-  name: 'AppsSection',
+  name: 'ContactSection',
   components: {
     MyForm
   },
