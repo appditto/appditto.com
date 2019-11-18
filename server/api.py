@@ -58,7 +58,7 @@ async def email_handler(request : web.Request):
         return web.HTTPBadRequest(reason='sender is required')
     elif 'sender_name' not in requestjson:
         return web.HTTPBadRequest(reason='name is required')
-    elif len(request_json['sender_name'].strip()) == 0:
+    elif len(requestjson['sender_name'].strip()) == 0:
         return web.HTTPBadRequest(reason='name is required')
     elif 'content' not in requestjson:
         return web.HTTPBadRequest(reason='content is required')
