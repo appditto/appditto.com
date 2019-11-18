@@ -50,11 +50,10 @@ def valid_email(email : str) -> bool:
     return False
 
 async def send_email(message : MIMEText):
-    smtp_client = aiosmtplib.SMTP(hostname=MAIL_SERVER, port=587)
+    smtp_client = aiosmtplib.SMTP(hostname=MAIL_SERVER, port=587, use_tls=False)
     await smtp_client.connect()
-    smtp_client.ehlo()
-    smtp_client.starttls()
-    smtp_client.login(MAIL_USERNAME, MAIL_PASSWORD)
+    await smtp_client.starttls()
+    await smtp_client.login(MAIL_USERNAME, MAIL_PASSWORD)
     await smtp_client.send_message(message)
     await smtp_client.quit()
 
