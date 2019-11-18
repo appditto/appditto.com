@@ -33,7 +33,7 @@ LOG_FILE = options.log_file
 LISTEN_HOST = str(ipaddress.ip_address(options.host))
 LISTEN_PORT = int(options.port)
 DEBUG = options.debug
-EMAIL_RECIPIENT = options.extract_recipients
+EMAIL_RECIPIENT = options.recipient
 EMAIL_SENDER = options.sender
 
 ### Utils
