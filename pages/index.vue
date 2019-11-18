@@ -234,6 +234,7 @@ export default {
         "We're building beautiful apps for businesses in record time, using cutting-edge tech.",
       homePageTitle: 'Appditto | Beautiful apps in record time',
       homePagePreview: 'https://appditto.com/images/preview.jpg',
+      homePageThemeColor: '#4082FF',
       expanded: false,
       blogPostOneTitle: '',
       blogPostTwoTitle: '',
@@ -245,6 +246,31 @@ export default {
       blogPostTwoLink: '',
       blogPostThreeLink: ''
     }
+  },
+  components: {
+    Navbar,
+    AppCard,
+    BlogCard,
+    MyForm,
+    Footer
+  },
+  mounted: function() {
+    Axios.get(
+      'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@appditto'
+    )
+      .then(response => {
+        const items = response.data.items
+        this.blogPostOneTitle = items[0].title.replace(/amp;/g, ' ')
+        this.blogPostTwoTitle = items[1].title.replace(/amp;/g, ' ')
+        this.blogPostThreeTitle = items[2].title.replace(/amp;/g, ' ')
+        this.blogPostOneThumbnail = items[0].thumbnail
+        this.blogPostTwoThumbnail = items[1].thumbnail
+        this.blogPostThreeThumbnail = items[2].thumbnail
+        this.blogPostOneLink = items[0].guid
+        this.blogPostTwoLink = items[1].guid
+        this.blogPostThreeLink = items[2].guid
+      })
+      .catch(err => console.log(err))
   },
   head() {
     return {
@@ -306,35 +332,69 @@ export default {
         {
           name: 'twitter:image',
           content: this.homePagePreview
+        },
+        // Theme
+        {
+          name: 'theme-color',
+          content: this.homePageThemeColor
+        },
+        // Windows 8 IE 10
+        {
+          name: 'msapplication-TileColor',
+          content: '#FFFFFF'
+        },
+        {
+          name: 'msapplication-TileImage',
+          content: '/favicons/favicon-144.png'
+        },
+        // Windows 8.1 + IE11 and above
+        {
+          name: 'msapplication-config',
+          content: '/favicons/browserconfig.xml'
+        },
+        {
+          name: 'apple-mobile-web-app-status-bar-style',
+          content: this.homePageThemeColor
         }
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+      link: [
+        // Generic Icons
+        { rel: 'icon', sizes: '32x32', href: '/favicons/favicon-32.png' },
+        { rel: 'icon', sizes: '57x57', href: '/favicons/favicon-57.png' },
+        { rel: 'icon', sizes: '76x76', href: '/favicons/favicon-76.png' },
+        { rel: 'icon', sizes: '96x94', href: '/favicons/favicon-96.png' },
+        { rel: 'icon', sizes: '128x128', href: '/favicons/favicon-128.png' },
+        { rel: 'icon', sizes: '192x192', href: '/favicons/favicon-192.png' },
+        { rel: 'icon', sizes: '228x228', href: '/favicons/favicon-228.png' },
+        // Android
+        {
+          rel: 'shortcut icon',
+          sizes: '196x196',
+          href: '/favicons/favicon-196.png'
+        },
+        // iOS
+        {
+          rel: 'apple-touch-icon',
+          sizes: '120x120',
+          href: '/favicons/favicon-120.png'
+        },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '152x152',
+          href: '/favicons/favicon-152.png'
+        },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '167x167',
+          href: '/favicons/favicon-167.png'
+        },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '180x180',
+          href: '/favicons/favicon-180.png'
+        }
+      ]
     }
-  },
-  components: {
-    Navbar,
-    AppCard,
-    BlogCard,
-    MyForm,
-    Footer
-  },
-  mounted: function() {
-    Axios.get(
-      'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@appditto'
-    )
-      .then(response => {
-        const items = response.data.items
-        this.blogPostOneTitle = items[0].title.replace(/amp;/g, ' ')
-        this.blogPostTwoTitle = items[1].title.replace(/amp;/g, ' ')
-        this.blogPostThreeTitle = items[2].title.replace(/amp;/g, ' ')
-        this.blogPostOneThumbnail = items[0].thumbnail
-        this.blogPostTwoThumbnail = items[1].thumbnail
-        this.blogPostThreeThumbnail = items[2].thumbnail
-        this.blogPostOneLink = items[0].guid
-        this.blogPostTwoLink = items[1].guid
-        this.blogPostThreeLink = items[2].guid
-      })
-      .catch(err => console.log(err))
   }
 }
 </script>
