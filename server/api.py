@@ -93,7 +93,7 @@ async def email_handler(request : web.Request):
     message = MIMEText(requestjson['content'])
     message['From'] = EMAIL_SENDER
     message['To'] = EMAIL_RECIPIENT
-    message['Subject'] = f"[apddito.com] Inquiry from {requestjson['sender_name']}"
+    message['Subject'] = f"[appditto.com] Inquiry from {requestjson['sender_name']}"
     message.add_header('Reply-To', requestjson['sender'])
 
     await send_email(message)
