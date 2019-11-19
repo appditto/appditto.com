@@ -57,6 +57,14 @@ async def send_email(message : MIMEText):
     await smtp_client.send_message(message)
     await smtp_client.quit()
 
+def get_real_request_ip(request : web.Request) -> str:
+    host = request.headers.get('X-FORWARDED-FOR',None)
+    if host is None:
+        peername = request.transport.get_extra_info('peername')
+        if peername is not None:
+            host, _ = peername
+    return host
+
 ### APIs
 
 async def email_handler(request : web.Request):
@@ -73,6 +81,14 @@ async def email_handler(request : web.Request):
         return web.HTTPBadRequest(reason='content too short')
     elif not valid_email(requestjson['sender']):
         return web.HTTPBadRequest(reason='invalid email')
+
+    # Check IP
+    real_ip = get_real_request_ip(request)
+    has_prev_request = await request.app['redis'].get(f"adcomemail{real_ip.replace('.', '')}")
+    if has_prev_request is not None:
+        return web.HTTPBadRequest(reason='Already submitted request')
+    # Set a key to prevent duplicate request
+    await request.app['redis'].set(f"adcomemail{real_ip.replace('.', '')}", "appditto", expire=60)
 
     message = MIMEText(requestjson['content'])
     message['From'] = EMAIL_SENDER
