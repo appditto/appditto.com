@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-container fluid class="my-container px-4">
+    <b-container fluid class="my-container">
       <Navbar />
       <HeroSection />
       <SingleCodeBaseSection />
@@ -8,7 +8,7 @@
       <CuttingEdgeTechSection />
     </b-container>
     <AppsSection />
-    <b-container fluid class="my-container px-4">
+    <b-container fluid class="my-container">
       <BlogSection />
       <ContactSection />
     </b-container>
