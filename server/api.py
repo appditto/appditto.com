@@ -97,7 +97,7 @@ async def email_handler(request : web.Request):
     message['Subject'] = f"[appditto.com] Inquiry from {requestjson['sender_name']}"
     message.add_header('Reply-To', requestjson['sender'])
 
-    await send_email(message)
+    asyncio.ensure_future(send_email(message))
     return web.Response(status=200)
 
 ### APP setup

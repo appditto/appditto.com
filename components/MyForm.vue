@@ -147,7 +147,7 @@ export default Vue.extend({
       this.requestIsLoading = true
       let ref = this
       Axios.post('https://appditto.com/inquire', {
-        content: this.content,
+        content: this.messageContent,
         sender: this.email,
         sender_name: this.name
       }).then(function(response) {
