@@ -5,6 +5,7 @@ load_dotenv()
 from aiohttp import ClientSession, log, web
 from email.mime.text import MIMEText
 from logging.handlers import TimedRotatingFileHandler, WatchedFileHandler
+import aiohttp_cors
 import aioredis
 import aiosmtplib
 import argparse
@@ -131,7 +132,15 @@ async def get_app():
         root.addHandler(handler)
         root.addHandler(TimedRotatingFileHandler(LOG_FILE, when="d", interval=1, backupCount=100))  
     app = web.Application()
-    app.add_routes([web.post('/inquire', email_handler)])
+    cors = aiohttp_cors.setup(app, defaults={
+        "*": aiohttp_cors.ResourceOptions(
+                allow_credentials=True,
+                expose_headers="*",
+                allow_headers="*",
+            )
+    })
+    resource = cors.add(app.router.add_resource("/inquire"))
+    cors.add(resource.add_route("POST", email_handler))
     app.on_startup.append(open_redis)
     app.on_shutdown.append(close_redis)
 

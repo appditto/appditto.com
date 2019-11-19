@@ -3,8 +3,7 @@
     <div v-if="expanded">
       <b-row align-h="center" class="px-1">
         <form
-          action="https://getform.io/f/aa62bed4-c38a-49a0-a635-5a067ee993aa"
-          method="POST"
+          @submit="submitForm"
         >
           <b-col
             cols="12"
@@ -76,6 +75,7 @@
                       rounded
                       class="w800 px-5 mt-2 grow-2 btn-shdw-primary w-100"
                       type="submit"
+                      :disabled="requestIsLoading"
                     >
                       Send
                     </b-btn>
@@ -92,6 +92,7 @@
 <script>
 import Vue from 'vue'
 import TransitionExpand from '~/components/TransitionExpand.vue'
+import Axios from 'axios'
 export default Vue.extend({
   name: 'MyForm',
   data() {
@@ -101,7 +102,8 @@ export default Vue.extend({
       hasMessageError: false,
       name: '',
       email: '',
-      messageContent: ''
+      messageContent: '',
+      requestIsLoading: false
     }
   },
   components: {
@@ -132,10 +134,29 @@ export default Vue.extend({
     },
     messageUnfocus() {
       if (this.messageContent.length < 50) {
-        this.hasMessageError = true;
+        this.hasMessageError = true
       } else {
-        this.hasMessageError = false;
+        this.hasMessageError = false
       }
+    },
+    submitForm(e) {
+      e.preventDefault();
+      if (this.hasMessageError || this.hasNameError || this.hasEmailError || this.requestIsLoading) {
+        return
+      }
+      this.requestIsLoading = true
+      let ref = this
+      Axios.post('https://appditto.com/inquire', {
+        content: this.content,
+        sender: this.email,
+        sender_name: this.name
+      }).then(function(response) {
+        alert("email successful")
+      }).catch(function(error) {
+        alert("error " + error.toString())
+      }).finally(function() {
+        ref.requestIsLoading = false;
+      });
     }
   }
 })
