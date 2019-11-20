@@ -2,18 +2,35 @@
   <TransitionExpand>
     <div v-if="expanded">
       <b-row align-h="center" class="px-1">
-        <form
-          @submit="submitForm"
-        >
+        <form @submit="submitForm">
           <b-col
             cols="12"
             md="9"
             lg="8"
-            class="bg-white mx-auto mt-4 px-4 px-md-5 py-4 rounded-2 form-card"
+            class="mx-auto mt-4 px-4 px-md-5 py-4 rounded-2"
+            id="formCard"
           >
-            <b-row>
+            <b-row align-h="center" v-if="formSuccess">
+              <b-col cols="12"
+                ><h4
+                  class="text-light w800 mx-2 text-center"
+                  :class="{ 'text-danger': hasNameError }"
+                >
+                  Thanks for reaching out! We'll get back to you soon.
+                </h4></b-col
+              >
+              <b-col cols="12" class="d-flex justify-content-center"
+                ><img src="~assets/images/tick.svg" alt="Tick" class="mt-2 tick"
+              /></b-col>
+            </b-row>
+            <b-row v-if="!formSuccess">
               <b-col cols="12" md="6" class="mt-3">
-                <h5 class="text-primary w800 mx-2" :class="{'text-danger' : hasNameError}">Name</h5>
+                <h5
+                  class="text-primary w800 mx-2"
+                  :class="{ 'text-danger': hasNameError }"
+                >
+                  Name
+                </h5>
                 <div class="form-group">
                   <input
                     class="form-control"
@@ -25,13 +42,21 @@
                     @input="nameChange"
                     v-model="name"
                   />
-                  <small class="text-danger" :style="{visibility: hasNameError ? 'visible' : 'hidden'}">
+                  <small
+                    class="text-danger"
+                    :style="{ visibility: hasNameError ? 'visible' : 'hidden' }"
+                  >
                     Name is required
                   </small>
                 </div>
               </b-col>
               <b-col cols="12" md="6" class="mt-3">
-                <h5 class="text-primary w800 mx-2" :class="{'text-danger' : hasEmailError}">Email</h5>
+                <h5
+                  class="text-primary w800 mx-2"
+                  :class="{ 'text-danger': hasEmailError }"
+                >
+                  Email
+                </h5>
                 <div class="form-group">
                   <input
                     class="form-control"
@@ -42,13 +67,21 @@
                     @blur="emailUnfocus"
                     v-model="email"
                   />
-                  <small class="text-danger" :style="{visibility: hasEmailError ? 'visible' : 'hidden'}">
+                  <small
+                    class="text-danger"
+                    :style="{
+                      visibility: hasEmailError ? 'visible' : 'hidden'
+                    }"
+                  >
                     Invalid email
                   </small>
                 </div>
               </b-col>
               <b-col cols="12" class="mt-2">
-                <h5 class="text-primary w800 mx-2" :class="{'text-danger' : hasMessageError}">
+                <h5
+                  class="text-primary w800 mx-2"
+                  :class="{ 'text-danger': hasMessageError }"
+                >
                   Message
                 </h5>
                 <div class="form-group">
@@ -61,7 +94,12 @@
                     @blur="messageUnfocus"
                     v-model="messageContent"
                   ></textarea>
-                  <small class="text-danger" :style="{visibility: hasMessageError ? 'visible' : 'hidden'}">
+                  <small
+                    class="text-danger"
+                    :style="{
+                      visibility: hasMessageError ? 'visible' : 'hidden'
+                    }"
+                  >
                     Message must be at least 50 characters
                   </small>
                 </div>
@@ -77,7 +115,13 @@
                       type="submit"
                       :disabled="requestIsLoading"
                     >
-                      Send
+                      <span v-if="!requestIsLoading">Send</span>
+                      <img
+                        src="~assets/images/loading-dots.gif"
+                        alt="Loading"
+                        id="loading-gif"
+                        v-if="requestIsLoading"
+                      />
                     </b-btn>
                   </b-col>
                 </b-row>
@@ -103,7 +147,8 @@ export default Vue.extend({
       name: '',
       email: '',
       messageContent: '',
-      requestIsLoading: false
+      requestIsLoading: false,
+      formSuccess: false
     }
   },
   components: {
@@ -139,9 +184,29 @@ export default Vue.extend({
         this.hasMessageError = false
       }
     },
+    turnFormToSuccess() {
+      var formCard = document.getElementById('formCard')
+      var tick = document.getElementById('tick')
+      this.formSuccess = true
+      formCard.style.transform = 'scale(0.9)'
+      formCard.style.borderColor = '#2EE093'
+      formCard.style.backgroundColor = '#2EE093'
+    },
+    turnFormToIdle() {
+      var formCard = document.getElementById('formCard')
+      this.formSuccess = false
+      formCard.style.transform = 'scale(1)'
+      formCard.style.borderColor = '#4082ff'
+      formCard.style.backgroundColor = '#ffffff'
+    },
     submitForm(e) {
-      e.preventDefault();
-      if (this.hasMessageError || this.hasNameError || this.hasEmailError || this.requestIsLoading) {
+      e.preventDefault()
+      if (
+        this.hasMessageError ||
+        this.hasNameError ||
+        this.hasEmailError ||
+        this.requestIsLoading
+      ) {
         return
       }
       this.requestIsLoading = true
@@ -150,13 +215,16 @@ export default Vue.extend({
         content: this.messageContent,
         sender: this.email,
         sender_name: this.name
-      }).then(function(response) {
-        alert("email successful")
-      }).catch(function(error) {
-        alert("error " + error.toString())
-      }).finally(function() {
-        ref.requestIsLoading = false;
-      });
+      })
+        .then(function(response) {
+          this.turnFormToSuccess()
+        })
+        .catch(function(error) {
+          alert('error ' + error.toString())
+        })
+        .finally(function() {
+          ref.requestIsLoading = false
+        })
     }
   }
 })

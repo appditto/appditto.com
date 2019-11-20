@@ -1,7 +1,8 @@
 $theme-colors: ('primary': #4082ff,
   'danger': #ff4136,
   'dark': #383c44,
-  'light': #ffffff);
+  'light': #ffffff,
+  'success': #2EE093);
 @import 'mixins.scss';
 // Include Bootstrap and BootstrapVue SCSS files
 @import '~bootstrap/scss/bootstrap.scss';
@@ -64,11 +65,13 @@ h5 {
   transform: scale(1.05);
 }
 
-.form-card {
+#formCard {
   border-radius: 0.75rem;
   border: solid 2px $primary;
-  transition: all 0.25s ease;
+  transition: all 0.4s ease;
   transform: scale(1);
+  background-color: $light;
+  transform-origin: top center;
 }
 
 .store-button {
@@ -186,4 +189,13 @@ h1 {
   h1 {
     font-size: 2.25rem;
   }
+}
+
+.tick {
+  width: 6rem;
+  height: 6rem;
+}
+
+#loading-gif {
+  height: 1rem;
 }
