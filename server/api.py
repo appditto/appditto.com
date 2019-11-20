@@ -92,7 +92,7 @@ async def email_handler(request : web.Request):
     await request.app['redis'].set(f"adcomemail{real_ip.replace('.', '')}", "appditto", expire=60)
 
     message = MIMEText(requestjson['content'])
-    message['From'] = EMAIL_SENDER
+    message['From'] = f"{requestjson['sender_name']} <{requestjson['sender']}>"
     message['To'] = EMAIL_RECIPIENT
     message['Subject'] = f"[appditto.com] Inquiry from {requestjson['sender_name']}"
     message.add_header('Reply-To', requestjson['sender'])
