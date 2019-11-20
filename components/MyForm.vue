@@ -157,6 +157,16 @@ export default Vue.extend({
   props: {
     expanded: false
   },
+  watch: {
+    expanded: {
+      immediate: true,
+      handler(val, oldVal) {
+        if (val == false && oldVal == true) {
+          this.turnFormToIdle()
+        }
+      }
+    }
+  },
   methods: {
     nameUnfocus() {
       if (this.name.length == 0) {
@@ -217,7 +227,7 @@ export default Vue.extend({
         sender_name: this.name
       })
         .then(function(response) {
-          this.turnFormToSuccess()
+          ref.turnFormToSuccess()
         })
         .catch(function(error) {
           alert('error ' + error.toString())
