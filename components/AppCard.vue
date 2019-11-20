@@ -10,7 +10,7 @@
                   :src="
                     require('~/assets/images/app-icons/' +
                       appName.toLowerCase() +
-                      '-icon.png')
+                      '-icon.svg')
                   "
                   :alt="appName"
                   class="app-icon justify-self-center"
