@@ -17,8 +17,8 @@
                   class="text-light w800 mx-2 text-center"
                   :class="{ 'text-danger': hasNameError }"
                 >
-                  Thanks for reaching out!<br class="d-none d-lg-block" />We'll
-                  get back to you soon.
+                  Thanks for reaching out!<br class="d-none d-lg-block" />
+                  We'll get back to you soon.
                 </h4></b-col
               >
               <b-col cols="12" class="d-flex justify-content-center"
