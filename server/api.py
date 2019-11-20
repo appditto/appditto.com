@@ -87,9 +87,15 @@ async def email_handler(request : web.Request):
     real_ip = get_real_request_ip(request)
     has_prev_request = await request.app['redis'].get(f"adcomemail{real_ip.replace('.', '')}")
     if has_prev_request is not None:
-        return web.HTTPBadRequest(reason='Already submitted request')
-    # Set a key to prevent duplicate request
-    await request.app['redis'].set(f"adcomemail{real_ip.replace('.', '')}", "appditto", expire=60)
+        count = int(has_prev_request)
+        if count >= 3:
+            return web.HTTPBadRequest(reason='Too many requests')
+        else:
+            count += 1
+            await request.app['redis'].set(f"adcomemail{real_ip.replace('.', '')}", str(count), expire=300)
+    else:
+        # Set a key to prevent duplicate request
+        await request.app['redis'].set(f"adcomemail{real_ip.replace('.', '')}", "1", expire=300)
 
     message = MIMEText(requestjson['content'])
     message['From'] = f"{requestjson['sender_name']} <{requestjson['sender']}>"
