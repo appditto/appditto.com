@@ -27,12 +27,12 @@
       </b-row>
     </b-container>
     <img
-      src="~/assets/images/testimonials.png"
+      src="~/assets/images/testimonials.svg"
       alt="Testimonials"
       class="w-100 mt-4 d-none d-lg-block"
     />
     <img
-      src="~/assets/images/testimonials-md.png"
+      src="~/assets/images/testimonials-md.svg"
       alt="Testimonials Md"
       class="w-100 mt-4 d-none d-md-block d-lg-none"
     />
