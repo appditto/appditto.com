@@ -1,5 +1,5 @@
 $theme-colors: ('primary': #4082ff,
-  'danger': #ff4136,
+  'danger': #FF6351,
   'dark': #383c44,
   'light': #ffffff,
   'success': #2EE093);
@@ -119,15 +119,27 @@ a:active {
 }
 
 .btn-shdw-primary {
-  -moz-box-shadow: 0 0.5rem 1rem 0 rgba($primary, 0.2);
-  -webkit-box-shadow: 0 0.5rem 1rem 0 rgba($primary, 0.2);
-  box-shadow: 0 0.5rem 1rem 0 rgba($primary, 0.2);
+  -moz-box-shadow: 0 0.5rem 1rem 0 rgba($primary, 0.15);
+  -webkit-box-shadow: 0 0.5rem 1rem 0 rgba($primary, 0.15);
+  box-shadow: 0 0.5rem 1rem 0 rgba($primary, 0.15);
 }
 
 .btn-shdw-primary:hover {
-  -moz-box-shadow: 0 1rem 2rem 0 rgba($primary, 0.1);
-  -webkit-box-shadow: 0 1rem 2rem 0 rgba($primary, 0.1);
-  box-shadow: 0 1rem 2rem 0 rgba($primary, 0.1);
+  -moz-box-shadow: 0 1rem 2rem 0 rgba($primary, 0.075);
+  -webkit-box-shadow: 0 1rem 2rem 0 rgba($primary, 0.075);
+  box-shadow: 0 1rem 2rem 0 rgba($primary, 0.075);
+}
+
+.btn-shdw-dark {
+  -moz-box-shadow: 0 0.5rem 1rem 0 rgba($dark, 0.1);
+  -webkit-box-shadow: 0 0.5rem 1rem 0 rgba($dark, 0.1);
+  box-shadow: 0 0.5rem 1rem 0 rgba($dark, 0.1);
+}
+
+.btn-shdw-dark:hover {
+  -moz-box-shadow: 0 1rem 2rem 0 rgba($dark, 0.05);
+  -webkit-box-shadow: 0 1rem 2rem 0 rgba($dark, 0.05);
+  box-shadow: 0 1rem 2rem 0 rgba($dark, 0.05);
 }
 
 .border-2 {

@@ -10,20 +10,65 @@
             class="mx-auto mt-4 px-4 px-md-5 py-4 rounded-2"
             id="formCard"
           >
-            <b-row align-h="center" v-if="formSuccess">
-              <b-col cols="12"
+            <!-- Success State -->
+            <b-row align-h="center" v-if="formSuccess && !formFail">
+              <b-col cols="12" class="d-flex justify-content-center"
                 ><h4
                   class="text-light w800 mx-2 text-center"
                   :class="{ 'text-danger': hasNameError }"
                 >
-                  Thanks for reaching out! We'll get back to you soon.
+                  Thanks for reaching out!<br class="d-none d-lg-block" />We'll
+                  get back to you soon.
                 </h4></b-col
               >
               <b-col cols="12" class="d-flex justify-content-center"
-                ><img src="~assets/images/tick.svg" alt="Tick" class="mt-2 tick"
+                ><img
+                  src="~assets/images/misc-icons/tick.svg"
+                  alt="Tick"
+                  class="mt-2 tick"
               /></b-col>
+              <b-col cols="12" lg="8">
+                <b-btn
+                  variant="light"
+                  size="lg"
+                  rounded
+                  @click="turnFormToIdle"
+                  class="w800 px-4 mt-4 grow-2 text-success btn-shdw-dark w-100"
+                >
+                  Send Another Message
+                </b-btn>
+              </b-col>
             </b-row>
-            <b-row v-if="!formSuccess">
+            <!-- Error State-->
+            <b-row align-h="center" v-if="!formSuccess && formFail">
+              <b-col cols="12" class="d-flex justify-content-center"
+                ><h5
+                  class="text-white w800 mx-2 text-center"
+                  :class="{ 'text-danger': hasNameError }"
+                >
+                  Something went wrong. Please try again.
+                </h5></b-col
+              >
+              <b-col cols="12" class="d-flex justify-content-center"
+                ><img
+                  src="~assets/images/misc-icons/error.svg"
+                  alt="Error"
+                  class="mt-2 tick"
+              /></b-col>
+              <b-col cols="12" lg="6">
+                <b-btn
+                  variant="light"
+                  size="lg"
+                  rounded
+                  @click="turnFormToIdle"
+                  class="w800 px-4 mt-4 grow-2 text-danger btn-shdw-dark w-100"
+                >
+                  Try Again
+                </b-btn>
+              </b-col>
+            </b-row>
+            <!-- Idle State-->
+            <b-row v-if="!formSuccess && !formFail">
               <b-col cols="12" md="6" class="mt-3">
                 <h5
                   class="text-primary w800 mx-2"
@@ -148,7 +193,8 @@ export default Vue.extend({
       email: '',
       messageContent: '',
       requestIsLoading: false,
-      formSuccess: false
+      formSuccess: false,
+      formFail: false
     }
   },
   components: {
@@ -198,6 +244,7 @@ export default Vue.extend({
       var formCard = document.getElementById('formCard')
       var tick = document.getElementById('tick')
       this.formSuccess = true
+      this.formFail = false
       formCard.style.transform = 'scale(0.9)'
       formCard.style.borderColor = '#2EE093'
       formCard.style.backgroundColor = '#2EE093'
@@ -205,9 +252,18 @@ export default Vue.extend({
     turnFormToIdle() {
       var formCard = document.getElementById('formCard')
       this.formSuccess = false
+      this.formFail = false
       formCard.style.transform = 'scale(1)'
       formCard.style.borderColor = '#4082ff'
       formCard.style.backgroundColor = '#ffffff'
+    },
+    turnFormToFail() {
+      var formCard = document.getElementById('formCard')
+      this.formFail = true
+      this.formSuccess = false
+      formCard.style.transform = 'scale(0.9)'
+      formCard.style.borderColor = '#FF6351'
+      formCard.style.backgroundColor = '#FF6351'
     },
     submitForm(e) {
       e.preventDefault()
@@ -230,7 +286,8 @@ export default Vue.extend({
           ref.turnFormToSuccess()
         })
         .catch(function(error) {
-          alert('error ' + error.toString())
+          console.log('error ' + error.toString())
+          ref.turnFormToFail()
         })
         .finally(function() {
           ref.requestIsLoading = false
