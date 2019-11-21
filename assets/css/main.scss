@@ -2,7 +2,7 @@ $theme-colors: ('primary': #4082ff,
   'danger': #FF6351,
   'dark': #383c44,
   'light': #ffffff,
-  'success': #2EE093);
+  'success': #2EE093, );
 @import 'mixins.scss';
 // Include Bootstrap and BootstrapVue SCSS files
 @import '~bootstrap/scss/bootstrap.scss';
