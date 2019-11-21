@@ -1,5 +1,6 @@
 stages:
   - test
+  - clean
   - build
   - deploy
 
@@ -12,7 +13,7 @@ tests:
   script:
     - python3 -B -m py_compile server/api.py
   interruptible: true
-  
+
 nuxt:build:
   stage: build
   only:
@@ -20,10 +21,11 @@ nuxt:build:
   tags:
     - appditto_mac
   script:
+    - npm install
     - npm run build
   interruptible: true
 
-deploy_nuxt:
+nuxt:deploy:
   stage: deploy
   only:
     - master
@@ -31,10 +33,10 @@ deploy_nuxt:
     - appditto_mac
   script:
     - ssh -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd ${APP_DIRECTORY}; git add .; git reset --hard; git pull origin master"
-    - ssh -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd ${APP_DIRECTORY}; npm run build"
+    - ssh -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd ${APP_DIRECTORY}; npm install; npm run build"
     - ssh -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd ${APP_DIRECTORY}; sudo systemctl restart ${APP_SERVICE_NAME}"
 
-deploy_python:
+python:deploy:
   stage: deploy
   only:
     - master
