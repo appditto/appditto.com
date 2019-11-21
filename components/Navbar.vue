@@ -1,5 +1,5 @@
 <template>
-  <b-row align-h="between" class="px-2 py-3">
+  <b-row align-h="between" class="p-3">
     <a href="/"
       ><img
         src="~/assets/images/appditto-logos/appditto-logo-horizontal.svg"
