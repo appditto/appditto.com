@@ -2,10 +2,10 @@
   <TransitionExpand>
     <div v-if="expanded">
       <b-row align-h="center" class="px-1">
-        <form @submit="submitForm">
+        <form @submit="submitForm" class="col-12">
           <b-col
             cols="12"
-            md="9"
+            md="10"
             lg="8"
             class="mx-auto mt-4 px-4 px-md-5 py-4 rounded-2"
             id="formCard"
@@ -68,7 +68,7 @@
               </b-col>
             </b-row>
             <!-- Idle State-->
-            <b-row v-if="!formSuccess && !formFail">
+            <b-row align-h="center" v-if="!formSuccess && !formFail">
               <b-col cols="12" md="6" class="mt-3">
                 <h5
                   class="text-primary w800 mx-2"
@@ -149,27 +149,18 @@
                   </small>
                 </div>
               </b-col>
-              <b-col cols="12">
-                <b-row align-h="center">
-                  <b-col cols="12" lg="6">
-                    <b-btn
-                      variant="primary"
-                      size="lg"
-                      rounded
-                      class="w800 px-5 mt-2 grow-2 btn-shdw-primary w-100"
-                      type="submit"
-                      :disabled="requestIsLoading"
-                    >
-                      <span v-if="!requestIsLoading">Send</span>
-                      <img
-                        src="~assets/images/loading-dots.gif"
-                        alt="Loading"
-                        id="loading-gif"
-                        v-if="requestIsLoading"
-                      />
-                    </b-btn>
-                  </b-col>
-                </b-row>
+              <b-col cols="12" lg="6" class="d-flex justify-content-center">
+                <b-btn
+                  variant="primary"
+                  size="lg"
+                  rounded
+                  class="w800 mt-2 grow-2 btn-shdw-primary px-4 w-100"
+                  type="submit"
+                  :disabled="requestIsLoading"
+                >
+                  <span v-if="!requestIsLoading">Send</span>
+                  <LoadingAnimation v-if="requestIsLoading" />
+                </b-btn>
               </b-col>
             </b-row>
           </b-col>
@@ -181,6 +172,7 @@
 <script>
 import Vue from 'vue'
 import TransitionExpand from '~/components/TransitionExpand.vue'
+import LoadingAnimation from '~/components/LoadingAnimation.vue'
 import Axios from 'axios'
 export default Vue.extend({
   name: 'MyForm',
@@ -198,7 +190,8 @@ export default Vue.extend({
     }
   },
   components: {
-    TransitionExpand
+    TransitionExpand,
+    LoadingAnimation
   },
   props: {
     expanded: false
