@@ -1,5 +1,6 @@
 stages:
   - test
+  - clean
   - build
   - deploy
 
@@ -12,7 +13,18 @@ tests:
   script:
     - python3 -B -m py_compile server/api.py
   interruptible: true
-  
+
+clean:
+  stage: clean
+  only:
+    - master
+  tags:
+    - appditto_mac
+  script:
+    - rm -rf node_modules
+    - npm install
+  interruptible: true
+
 nuxt:build:
   stage: build
   only:
