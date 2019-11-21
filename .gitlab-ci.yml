@@ -25,18 +25,7 @@ nuxt:build:
     - npm run build
   interruptible: true
 
-nuxt:deploy:
-  stage: deploy
-  only:
-    - master
-  tags:
-    - appditto_mac
-  script:
-    - ssh -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd ${APP_DIRECTORY}; git add .; git reset --hard; git pull origin master"
-    - ssh -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd ${APP_DIRECTORY}; npm install; npm run build"
-    - ssh -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd ${APP_DIRECTORY}; sudo systemctl restart ${APP_SERVICE_NAME}"
-
-python:deploy:
+app:deploy:
   stage: deploy
   only:
     - master
@@ -45,3 +34,5 @@ python:deploy:
   script:
     - ssh -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd ${APP_DIRECTORY}; git add .; git reset --hard; git pull origin master"
     - ssh -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd ${APP_DIRECTORY}; sudo systemctl restart ${SERVER_SERVICE_NAME}"
+    - ssh -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd ${APP_DIRECTORY}; npm install; npm run build"
+    - ssh -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd ${APP_DIRECTORY}; sudo systemctl restart ${APP_SERVICE_NAME}"
