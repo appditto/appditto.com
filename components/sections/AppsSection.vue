@@ -26,18 +26,25 @@
         />
       </b-row>
     </b-container>
-    <Testimonials />
+    <img
+      class="w-100 d-none d-lg-block mt-3"
+      src="~assets/images/testimonials.svg"
+      alt="Testimonials"
+    />
+    <img
+      class="w-100 d-none d-md-block d-lg-none mt-3"
+      src="~assets/images/testimonials-md.svg"
+      alt="Testimonials"
+    />
   </section>
 </template>
 <script>
 import Vue from 'vue'
 import AppCard from '~/components/AppCard.vue'
-import Testimonials from '~/components/Testimonials.vue'
 export default Vue.extend({
   name: 'AppsSection',
   components: {
-    AppCard,
-    Testimonials
+    AppCard
   }
 })
 </script>
