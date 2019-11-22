@@ -5,7 +5,7 @@
         <b-row align-h="center">
           <b-col>
             <h5 class="text-dark w700 m-4">{{ title }}</h5>
-            <img :src="thumbnail" :alt="alt" class="w-100" />
+            <img :src="src" :alt="alt" class="w-100" />
           </b-col>
         </b-row>
       </div>
@@ -19,7 +19,7 @@ export default Vue.extend({
   props: {
     title: null,
     alt: null,
-    thumbnail: null,
+    src: null,
     link: null
   }
 })
