@@ -20,7 +20,11 @@
         </b-row>
       </b-col>
       <b-col cols="12" md="5" class="mt-4 mt-md-0">
-        <img src="~/assets/images/hero-phones.svg" alt="Hero" class="w-100" />
+        <img
+          src="~/assets/images/hero-phones.svg"
+          alt="Hero Phones"
+          class="w-100"
+        />
       </b-col>
     </b-row>
   </section>
