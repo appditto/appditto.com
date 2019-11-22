@@ -41,7 +41,7 @@
               <b-col>
                 <h5 class="text-dark w700 m-4">{{ blogPostThreeTitle }}</h5>
                 <img
-                  src="~assets/images/blog-previews/blaise-release.png"
+                  src="~assets/images/blog-previews/blaise-release.jpg"
                   alt="Blaise Release"
                   class="w-100"
                 />
