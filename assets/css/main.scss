@@ -29,8 +29,6 @@ h5 {
 
 .my-card {
   border-radius: 0.75rem;
-  -moz-box-shadow: 0 0.75rem 1.5rem 0 rgba($primary, 0.15);
-  -webkit-box-shadow: 0 0.75rem 1.5rem 0 rgba($primary, 0.15);
   box-shadow: 0 0.75rem 1.5rem 0 rgba($primary, 0.15);
   transition: all 0.25s ease;
   transform: scale(1);
@@ -38,8 +36,6 @@ h5 {
 
 .my-card:hover {
   transform: scale(1.05);
-  -moz-box-shadow: 0 1.5rem 3rem 0 rgba($primary, 0.1);
-  -webkit-box-shadow: 0 1.5rem 3rem 0 rgba($primary, 0.1);
   box-shadow: 0 1.5rem 3rem 0 rgba($primary, 0.1);
   transform: scale(1.05);
 }
@@ -50,8 +46,6 @@ h5 {
 
 .blog-card {
   border-radius: 0.75rem;
-  -moz-box-shadow: 0 0.5rem 1.5rem 0 rgba($dark, 0.25);
-  -webkit-box-shadow: 0 0.5rem 1.5rem 0 rgba($dark, 0.25);
   box-shadow: 0 0.5rem 1.5rem 0 rgba($dark, 0.25);
   transition: all 0.25s ease;
   transform: scale(1);
@@ -59,8 +53,6 @@ h5 {
 
 .blog-card:hover {
   transform: scale(1.05);
-  -moz-box-shadow: 0 1rem 3rem 0 rgba($dark, 0.125);
-  -webkit-box-shadow: 0 1rem 3rem 0 rgba($dark, 0.125);
   box-shadow: 0 1rem 3rem 0 rgba($dark, 0.125);
   transform: scale(1.05);
 }
@@ -119,26 +111,18 @@ a:active {
 }
 
 .btn-shdw-primary {
-  -moz-box-shadow: 0 0.5rem 1rem 0 rgba($primary, 0.15);
-  -webkit-box-shadow: 0 0.5rem 1rem 0 rgba($primary, 0.15);
   box-shadow: 0 0.5rem 1rem 0 rgba($primary, 0.15);
 }
 
 .btn-shdw-primary:hover {
-  -moz-box-shadow: 0 1rem 2rem 0 rgba($primary, 0.075);
-  -webkit-box-shadow: 0 1rem 2rem 0 rgba($primary, 0.075);
   box-shadow: 0 1rem 2rem 0 rgba($primary, 0.075);
 }
 
 .btn-shdw-dark {
-  -moz-box-shadow: 0 0.5rem 1rem 0 rgba($dark, 0.1);
-  -webkit-box-shadow: 0 0.5rem 1rem 0 rgba($dark, 0.1);
   box-shadow: 0 0.5rem 1rem 0 rgba($dark, 0.1);
 }
 
 .btn-shdw-dark:hover {
-  -moz-box-shadow: 0 1rem 2rem 0 rgba($dark, 0.05);
-  -webkit-box-shadow: 0 1rem 2rem 0 rgba($dark, 0.05);
   box-shadow: 0 1rem 2rem 0 rgba($dark, 0.05);
 }
 
