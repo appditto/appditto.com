@@ -1,7 +1,7 @@
 <template>
   <section class="py-5 mt-md-4" id="apps">
     <b-container fluid class="my-container px-3">
-      <h2 class="w800 text-center">Check out Our Apps</h2>
+      <h2 class="w800 text-center">Check Out Our Apps</h2>
       <b-row align-v="center" align-h="center" class="mt-0 mt-md-4">
         <AppCard
           website="natrium.io"
