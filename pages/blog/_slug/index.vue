@@ -4,6 +4,7 @@
     <b-container fluid class="my-container-medium pt-4 pt-md-5">
       <main>
         <h1>{{ post.title }}</h1>
+        <p>{{ Date(post.published_at) }} • {{ post.reading_time }} min read</p>
         <div class="content">
           <div v-html="post.html">{{ post.html }}</div>
         </div>
