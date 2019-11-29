@@ -4,7 +4,7 @@
     <b-container fluid class="my-container-big">
       <!-- Small Screens -->
       <div class="d-md-none">
-        <b-row class="py-3">
+        <b-row class="py-3 px-2">
           <b-col cols="12">
             <BlogCard
               v-for="(post, index) in posts"
@@ -17,13 +17,15 @@
               :alt="post.title"
               :title="post.title"
               :url="post.slug"
+              :date="post.published_at"
+              :readingTime="post.reading_time"
             />
           </b-col>
         </b-row>
       </div>
       <!-- Medium Screens -->
       <div class="d-none d-md-block d-lg-none">
-        <b-row class="py-3">
+        <b-row class="py-3 px-5">
           <b-col>
             <BlogCard
               v-for="(post, index) in posts.filter((a, i) => i % 2 === 0)"
@@ -36,6 +38,8 @@
               :alt="post.title"
               :title="post.title"
               :url="post.slug"
+              :date="post.published_at"
+              :readingTime="post.reading_time"
             />
           </b-col>
           <b-col>
@@ -50,13 +54,15 @@
               :alt="post.title"
               :title="post.title"
               :url="post.slug"
+              :date="post.published_at"
+              :readingTime="post.reading_time"
             />
           </b-col>
         </b-row>
       </div>
       <!-- Large Screens -->
       <div class="d-none d-lg-block">
-        <b-row class="py-3">
+        <b-row class="py-3 px-5">
           <b-col>
             <BlogCard
               v-for="(post, index) in posts.filter((a, i) => i % 3 === 0)"
@@ -69,6 +75,8 @@
               :alt="post.title"
               :title="post.title"
               :url="post.slug"
+              :date="post.published_at"
+              :readingTime="post.reading_time"
             />
           </b-col>
           <b-col>
@@ -83,6 +91,8 @@
               :alt="post.title"
               :title="post.title"
               :url="post.slug"
+              :date="post.published_at"
+              :readingTime="post.reading_time"
             />
           </b-col>
           <b-col>
@@ -97,6 +107,8 @@
               :alt="post.title"
               :title="post.title"
               :url="post.slug"
+              :date="post.published_at"
+              :readingTime="post.reading_time"
             />
           </b-col>
         </b-row>

@@ -1,10 +1,15 @@
 <template>
   <b-row align-h="center" class="p-3">
-    <nuxt-link :to="{ path: url }" class="w-100">
+    <nuxt-link :to="{ path: 'blog/' + url }" class="w-100">
       <div class="blog-card overflow-hidden bg-light">
         <b-row align-h="center">
           <b-col>
-            <h5 class="text-dark w700 m-4">{{ title }}</h5>
+            <div class="px-4 pt-4 pb-2">
+              <h5 class="text-dark w700">{{ title }}</h5>
+              <p class="op-50 text-dark">
+                {{ formatDate(date) }} • {{ readingTime }} min read
+              </p>
+            </div>
             <img :src="img" :alt="alt" class="w-100" />
           </b-col>
         </b-row>
@@ -20,7 +25,35 @@ export default Vue.extend({
     title: null,
     alt: null,
     img: null,
-    url: null
+    url: null,
+    date: null,
+    readingTime: null
+  },
+  methods: {
+    formatDate(date) {
+      const months = [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec'
+      ]
+      let thisDate = new Date(date)
+      let formattedDate =
+        thisDate.getDate() +
+        ' ' +
+        months[thisDate.getMonth()] +
+        ', ' +
+        thisDate.getFullYear()
+      return formattedDate
+    }
   }
 })
 </script>
