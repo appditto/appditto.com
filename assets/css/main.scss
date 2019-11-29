@@ -1,8 +1,10 @@
-$theme-colors: ('primary': #4082ff,
-  'danger': #FF6351,
+$theme-colors: (
+  'primary': #4082ff,
+  'danger': #ff6351,
   'dark': #383c44,
   'light': #ffffff,
-  'success': #2EE093, );
+  'success': #2ee093
+);
 @import 'mixins.scss';
 // Include Bootstrap and BootstrapVue SCSS files
 @import '~bootstrap/scss/bootstrap.scss';
@@ -54,7 +56,6 @@ h5 {
 .blog-card:hover {
   transform: scale(1.05);
   box-shadow: 0 1rem 3rem 0 rgba($dark, 0.125);
-  transform: scale(1.05);
 }
 
 #formCard {

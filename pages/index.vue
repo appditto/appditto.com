@@ -9,7 +9,7 @@
     </b-container>
     <AppsSection />
     <b-container fluid class="my-container">
-      <BlogSection />
+      <BlogSection :posts="posts" />
       <ContactSection />
     </b-container>
     <Footer />
@@ -27,6 +27,8 @@ import Navbar from '~/components/Navbar.vue'
 import BlogCard from '~/components/BlogCard.vue'
 import Footer from '~/components/Footer.vue'
 import MyForm from '~/components/MyForm.vue'
+import { getPosts } from '~/api/posts'
+
 export default {
   components: {
     HeroSection,
@@ -40,6 +42,10 @@ export default {
     BlogCard,
     MyForm,
     Footer
+  },
+  async asyncData() {
+    const posts = await getPosts()
+    return { posts: posts }
   },
   data() {
     return {
