@@ -3,7 +3,7 @@
     <b-row align-h="center">
       <b-col cols="12"><h2 class="w800 text-center">Read Our Blog</h2></b-col>
       <BlogCard
-        v-for="(post, index) in posts"
+        v-for="(post, index) in posts.slice(0, 3)"
         :key="index"
         :img="
           post.feature_image.split('images')[0] +

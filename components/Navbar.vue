@@ -1,23 +1,32 @@
 <template>
   <b-row align-h="between" align-v="center" class="p-3">
-    <a href="/"
+    <a v-if="!isBlog" href="/"
       ><img
         src="~/assets/images/appditto-logos/appditto-logo-horizontal.svg"
-        alt="Appditto Logo Horizontal"
+        alt="Appditto Logo"
+        class="logo-horizontal grow-2"
+    /></a>
+    <a v-if="isBlog" href="https://blog.appditto.com"
+      ><img
+        src="~/assets/images/appditto-logos/appditto-blog-logo-horizontal.svg"
+        alt="Appditto Blog Logo"
         class="logo-horizontal grow-2"
     /></a>
     <b-btn
-      href="https://blog.appditto.com"
+      :href="isBlog ? 'https://appditto.com' : 'https://blog.appditto.com'"
       variant="primary"
       rounded
       class="w700 px-4 px-md-5 grow-2 btn-shdw-primary"
-      >Blog</b-btn
+      >{{ isBlog ? 'appditto.com' : 'Blog' }}</b-btn
     >
   </b-row>
 </template>
 <script>
 import Vue from 'vue'
 export default Vue.extend({
-  name: 'Navbar'
+  name: 'Navbar',
+  props: {
+    isBlog: false
+  }
 })
 </script>
