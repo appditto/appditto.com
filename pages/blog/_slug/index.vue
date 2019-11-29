@@ -4,7 +4,7 @@
     <b-container fluid class="my-container-medium pt-4 pt-md-5">
       <main>
         <h1>{{ post.title }}</h1>
-        <p>{{ Date(post.published_at) }} • {{ post.reading_time }} min read</p>
+        <p class="op-50">{{ formatDate(post.published_at) }} • {{ post.reading_time }} min read</p>
         <div class="content">
           <div v-html="post.html">{{ post.html }}</div>
         </div>
@@ -24,6 +24,14 @@ export default {
     Navbar,
     Footer,
     BlogCard
+  },
+  methods: {
+    formatDate(date){
+      const months = ["Jan", "Feb", "Mar","Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      let thisDate = new Date(date)
+      let formattedDate = thisDate.getDate() + " " + months[thisDate.getMonth()] + ", " + thisDate.getFullYear()
+      return formattedDate
+    }
   },
   async asyncData({ params }) {
     const post = await getSinglePost(params.slug)
