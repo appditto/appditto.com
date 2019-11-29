@@ -152,7 +152,7 @@ export default {
         // Canonical
         {
           rel: 'canonical',
-          href: 'https://appditto.com/blog/' + this.post.slug
+          href: 'https://blog.appditto.com' + this.post.slug
         },
         // Generic Icons
         { rel: 'icon', sizes: '32x32', href: '/favicons/favicon-32.png' },

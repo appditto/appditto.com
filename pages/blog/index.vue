@@ -149,7 +149,7 @@ export default {
         // Canonical
         {
           rel: 'canonical',
-          href: 'https://appditto.com/blog'
+          href: 'https://blog.appditto.com'
         },
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
@@ -173,7 +173,7 @@ export default {
         // Facebook Meta Tags
         {
           property: 'og:url',
-          content: 'https://appditto.com'
+          content: 'https://blog.appditto.com'
         },
         {
           property: 'og:type',
