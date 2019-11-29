@@ -2,50 +2,105 @@
   <div>
     <Navbar :isBlog="true" />
     <b-container fluid class="my-container-big">
-      <b-row class="py-3">
-        <b-col>
-          <BlogCard
-            v-for="(post, index) in posts.filter((a, i) => i % 3 === 0)"
-            :key="index"
-            :img="
-              post.feature_image.split('images')[0] +
-                'images/size/w600' +
-                post.feature_image.split('images')[1]
-            "
-            :alt="post.title"
-            :title="post.title"
-            :url="post.slug"
-          />
-        </b-col>
-        <b-col>
-          <BlogCard
-            v-for="(post, index) in posts.filter((a, i) => i % 3 === 1)"
-            :key="index"
-            :img="
-              post.feature_image.split('images')[0] +
-                'images/size/w600' +
-                post.feature_image.split('images')[1]
-            "
-            :alt="post.title"
-            :title="post.title"
-            :url="post.slug"
-          />
-        </b-col>
-        <b-col>
-          <BlogCard
-            v-for="(post, index) in posts.filter((a, i) => i % 3 === 2)"
-            :key="index"
-            :img="
-              post.feature_image.split('images')[0] +
-                'images/size/w600' +
-                post.feature_image.split('images')[1]
-            "
-            :alt="post.title"
-            :title="post.title"
-            :url="post.slug"
-          />
-        </b-col>
-      </b-row>
+      <!-- Small Screens -->
+      <div class="d-md-none">
+        <b-row class="py-3">
+          <b-col cols="12">
+            <BlogCard
+              v-for="(post, index) in posts"
+              :key="index"
+              :img="
+                post.feature_image.split('images')[0] +
+                  'images/size/w600' +
+                  post.feature_image.split('images')[1]
+              "
+              :alt="post.title"
+              :title="post.title"
+              :url="post.slug"
+            />
+          </b-col>
+        </b-row>
+      </div>
+      <!-- Medium Screens -->
+      <div class="d-none d-md-block d-lg-none">
+        <b-row class="py-3">
+          <b-col>
+            <BlogCard
+              v-for="(post, index) in posts.filter((a, i) => i % 2 === 0)"
+              :key="index"
+              :img="
+                post.feature_image.split('images')[0] +
+                  'images/size/w600' +
+                  post.feature_image.split('images')[1]
+              "
+              :alt="post.title"
+              :title="post.title"
+              :url="post.slug"
+            />
+          </b-col>
+          <b-col>
+            <BlogCard
+              v-for="(post, index) in posts.filter((a, i) => i % 2 === 1)"
+              :key="index"
+              :img="
+                post.feature_image.split('images')[0] +
+                  'images/size/w600' +
+                  post.feature_image.split('images')[1]
+              "
+              :alt="post.title"
+              :title="post.title"
+              :url="post.slug"
+            />
+          </b-col>
+        </b-row>
+      </div>
+      <!-- Large Screens -->
+      <div class="d-none d-lg-block">
+        <b-row class="py-3">
+          <b-col>
+            <BlogCard
+              v-for="(post, index) in posts.filter((a, i) => i % 3 === 0)"
+              :key="index"
+              :img="
+                post.feature_image.split('images')[0] +
+                  'images/size/w600' +
+                  post.feature_image.split('images')[1]
+              "
+              :alt="post.title"
+              :title="post.title"
+              :url="post.slug"
+            />
+          </b-col>
+          <b-col>
+            <BlogCard
+              v-for="(post, index) in posts.filter((a, i) => i % 3 === 1)"
+              :key="index"
+              :img="
+                post.feature_image.split('images')[0] +
+                  'images/size/w600' +
+                  post.feature_image.split('images')[1]
+              "
+              :alt="post.title"
+              :title="post.title"
+              :url="post.slug"
+            />
+          </b-col>
+          <b-col>
+            <BlogCard
+              v-for="(post, index) in posts.filter((a, i) => i % 3 === 2)"
+              :key="index"
+              :img="
+                post.feature_image.split('images')[0] +
+                  'images/size/w600' +
+                  post.feature_image.split('images')[1]
+              "
+              :alt="post.title"
+              :title="post.title"
+              :url="post.slug"
+            />
+          </b-col>
+        </b-row>
+      </div>
     </b-container>
     <Footer />
   </div>
