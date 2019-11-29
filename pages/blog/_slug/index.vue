@@ -120,6 +120,11 @@ export default {
         }
       ],
       link: [
+        // Canonical
+        {
+          rel: 'canonical',
+          href: 'https://appditto.com/blog/' + this.post.slug
+        },
         // Generic Icons
         { rel: 'icon', sizes: '32x32', href: '/favicons/favicon-32.png' },
         { rel: 'icon', sizes: '57x57', href: '/favicons/favicon-57.png' },

@@ -60,6 +60,11 @@ export default {
     return {
       title: this.homePageTitle,
       meta: [
+        // Canonical
+        {
+          rel: 'canonical',
+          href: 'https://appditto.com/blog'
+        },
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
           hid: 'description',

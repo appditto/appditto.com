@@ -71,7 +71,7 @@ export default {
       blogPageDescription:
         "We're building beautiful apps for businesses in record time and writing stories all about apps.",
       blogPageTitle: 'Appditto | Blog',
-      blogPagePreview: 'https://appditto.com/images/preview.jpg',
+      blogPagePreview: 'https://appditto.com/images/blog-preview.jpg',
       blogPageThemeColor: '#4082FF'
     }
   },
@@ -79,6 +79,11 @@ export default {
     return {
       title: this.blogPageTitle,
       meta: [
+        // Canonical
+        {
+          rel: 'canonical',
+          href: 'https://appditto.com/blog'
+        },
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
           hid: 'description',
