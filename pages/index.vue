@@ -63,7 +63,7 @@ export default {
         // Canonical
         {
           rel: 'canonical',
-          href: 'https://blog.appditto.com'
+          href: 'https://appditto.com'
         },
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
