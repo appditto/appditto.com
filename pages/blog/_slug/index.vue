@@ -1,51 +1,13 @@
 <template>
   <div>
     <Navbar :isBlog="true" />
-    <b-container fluid class="my-container-big">
-      <b-row class="py-3">
-        <b-col>
-          <BlogCard
-            v-for="(post, index) in posts.filter((a, i) => i % 3 === 0)"
-            :key="index"
-            :img="
-              post.feature_image.split('images')[0] +
-                'images/size/w600' +
-                post.feature_image.split('images')[1]
-            "
-            :alt="post.title"
-            :title="post.title"
-            :url="post.slug"
-          />
-        </b-col>
-        <b-col>
-          <BlogCard
-            v-for="(post, index) in posts.filter((a, i) => i % 3 === 1)"
-            :key="index"
-            :img="
-              post.feature_image.split('images')[0] +
-                'images/size/w600' +
-                post.feature_image.split('images')[1]
-            "
-            :alt="post.title"
-            :title="post.title"
-            :url="post.slug"
-          />
-        </b-col>
-        <b-col>
-          <BlogCard
-            v-for="(post, index) in posts.filter((a, i) => i % 3 === 2)"
-            :key="index"
-            :img="
-              post.feature_image.split('images')[0] +
-                'images/size/w600' +
-                post.feature_image.split('images')[1]
-            "
-            :alt="post.title"
-            :title="post.title"
-            :url="post.slug"
-          />
-        </b-col>
-      </b-row>
+    <b-container fluid class="my-container-medium pt-4 pt-md-5">
+      <main>
+        <h1>{{ post.title }}</h1>
+        <div class="content">
+          <div v-html="post.html">{{ post.html }}</div>
+        </div>
+      </main>
     </b-container>
     <Footer />
   </div>
@@ -54,7 +16,7 @@
 import Navbar from '~/components/Navbar.vue'
 import Footer from '~/components/Footer.vue'
 import BlogCard from '~/components/BlogCard.vue'
-import { getPosts } from '~/api/posts'
+import { getSinglePost } from '~/api/posts'
 
 export default {
   components: {
@@ -62,46 +24,43 @@ export default {
     Footer,
     BlogCard
   },
-  async asyncData() {
-    const posts = await getPosts()
-    return { posts: posts }
+  async asyncData({ params }) {
+    const post = await getSinglePost(params.slug)
+    console.log(post)
+    return { post: post }
   },
   data() {
     return {
-      blogPageDescription:
-        "We're building beautiful apps for businesses in record time and writing stories all about apps.",
-      blogPageTitle: 'Appditto | Blog',
-      blogPagePreview: 'https://appditto.com/images/preview.jpg',
-      blogPageThemeColor: '#4082FF'
+      postPageThemeColor: '#FFFFFF'
     }
   },
   head() {
     return {
-      title: this.blogPageTitle,
+      title: this.post.title,
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
           hid: 'description',
           name: 'description',
-          content: this.blogPageDescription
+          content: this.post.excerpt
         },
         // Google / Search Engine Tags
         {
           itemprop: 'name',
-          content: this.blogPageTitle
+          content: this.post.title
         },
         {
           itemprop: 'description',
-          content: this.blogPageDescription
+          content: this.post.excerpt
         },
         {
           itemprop: 'image',
-          content: this.blogPagePreview
+          content: this.post.feature_image
         },
         // Facebook Meta Tags
         {
           property: 'og:url',
-          content: 'https://appditto.com'
+          content: this.post.url
         },
         {
           property: 'og:type',
@@ -109,15 +68,15 @@ export default {
         },
         {
           property: 'og:title',
-          content: this.blogPageTitle
+          content: this.post.title
         },
         {
           property: 'og:description',
-          content: this.blogPageDescription
+          content: this.post.excerpt
         },
         {
           property: 'og:image',
-          content: this.blogPagePreview
+          content: this.post.feature_image
         },
         // Twitter Meta Tags
         {
@@ -126,25 +85,25 @@ export default {
         },
         {
           name: 'twitter:title',
-          content: this.blogPageTitle
+          content: this.post.title
         },
         {
           name: 'twitter:description',
-          content: this.blogPageDescription
+          content: this.post.excerpt
         },
         {
           name: 'twitter:image',
-          content: this.blogPagePreview
+          content: this.post.feature_image
         },
         // Theme
         {
           name: 'theme-color',
-          content: this.blogPageThemeColor
+          content: this.postPageThemeColor
         },
         // Windows 8 IE 10
         {
           name: 'msapplication-TileColor',
-          content: '#FFFFFF'
+          content: this.postPageThemeColor
         },
         {
           name: 'msapplication-TileImage',
@@ -157,7 +116,7 @@ export default {
         },
         {
           name: 'apple-mobile-web-app-status-bar-style',
-          content: this.blogPageThemeColor
+          content: this.postPageThemeColor
         }
       ],
       link: [

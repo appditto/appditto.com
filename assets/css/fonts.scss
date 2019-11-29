@@ -28,12 +28,106 @@
     url('~assets/fonts/Metropolis-ExtraBold.ttf') format('truetype');
 }
 
+/* lora-regular - latin */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  src: url('~assets/fonts/Lora-Regular.eot');
+  /* IE9 Compat Modes */
+  src: url('~assets/fonts/Lora-Regular.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('~assets/fonts/Lora-Regular.woff2') format('woff2'),
+    /* Super Modern Browsers */
+    url('~assets/fonts/Lora-Regular.woff') format('woff'),
+    /* Modern Browsers */
+    url('~assets/fonts/Lora-Regular.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+    url('~assets/fonts/Lora-Regular.svg#Lora') format('svg');
+  /* Legacy iOS */
+}
+
+/* lora-700 - latin */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  src: url('~assets/fonts/Lora-Bold.eot');
+  /* IE9 Compat Modes */
+  src: url('~assets/fonts/Lora-Bold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('~assets/fonts/Lora-Bold.woff2') format('woff2'),
+    /* Super Modern Browsers */
+    url('~assets/fonts/Lora-Bold.woff') format('woff'),
+    /* Modern Browsers */
+    url('~assets/fonts/Lora-Bold.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+    url('~assets/fonts/Lora-Bold.svg#Lora') format('svg');
+  /* Legacy iOS */
+}
+
+@font-face {
+  font-family: "Butler";
+  font-weight: 700;
+  src: url('~assets/fonts/Butler-Bold.eot');
+  src: url('~assets/fonts/Butler-Bold.eot?#iefix') format("embedded-opentype"),
+    url('~assets/fonts/Butler-Bold.woff2') format("woff2"),
+    url('~assets/fonts/Butler-Bold.woff') format("woff"),
+    url('~assets/fonts/Butler-Bold.ttf') format("truetype");
+}
+
+/* lora-regular - latin */
+@font-face {
+  font-family: 'FiraMono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('~assets/fonts/FiraMono-Regular.eot');
+  /* IE9 Compat Modes */
+  src: url('~assets/fonts/FiraMono-Regular.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('~assets/fonts/FiraMono-Regular.woff2') format('woff2'),
+    /* Super Modern Browsers */
+    url('~assets/fonts/FiraMono-Regular.woff') format('woff'),
+    /* Modern Browsers */
+    url('~assets/fonts/FiraMono-Regular.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+    url('~assets/fonts/FiraMono-Regular.svg#FiraMono') format('svg');
+  /* Legacy iOS */
+}
+
+/* FiraMono-700 - latin */
+@font-face {
+  font-family: 'FiraMono';
+  font-style: normal;
+  font-weight: 700;
+  src: url('~assets/fonts/FiraMono-Bold.eot');
+  /* IE9 Compat Modes */
+  src: url('~assets/fonts/FiraMono-Bold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('~assets/fonts/FiraMono-Bold.woff2') format('woff2'),
+    /* Super Modern Browsers */
+    url('~assets/fonts/FiraMono-Bold.woff') format('woff'),
+    /* Modern Browsers */
+    url('~assets/fonts/FiraMono-Bold.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+    url('~assets/fonts/FiraMono-Bold.svg#FiraMono') format('svg');
+  /* Legacy iOS */
+}
+
 body {
   font-family: 'Metropolis', sans-serif;
   font-weight: 400;
 }
 
 .w400 {
+  font-weight: 400;
+}
+
+.w500 {
+  font-weight: 400;
+}
+
+.w600 {
   font-weight: 400;
 }
 

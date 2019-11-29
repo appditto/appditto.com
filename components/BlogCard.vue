@@ -1,6 +1,6 @@
 <template>
-  <b-col cols="12" md="4" class="mt-4">
-    <a :href="url">
+  <b-row align-h="center" class="p-3">
+    <nuxt-link :to="{ path: '/blog/' + url }">
       <div class="blog-card overflow-hidden bg-light">
         <b-row align-h="center">
           <b-col>
@@ -9,8 +9,8 @@
           </b-col>
         </b-row>
       </div>
-    </a>
-  </b-col>
+    </nuxt-link>
+  </b-row>
 </template>
 <script>
 import Vue from 'vue'

@@ -1,25 +1,29 @@
 <template>
-  <b-row align-h="between" align-v="center" class="p-3">
-    <a v-if="!isBlog" href="/"
-      ><img
-        src="~/assets/images/appditto-logos/appditto-logo-horizontal.svg"
-        alt="Appditto Logo"
-        class="logo-horizontal grow-2"
-    /></a>
-    <a v-if="isBlog" href="https://blog.appditto.com"
-      ><img
-        src="~/assets/images/appditto-logos/appditto-blog-logo-horizontal.svg"
-        alt="Appditto Blog Logo"
-        class="logo-horizontal grow-2"
-    /></a>
-    <b-btn
-      :href="isBlog ? 'https://appditto.com' : 'https://blog.appditto.com'"
-      variant="primary"
-      rounded
-      class="w700 px-4 px-md-5 grow-2 btn-shdw-primary"
-      >{{ isBlog ? 'appditto.com' : 'Blog' }}</b-btn
-    >
-  </b-row>
+  <b-container fluid class="my-container-big">
+    <b-row align-h="between" align-v="center" class="p-3">
+      <nuxt-link v-if="!isBlog" to="/"
+        ><img
+          src="~/assets/images/appditto-logos/appditto-logo-horizontal.svg"
+          alt="Appditto Logo"
+          class="logo-horizontal grow-2"
+      /></nuxt-link>
+      <nuxt-link v-if="isBlog" to="/blog"
+        ><img
+          src="~/assets/images/appditto-logos/appditto-blog-logo-horizontal.svg"
+          alt="Appditto Blog Logo"
+          class="logo-horizontal grow-2"
+      /></nuxt-link>
+      <nuxt-link :to="isBlog ? '/' : '/blog'"
+        ><b-btn
+          variant="primary"
+          rounded
+          v-bind:class="{ 'px-md-5': !isBlog }"
+          class="w700 px-4 grow-2 btn-shdw-primary"
+          >{{ isBlog ? 'Appditto.com' : 'Blog' }}</b-btn
+        ></nuxt-link
+      >
+    </b-row>
+  </b-container>
 </template>
 <script>
 import Vue from 'vue'

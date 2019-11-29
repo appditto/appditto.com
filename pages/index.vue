@@ -1,14 +1,14 @@
 <template>
   <div>
-    <b-container fluid class="my-container">
-      <Navbar />
+    <Navbar />
+    <b-container fluid class="my-container-big">
       <HeroSection />
       <SingleCodeBaseSection />
       <FastAndEfficientSection />
       <CuttingEdgeTechSection />
     </b-container>
     <AppsSection />
-    <b-container fluid class="my-container">
+    <b-container fluid class="my-container-big">
       <BlogSection :posts="posts" />
       <ContactSection />
     </b-container>
