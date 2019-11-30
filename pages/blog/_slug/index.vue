@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Navbar :isBlog="true" />
+  <div class="pt-5rem">
+    <Navbar id="navbarPostPage" :isBlog="true" />
     <b-container fluid class="my-container-medium pt-4 pt-md-5">
       <main>
         <h1>{{ post.title }}</h1>
@@ -26,6 +26,41 @@ export default {
     Navbar,
     Footer,
     BlogCard
+  },
+  mounted() {
+    // Initial state
+    var scrollPos = 0
+    const navbar = document.getElementById('navbarPostPage')
+    // Adding scroll event
+    window.addEventListener('scroll', function() {
+      // Detects new state and compares it with the new one
+      if (
+        window.pageYOffset < 50 ||
+        document.body.getBoundingClientRect().top > scrollPos + 10
+      ) {
+        navbar.style.marginTop = '0rem'
+      } else if (
+        window.pageYOffset >= 100 &&
+        document.body.getBoundingClientRect().top < scrollPos
+      ) {
+        navbar.style.marginTop = '-6rem'
+      }
+      // Saves the new position for iteration.
+      scrollPos = document.body.getBoundingClientRect().top
+
+      // navbar shadow
+      if (
+        window.pageYOffset >= 50 &&
+        !navbar.classList.contains('navbar-shadow')
+      ) {
+        navbar.classList.add('navbar-shadow')
+      } else if (
+        window.pageYOffset < 50 &&
+        navbar.classList.contains('navbar-shadow')
+      ) {
+        navbar.classList.remove('navbar-shadow')
+      }
+    })
   },
   methods: {
     formatDate(date) {

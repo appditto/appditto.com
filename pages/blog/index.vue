@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar id="navbar" :isBlog="true" />
+    <Navbar :isBlog="true" />
     <b-container fluid class="my-container-big">
       <!-- Small Screens -->
       <div class="d-md-none">
@@ -132,34 +132,6 @@ export default {
   async asyncData() {
     const posts = await getPosts()
     return { posts: posts }
-  },
-  methods: {
-    navbarOnScroll() {
-      // Initial state
-      var scrollPos = 0
-      const navbar = document.getElementById('navbar')
-      const body = document.body
-      body.style.paddingTop = '5rem'
-      navbar.style.position = 'fixed'
-      navbar.style.top = '0'
-      // Adding scroll event
-      window.addEventListener('scroll', function() {
-        // Detects new state and compares it with the new one
-        if (
-          window.pageYOffset < 50 ||
-          document.body.getBoundingClientRect().top > scrollPos + 10
-        ) {
-          navbar.style.marginTop = '0rem'
-        } else if (
-          window.pageYOffset >= 100 &&
-          document.body.getBoundingClientRect().top < scrollPos
-        ) {
-          navbar.style.marginTop = '-6rem'
-        }
-        // Saves the new position for iteration.
-        scrollPos = document.body.getBoundingClientRect().top
-      })
-    }
   },
   data() {
     return {

@@ -16,6 +16,8 @@ body {
 .my-container-big {
   max-width: 1200px;
   padding: 0 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .my-container-medium {
@@ -529,4 +531,21 @@ a.kg-bookmark-container {
 .gist {
   margin-top: 2rem;
   margin-bottom: 3rem;
+}
+
+
+#navbarPostPage {
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  transition: all 0.35s ease;
+}
+
+.navbar-shadow {
+  box-shadow: 0 0.5rem 1rem 0 rgba($dark, 0.1);
+}
+
+.pt-5rem {
+  padding-top: 5rem;
 }
