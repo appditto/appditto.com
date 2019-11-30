@@ -41,7 +41,7 @@ export default {
         navbar.style.marginTop = '0rem'
       } else if (
         window.pageYOffset >= 100 &&
-        document.body.getBoundingClientRect().top < scrollPos
+        document.body.getBoundingClientRect().top < scrollPos - 10
       ) {
         navbar.style.marginTop = '-6rem'
       }

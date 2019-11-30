@@ -146,11 +146,6 @@ export default {
     return {
       title: this.blogPageTitle,
       meta: [
-        // Canonical
-        {
-          rel: 'canonical',
-          href: 'https://appditto.com/blog'
-        },
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
           hid: 'description',
@@ -233,6 +228,11 @@ export default {
         }
       ],
       link: [
+        // Canonical
+        {
+          rel: 'canonical',
+          href: 'https://appditto.com/blog'
+        },
         // Generic Icons
         { rel: 'icon', sizes: '32x32', href: '/favicons/favicon-32.png' },
         { rel: 'icon', sizes: '57x57', href: '/favicons/favicon-57.png' },
