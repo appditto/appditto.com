@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="px-0">
+  <b-container fluid class="px-0 pb-1">
     <div class="my-container-big">
       <b-row align-h="between" align-v="center" class="py-3 px-2">
         <nuxt-link v-if="!isBlog" to="/"
