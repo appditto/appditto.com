@@ -1,5 +1,5 @@
 <template>
-  <section class="pt-5 pb-4 px-2 px-md-5" id="blog">
+  <section class="pt-5 pb-4 px-md-5" id="blog">
     <b-row align-h="center">
       <b-col cols="12"><h2 class="w800 text-center">Read Our Blog</h2></b-col>
       <b-col cols="12" md="6" lg="4"

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <Navbar :isBlog="true" />
+    <Navbar id="navbar" :isBlog="true" />
     <b-container fluid class="my-container-big">
       <!-- Small Screens -->
       <div class="d-md-none">
-        <b-row class="py-3 px-2">
+        <b-row class="py-3">
           <b-col cols="12">
             <BlogCard
               v-for="(post, index) in posts"
@@ -25,7 +25,7 @@
       </div>
       <!-- Medium Screens -->
       <div class="d-none d-md-block d-lg-none">
-        <b-row class="py-3 px-5">
+        <b-row class="py-4 px-5">
           <b-col>
             <BlogCard
               v-for="(post, index) in posts.filter((a, i) => i % 2 === 0)"
@@ -62,7 +62,7 @@
       </div>
       <!-- Large Screens -->
       <div class="d-none d-lg-block">
-        <b-row class="py-3 px-5">
+        <b-row class="py-4 px-5">
           <b-col>
             <BlogCard
               v-for="(post, index) in posts.filter((a, i) => i % 3 === 0)"
@@ -132,6 +132,34 @@ export default {
   async asyncData() {
     const posts = await getPosts()
     return { posts: posts }
+  },
+  methods: {
+    navbarOnScroll() {
+      // Initial state
+      var scrollPos = 0
+      const navbar = document.getElementById('navbar')
+      const body = document.body
+      body.style.paddingTop = '5rem'
+      navbar.style.position = 'fixed'
+      navbar.style.top = '0'
+      // Adding scroll event
+      window.addEventListener('scroll', function() {
+        // Detects new state and compares it with the new one
+        if (
+          window.pageYOffset < 50 ||
+          document.body.getBoundingClientRect().top > scrollPos + 10
+        ) {
+          navbar.style.marginTop = '0rem'
+        } else if (
+          window.pageYOffset >= 100 &&
+          document.body.getBoundingClientRect().top < scrollPos
+        ) {
+          navbar.style.marginTop = '-6rem'
+        }
+        // Saves the new position for iteration.
+        scrollPos = document.body.getBoundingClientRect().top
+      })
+    }
   },
   data() {
     return {

@@ -7,7 +7,7 @@
           alt="Appditto Logo"
           class="logo-horizontal grow-2"
       /></nuxt-link>
-      <nuxt-link v-if="isBlog" to="/blog"
+      <nuxt-link v-else to="/blog"
         ><img
           src="~/assets/images/appditto-logos/appditto-blog-logo-horizontal.svg"
           alt="Appditto Blog Logo"
@@ -17,9 +17,8 @@
         ><b-btn
           variant="primary"
           rounded
-          v-bind:class="{ 'px-md-5': !isBlog }"
-          class="w700 px-4 grow-2 btn-shdw-primary"
-          >{{ isBlog ? 'Appditto.com' : 'Blog' }}</b-btn
+          class="w700 px-4 px-md-5 grow-2 btn-shdw-primary"
+          >{{ isBlog ? 'Home' : 'Blog' }}</b-btn
         ></nuxt-link
       >
     </b-row>
