@@ -56,10 +56,13 @@ export default {
     }
   },
   async asyncData({ params }) {
-    const post = await getSinglePost(params.slug)
+    let post = await getSinglePost(params.slug)
+    post.html = post.html.replace(
+      /content\/images/g,
+      'content/images/size/w1000'
+    )
     const posts = await getPosts('4')
     let postThree = []
-    console.log(posts)
     posts.forEach(singlePost => {
       if (singlePost.slug != params.slug) {
         postThree.push(singlePost)
