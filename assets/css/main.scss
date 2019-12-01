@@ -300,7 +300,10 @@ serif;
 $header-height: 5rem;
 
 .kg-image {
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   margin-top: 2rem;
 }
 

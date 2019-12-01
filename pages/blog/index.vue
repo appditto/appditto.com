@@ -15,7 +15,7 @@
               "
               :alt="post.title"
               :title="post.title"
-              :url="'blog/' + post.slug"
+              :url="'/blog/' + post.slug"
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
@@ -36,7 +36,7 @@
               "
               :alt="post.title"
               :title="post.title"
-              :url="'blog/' + post.slug"
+              :url="'/blog/' + post.slug"
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
@@ -52,7 +52,7 @@
               "
               :alt="post.title"
               :title="post.title"
-              :url="'blog/' + post.slug"
+              :url="'/blog/' + post.slug"
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
@@ -73,7 +73,7 @@
               "
               :alt="post.title"
               :title="post.title"
-              :url="'blog/' + post.slug"
+              :url="'/blog/' + post.slug"
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
@@ -89,7 +89,7 @@
               "
               :alt="post.title"
               :title="post.title"
-              :url="'blog/' + post.slug"
+              :url="'/blog/' + post.slug"
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
@@ -105,7 +105,7 @@
               "
               :alt="post.title"
               :title="post.title"
-              :url="'blog/' + post.slug"
+              :url="'/blog/' + post.slug"
               :date="post.published_at"
               :readingTime="post.reading_time"
             />

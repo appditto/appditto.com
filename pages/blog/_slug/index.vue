@@ -58,13 +58,6 @@ export default {
   },
   async asyncData({ params }) {
     let post = await getSinglePost(params.slug)
-    let postImages = []
-    post.html = post.html.replace(
-      /content\/images/g,
-      'content/images/size/w1000'
-    )
-    post.html = post.html.replace(/<img src/g, '<img data-src')
-    post.html = post.html.replace(/"kg-image"/g, '"kg-image lazyload"')
     const posts = await getPosts('4')
     let postThree = []
     posts.forEach(singlePost => {
@@ -168,7 +161,7 @@ export default {
         // Canonical
         {
           rel: 'canonical',
-          href: 'https://appditto.com/blog' + this.post.slug
+          href: 'https://appditto.com/blog/' + this.post.slug
         },
         // Generic Icons
         { rel: 'icon', sizes: '32x32', href: '/favicons/favicon-32.png' },
