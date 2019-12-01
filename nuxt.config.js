@@ -45,7 +45,10 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    // Lazy load
+    'nuxt-lazy-load'
+
   ],
   /*
    ** Axios module configuration
@@ -61,12 +64,24 @@ export default {
      */
     extend(config, ctx) {},
     filenames: {
-      app: ({ isDev }) => isDev ? '[name].js' : '[name].[chunkhash].js',
-      chunk: ({ isDev }) => isDev ? '[name].js' : '[name].[chunkhash].js',
-      css: ({ isDev }) => isDev ? '[name].css' : '[name].[contenthash].css',
-      img: ({ isDev }) => isDev ? '[path][name].[ext]' : 'img/[name].[hash:7].[ext]',
-      font: ({ isDev }) => isDev ? '[path][name].[ext]' : 'fonts/[name].[hash:7].[ext]',
-      video: ({ isDev }) => isDev ? '[path][name].[ext]' : 'videos/[name].[hash:7].[ext]'
+      app: ({
+        isDev
+      }) => isDev ? '[name].js' : '[name].[chunkhash].js',
+      chunk: ({
+        isDev
+      }) => isDev ? '[name].js' : '[name].[chunkhash].js',
+      css: ({
+        isDev
+      }) => isDev ? '[name].css' : '[name].[contenthash].css',
+      img: ({
+        isDev
+      }) => isDev ? '[path][name].[ext]' : 'img/[name].[hash:7].[ext]',
+      font: ({
+        isDev
+      }) => isDev ? '[path][name].[ext]' : 'fonts/[name].[hash:7].[ext]',
+      video: ({
+        isDev
+      }) => isDev ? '[path][name].[ext]' : 'videos/[name].[hash:7].[ext]'
     }
   }
 }

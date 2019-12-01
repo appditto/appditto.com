@@ -8,7 +8,7 @@
           {{ formatDate(post.published_at) }} • {{ post.reading_time }} min read
         </p>
         <div class="content">
-          <div v-html="post.html">{{ post.html }}</div>
+          <div v-lazy-load="post.html"></div>
         </div>
       </main>
     </b-container>
