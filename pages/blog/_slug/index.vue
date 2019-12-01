@@ -22,6 +22,7 @@ import Divider from '~/components/Divider.vue'
 import BlogSection from '~/components/sections/BlogSection.vue'
 import { getSinglePost } from '~/api/posts'
 import { getPosts } from '~/api/posts'
+import lazySizes from 'lazysizes'
 
 export default {
   layout: 'blog',
@@ -57,10 +58,13 @@ export default {
   },
   async asyncData({ params }) {
     let post = await getSinglePost(params.slug)
+    let postImages = []
     post.html = post.html.replace(
       /content\/images/g,
       'content/images/size/w1000'
     )
+    post.html = post.html.replace(/<img src/g, '<img data-src')
+    post.html = post.html.replace(/"kg-image"/g, '"kg-image lazyload"')
     const posts = await getPosts('4')
     let postThree = []
     posts.forEach(singlePost => {
