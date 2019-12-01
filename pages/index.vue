@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <b-container fluid class="my-container-big">
       <HeroSection />
       <SingleCodeBaseSection />
@@ -12,7 +11,6 @@
       <BlogSection :posts="posts" />
       <ContactSection />
     </b-container>
-    <Footer />
   </div>
 </template>
 <script>

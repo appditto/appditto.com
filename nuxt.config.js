@@ -46,9 +46,6 @@ export default {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Lazy load
-    'nuxt-lazy-load'
-
   ],
   /*
    ** Axios module configuration

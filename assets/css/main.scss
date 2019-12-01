@@ -1,10 +1,8 @@
-$theme-colors: (
-  'primary': #4082ff,
+$theme-colors: ('primary': #4082ff,
   'danger': #ff6351,
   'dark': #383c44,
   'light': #ffffff,
-  'success': #2ee093
-);
+  'success': #2ee093);
 @import 'mixins.scss';
 // Include Bootstrap and BootstrapVue SCSS files
 @import '~bootstrap/scss/bootstrap.scss';
@@ -281,9 +279,9 @@ svg {
 
 // For ghost
 
-p > code,
-ul > li > code,
-ol > li > code,
+p>code,
+ul>li>code,
+ol>li>code,
 pre {
   color: $dark;
   background-color: rgba($dark, 0.1);
@@ -297,7 +295,8 @@ pre {
 $font-size-p: 1.2rem;
 $font-size-line-height: 2.2rem;
 $font-size-code: 1rem;
-$font-family-p: 'Lora', serif;
+$font-family-p: 'Lora',
+serif;
 $header-height: 5rem;
 
 .kg-image {
@@ -323,21 +322,21 @@ figcaption {
   margin-top: 0.75rem;
 }
 
-main > h1 {
+main>h1 {
   font-weight: 700;
   font-family: 'Butler', 'sans-serif';
   font-size: 2.25rem !important;
   line-height: 3.25rem;
 }
 
-.content > div > h2 {
+.content>div>h2 {
   margin-top: 4rem;
   margin-bottom: -0.75rem;
   font-weight: 700;
   font-size: 1.75rem;
 }
 
-.content > div > h3 {
+.content>div>h3 {
   margin-top: 4rem;
   margin-bottom: -0.75rem;
   font-weight: 600;
@@ -348,7 +347,7 @@ strong {
   font-weight: 700 !important;
 }
 
-.content > div > p {
+.content>div>p {
   font-size: $font-size-p;
   line-height: $font-size-line-height;
   font-family: $font-family-p;
@@ -357,8 +356,8 @@ strong {
   margin-bottom: 0rem;
 }
 
-.content > div > ul,
-.content > div > ol {
+.content>div>ul,
+.content>div>ol {
   font-size: $font-size-p !important;
   line-height: $font-size-line-height;
   font-family: $font-family-p !important;
@@ -366,17 +365,17 @@ strong {
   margin-top: 1.5rem;
 }
 
-.content > div > ul > li,
-.content > div > ol > li,
-.content > div > ul > li > strong,
-.content > div > ul > ol > strong {
+.content>div>ul>li,
+.content>div>ol>li,
+.content>div>ul>li>strong,
+.content>div>ul>ol>strong {
   margin-top: 0.75rem;
   font-family: $font-family-p !important;
 }
 
-.content > div > p > code,
-.content > div > ul > li > code,
-.content > div > ol > li > code {
+.content>div>p>code,
+.content>div>ul>li>code,
+.content>div>ol>li>code {
   color: rgba(theme-color('dark'), 1) !important;
   background-color: rgba(theme-color('dark'), 0.05);
   padding: 0.15rem 0.45rem;
@@ -388,7 +387,7 @@ strong {
   margin-right: 0.25rem;
 }
 
-.content > div > pre {
+.content>div>pre {
   color: rgba(theme-color('dark'), 1) !important;
   background-color: rgba(theme-color('dark'), 0.05);
   padding: 0.75rem 1.25rem;
@@ -403,20 +402,20 @@ code {
   font-family: 'FiraMono', monospace !important;
 }
 
-.content > div > p > a,
-.content > div > ul > li > a,
-.content > div > ol > li > a,
-.content > div > p > code > a {
+.content>div>p>a,
+.content>div>ul>li>a,
+.content>div>ol>li>a,
+.content>div>p>code>a {
   font-weight: 700 !important;
   text-decoration: underline !important;
   color: rgba(theme-color('dark'), 1) !important;
 }
 
-.content > div > p > a:hover,
-.content > div > ul > li > a:hover,
-.content > div > ol > li > a:hover,
-.content > div > code > a:hover,
-.content > div > p > code > a:hover {
+.content>div>p>a:hover,
+.content>div>ul>li>a:hover,
+.content>div>ol>li>a:hover,
+.content>div>code>a:hover,
+.content>div>p>code>a:hover {
   color: rgba(theme-color('primary'), 1) !important;
 }
 
@@ -542,7 +541,7 @@ a.kg-bookmark-container {
 }
 
 .navbar-shadow {
-  box-shadow: 0 0.5rem 1rem 0 rgba($dark, 0.1);
+  box-shadow: 0 0.5rem 1rem 0 rgba($dark, 0.08);
 }
 
 .pt-5rem {

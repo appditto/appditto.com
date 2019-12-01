@@ -1,6 +1,5 @@
 <template>
-  <div class="pt-5rem">
-    <Navbar id="navbarPostPage" :isBlog="true" />
+  <div>
     <b-container fluid class="my-container-medium pt-4 pt-md-5">
       <main>
         <h1>{{ post.title }}</h1>
@@ -8,7 +7,7 @@
           {{ formatDate(post.published_at) }} • {{ post.reading_time }} min read
         </p>
         <div class="content">
-          <div v-lazy-load="post.html"></div>
+          <div v-html="post.html"></div>
         </div>
       </main>
       <Divider />
@@ -16,58 +15,19 @@
     <b-container fluid class="my-container-big">
       <BlogSection :posts="posts" :isPostPage="true" />
     </b-container>
-    <Footer />
   </div>
 </template>
 <script>
-import Navbar from '~/components/Navbar.vue'
-import Footer from '~/components/Footer.vue'
 import Divider from '~/components/Divider.vue'
 import BlogSection from '~/components/sections/BlogSection.vue'
 import { getSinglePost } from '~/api/posts'
 import { getPosts } from '~/api/posts'
 
 export default {
+  layout: 'blog',
   components: {
-    Navbar,
-    Footer,
     Divider,
     BlogSection
-  },
-  mounted() {
-    // Initial state
-    var scrollPos = 0
-    const navbar = document.getElementById('navbarPostPage')
-    // Adding scroll event
-    window.addEventListener('scroll', function() {
-      // Detects new state and compares it with the new one
-      if (
-        window.pageYOffset < 50 ||
-        document.body.getBoundingClientRect().top > scrollPos + 10
-      ) {
-        navbar.style.marginTop = '0rem'
-      } else if (
-        window.pageYOffset >= 100 &&
-        document.body.getBoundingClientRect().top < scrollPos - 10
-      ) {
-        navbar.style.marginTop = '-6rem'
-      }
-      // Saves the new position for iteration.
-      scrollPos = document.body.getBoundingClientRect().top
-
-      // navbar shadow
-      if (
-        window.pageYOffset >= 50 &&
-        !navbar.classList.contains('navbar-shadow')
-      ) {
-        navbar.classList.add('navbar-shadow')
-      } else if (
-        window.pageYOffset < 50 &&
-        navbar.classList.contains('navbar-shadow')
-      ) {
-        navbar.classList.remove('navbar-shadow')
-      }
-    })
   },
   methods: {
     formatDate(date) {

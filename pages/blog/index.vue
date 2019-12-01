@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar :isBlog="true" />
     <b-container fluid class="my-container-big">
       <!-- Small Screens -->
       <div class="d-md-none">
@@ -114,19 +113,15 @@
         </b-row>
       </div>
     </b-container>
-    <Footer />
   </div>
 </template>
 <script>
-import Navbar from '~/components/Navbar.vue'
-import Footer from '~/components/Footer.vue'
 import BlogCard from '~/components/BlogCard.vue'
 import { getPosts } from '~/api/posts'
 
 export default {
+  layout: 'blog',
   components: {
-    Navbar,
-    Footer,
     BlogCard
   },
   async asyncData() {
