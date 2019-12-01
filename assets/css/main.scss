@@ -540,6 +540,7 @@ a.kg-bookmark-container {
   position: fixed;
   top: 0;
   transition: all 0.4s ease;
+  z-index: 10000;
 }
 
 .navbar-shadow {
