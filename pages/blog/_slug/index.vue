@@ -11,6 +11,10 @@
           <div v-lazy-load="post.html"></div>
         </div>
       </main>
+      <Divider />
+    </b-container>
+    <b-container fluid class="my-container-big">
+      <BlogSection :posts="posts" :isPostPage="true" />
     </b-container>
     <Footer />
   </div>
@@ -18,14 +22,17 @@
 <script>
 import Navbar from '~/components/Navbar.vue'
 import Footer from '~/components/Footer.vue'
-import BlogCard from '~/components/BlogCard.vue'
+import Divider from '~/components/Divider.vue'
+import BlogSection from '~/components/sections/BlogSection.vue'
 import { getSinglePost } from '~/api/posts'
+import { getPosts } from '~/api/posts'
 
 export default {
   components: {
     Navbar,
     Footer,
-    BlogCard
+    Divider,
+    BlogSection
   },
   mounted() {
     // Initial state
@@ -90,8 +97,15 @@ export default {
   },
   async asyncData({ params }) {
     const post = await getSinglePost(params.slug)
-    console.log(post)
-    return { post: post }
+    const posts = await getPosts('4')
+    let postThree = []
+    console.log(posts)
+    posts.forEach(singlePost => {
+      if (singlePost.slug != params.slug) {
+        postThree.push(singlePost)
+      }
+    })
+    return { post: post, posts: postThree }
   },
   data() {
     return {

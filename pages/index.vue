@@ -44,7 +44,7 @@ export default {
     Footer
   },
   async asyncData() {
-    const posts = await getPosts()
+    const posts = await getPosts('all')
     return { posts: posts }
   },
   data() {

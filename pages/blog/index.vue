@@ -16,7 +16,7 @@
               "
               :alt="post.title"
               :title="post.title"
-              :url="post.slug"
+              :url="'blog/' + post.slug"
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
@@ -37,7 +37,7 @@
               "
               :alt="post.title"
               :title="post.title"
-              :url="post.slug"
+              :url="'blog/' + post.slug"
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
@@ -53,7 +53,7 @@
               "
               :alt="post.title"
               :title="post.title"
-              :url="post.slug"
+              :url="'blog/' + post.slug"
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
@@ -74,7 +74,7 @@
               "
               :alt="post.title"
               :title="post.title"
-              :url="post.slug"
+              :url="'blog/' + post.slug"
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
@@ -90,7 +90,7 @@
               "
               :alt="post.title"
               :title="post.title"
-              :url="post.slug"
+              :url="'blog/' + post.slug"
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
@@ -106,7 +106,7 @@
               "
               :alt="post.title"
               :title="post.title"
-              :url="post.slug"
+              :url="'blog/' + post.slug"
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
@@ -130,7 +130,7 @@ export default {
     BlogCard
   },
   async asyncData() {
-    const posts = await getPosts()
+    const posts = await getPosts('all')
     return { posts: posts }
   },
   data() {

@@ -1,6 +1,6 @@
 <template>
   <b-row align-h="center" class="p-3">
-    <nuxt-link :to="{ path: 'blog/' + url }" class="w-100">
+    <nuxt-link :to="{ path: url }" class="w-100">
       <div class="blog-card overflow-hidden bg-light">
         <b-row align-h="center">
           <b-col>
