@@ -1,6 +1,8 @@
 @font-face {
   font-family: 'Metropolis';
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
   src: url('~assets/fonts/Metropolis-Regular.eot');
   src: url('~assets/fonts/Metropolis-Regular.eot?#iefix') format('embedded-opentype'),
     url('~assets/fonts/Metropolis-Regular.woff2') format('woff2'),
@@ -11,6 +13,8 @@
 @font-face {
   font-family: 'Metropolis';
   font-weight: 700;
+  font-style: normal;
+  font-display: swap;
   src: url('~assets/fonts/Metropolis-Bold.eot');
   src: url('~assets/fonts/Metropolis-Bold.eot?#iefix') format('embedded-opentype'),
     url('~assets/fonts/Metropolis-Bold.woff2') format('woff2'),
@@ -21,6 +25,8 @@
 @font-face {
   font-family: 'Metropolis';
   font-weight: 800;
+  font-style: normal;
+  font-display: swap;
   src: url('~assets/fonts/Metropolis-ExtraBold.eot');
   src: url('~assets/fonts/Metropolis-ExtraBold.eot?#iefix') format('embedded-opentype'),
     url('~assets/fonts/Metropolis-ExtraBold.woff2') format('woff2'),
@@ -31,8 +37,9 @@
 /* lora-regular - latin */
 @font-face {
   font-family: 'Lora';
-  font-style: normal;
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
   src: url('~assets/fonts/Lora-Regular.eot');
   /* IE9 Compat Modes */
   src: url('~assets/fonts/Lora-Regular.eot?#iefix') format('embedded-opentype'),
@@ -52,6 +59,7 @@
   font-family: 'Lora';
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
   src: url('~assets/fonts/Lora-Bold.eot');
   /* IE9 Compat Modes */
   src: url('~assets/fonts/Lora-Bold.eot?#iefix') format('embedded-opentype'),
@@ -69,6 +77,8 @@
 @font-face {
   font-family: "Butler";
   font-weight: 700;
+  font-style: normal;
+  font-display: swap;
   src: url('~assets/fonts/Butler-Bold.eot');
   src: url('~assets/fonts/Butler-Bold.eot?#iefix') format("embedded-opentype"),
     url('~assets/fonts/Butler-Bold.woff2') format("woff2"),
@@ -79,8 +89,9 @@
 /* lora-regular - latin */
 @font-face {
   font-family: 'FiraMono';
-  font-style: normal;
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
   src: url('~assets/fonts/FiraMono-Regular.eot');
   /* IE9 Compat Modes */
   src: url('~assets/fonts/FiraMono-Regular.eot?#iefix') format('embedded-opentype'),
@@ -98,8 +109,9 @@
 /* FiraMono-700 - latin */
 @font-face {
   font-family: 'FiraMono';
-  font-style: normal;
   font-weight: 700;
+  font-style: normal;
+  font-display: swap;
   src: url('~assets/fonts/FiraMono-Bold.eot');
   /* IE9 Compat Modes */
   src: url('~assets/fonts/FiraMono-Bold.eot?#iefix') format('embedded-opentype'),
