@@ -18,7 +18,7 @@ export default {
    */
   loading: {
     color: '#4082ff',
-    height: '6px',
+    height: '4px',
     failed: '#ff6351',
   },
   /*
