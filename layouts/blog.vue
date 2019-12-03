@@ -1,7 +1,7 @@
 <template>
   <div class="pt-5rem">
     <Navbar :isBlog="true" id="navbarPostPage" />
-    <nuxt />
+    <nuxt class="mh100" />
     <Footer />
   </div>
 </template>
@@ -11,6 +11,9 @@
 *:before,
 *:after {
   margin: 0;
+}
+.mh100 {
+  min-height: 100vh;
 }
 .page-enter-active,
 .page-leave-active {

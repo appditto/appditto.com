@@ -1,16 +1,19 @@
 <template>
   <div>
     <Navbar />
-    <nuxt />
+    <nuxt class="mh100" />
     <Footer />
   </div>
 </template>
 
-<style>
+<style scoped>
 *,
 *:before,
 *:after {
   margin: 0;
+}
+.mh100 {
+  min-height: 100vh;
 }
 </style>
 
