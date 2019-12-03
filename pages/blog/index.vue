@@ -134,7 +134,7 @@ export default {
         "We're building beautiful apps for businesses in record time and writing stories all about apps.",
       blogPageTitle: 'Appditto | Blog',
       blogPagePreview: 'https://appditto.com/images/blog-preview.jpg',
-      blogPageThemeColor: '#4082FF'
+      blogPageThemeColor: '#4082ff'
     }
   },
   head() {
@@ -206,7 +206,7 @@ export default {
         // Windows 8 IE 10
         {
           name: 'msapplication-TileColor',
-          content: '#FFFFFF'
+          content: this.blogPageThemeColor
         },
         {
           name: 'msapplication-TileImage',

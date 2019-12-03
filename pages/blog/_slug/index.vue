@@ -22,7 +22,6 @@ import Divider from '~/components/Divider.vue'
 import BlogSection from '~/components/sections/BlogSection.vue'
 import { getSinglePost } from '~/api/posts'
 import { getPosts } from '~/api/posts'
-import lazySizes from 'lazysizes'
 
 export default {
   layout: 'blog',
@@ -69,7 +68,7 @@ export default {
   },
   data() {
     return {
-      postPageThemeColor: '#FFFFFF'
+      postPageThemeColor: '#4082ff'
     }
   },
   head() {

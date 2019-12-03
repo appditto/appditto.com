@@ -51,7 +51,7 @@ export default {
         "We're building beautiful apps for businesses in record time, using cutting-edge tech.",
       homePageTitle: 'Appditto | Beautiful apps in record time',
       homePagePreview: 'https://appditto.com/images/preview.jpg',
-      homePageThemeColor: '#4082FF'
+      homePageThemeColor: '#4082ff'
     }
   },
   head() {
@@ -123,7 +123,7 @@ export default {
         // Windows 8 IE 10
         {
           name: 'msapplication-TileColor',
-          content: '#FFFFFF'
+          content: this.homePageThemeColor
         },
         {
           name: 'msapplication-TileImage',
