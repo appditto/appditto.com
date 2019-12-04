@@ -82,7 +82,7 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Desktop-HD-Copy-7" transform="translate(0.000000, -2556.000000)">
             <g id="Group-19" transform="translate(-16.000000, 2564.000000)">
-                <g id="Combined-Shape">
+                <g id="Combined-Shape-1">
                     <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
                 </g>
@@ -93,7 +93,7 @@
                     <tspan x="1089" y="224">Fantastic app, works great </tspan>
                     <tspan x="1089" y="244">and super easy to use</tspan>
                 </text>
-                <g id="Combined-Shape">
+                <g id="Combined-Shape-2">
                     <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
                 </g>
@@ -103,7 +103,7 @@
                 <text id="Sleek-and-simple-to" opacity="0.75" font-family="Metropolis-Regular, Metropolis" font-size="12" font-weight="normal" line-spacing="20" letter-spacing="-0.0221052635" fill="#383C44">
                     <tspan x="876" y="194">Sleek and simple to use.</tspan>
                 </text>
-                <g id="Combined-Shape">
+                <g id="Combined-Shape-3">
                     <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-5"></use>
                 </g>
@@ -113,7 +113,7 @@
                 <text id="Sleek-and-profession" opacity="0.75" font-family="Metropolis-Regular, Metropolis" font-size="12" font-weight="normal" line-spacing="20" letter-spacing="-0.0221052635" fill="#383C44">
                     <tspan x="357" y="193">Sleek and professional!</tspan>
                 </text>
-                <g id="Combined-Shape">
+                <g id="Combined-Shape-4">
                     <use fill="black" fill-opacity="1" filter="url(#filter-8)" xlink:href="#path-7"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-7"></use>
                 </g>
@@ -123,7 +123,7 @@
                 <text id="Just-perfect." opacity="0.75" font-family="Metropolis-Regular, Metropolis" font-size="12" font-weight="normal" line-spacing="20" letter-spacing="-0.0221052635" fill="#383C44">
                     <tspan x="452" y="32">Just perfect.</tspan>
                 </text>
-                <g id="Combined-Shape">
+                <g id="Combined-Shape-5">
                     <use fill="black" fill-opacity="1" filter="url(#filter-10)" xlink:href="#path-9"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-9"></use>
                 </g>
@@ -134,7 +134,7 @@
                     <tspan x="682" y="42">Sleek design, easy to use, and well written code. </tspan>
                     <tspan x="682" y="62">Oh, and I love the paper wallet feature.</tspan>
                 </text>
-                <g id="Combined-Shape">
+                <g id="Combined-Shape-6">
                     <use fill="black" fill-opacity="1" filter="url(#filter-12)" xlink:href="#path-11"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-11"></use>
                 </g>
@@ -144,7 +144,7 @@
                 <text id="Great,-fast,-always" opacity="0.75" font-family="Metropolis-Regular, Metropolis" font-size="12" font-weight="normal" line-spacing="20" letter-spacing="-0.0221052635" fill="#383C44">
                     <tspan x="1276" y="179">Great, fast, always works.</tspan>
                 </text>
-                <g id="Combined-Shape">
+                <g id="Combined-Shape-7">
                     <use fill="black" fill-opacity="1" filter="url(#filter-14)" xlink:href="#path-13"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-13"></use>
                 </g>
@@ -157,7 +157,7 @@
                 <text id="Nate-Ryan" opacity="0.6" font-family="Metropolis-Bold, Metropolis" font-size="14" font-weight="bold" line-spacing="20" letter-spacing="-0.0257894741" fill="#383C44">
                     <tspan x="1287.84611" y="127">Nate Ryan</tspan>
                 </text>
-                <g id="Combined-Shape">
+                <g id="Combined-Shape-8">
                     <use fill="black" fill-opacity="1" filter="url(#filter-16)" xlink:href="#path-15"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-15"></use>
                 </g>
@@ -168,7 +168,7 @@
                     <tspan x="599" y="242">Fast, reliable, easy to use and looks great. </tspan>
                     <tspan x="599" y="262">What more could you want?</tspan>
                 </text>
-                <g id="Combined-Shape">
+                <g id="Combined-Shape-9">
                     <use fill="black" fill-opacity="1" filter="url(#filter-18)" xlink:href="#path-17"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-17"></use>
                 </g>
@@ -179,7 +179,7 @@
                     <tspan x="529" y="111">Amazing UI, great security, push notifications, </tspan>
                     <tspan x="529" y="131">I’m not sure I could ask for anything else.</tspan>
                 </text>
-                <g id="Combined-Shape">
+                <g id="Combined-Shape-10">
                     <use fill="black" fill-opacity="1" filter="url(#filter-20)" xlink:href="#path-19"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-19"></use>
                 </g>
@@ -189,7 +189,7 @@
                 <text id="Works-great,-easy-an" opacity="0.75" font-family="Metropolis-Regular, Metropolis" font-size="12" font-weight="normal" line-spacing="20" letter-spacing="-0.0221052635" fill="#383C44">
                     <tspan x="28" y="163">Works great, easy and fast, excellent design!</tspan>
                 </text>
-                <g id="Combined-Shape">
+                <g id="Combined-Shape-11">
                     <use fill="black" fill-opacity="1" filter="url(#filter-22)" xlink:href="#path-21"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-21"></use>
                 </g>
@@ -200,7 +200,7 @@
                     <tspan x="125" y="47">Really great working wallet. And it looks beautiful, </tspan>
                     <tspan x="125" y="67">love it! Best crypto wallet app I’ve seen so far.</tspan>
                 </text>
-                <g id="Combined-Shape">
+                <g id="Combined-Shape-12">
                     <use fill="black" fill-opacity="1" filter="url(#filter-24)" xlink:href="#path-23"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-23"></use>
                 </g>
