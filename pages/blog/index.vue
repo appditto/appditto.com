@@ -139,6 +139,9 @@ export default {
   },
   head() {
     return {
+      htmlAttrs: {
+        lang: 'en'
+      },
       title: this.blogPageTitle,
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
