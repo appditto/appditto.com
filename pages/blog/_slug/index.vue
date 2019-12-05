@@ -100,7 +100,10 @@ export default {
         // Facebook Meta Tags
         {
           property: 'og:url',
-          content: this.post.url
+          content: this.post.url.replace(
+            'ghost.appditto.com',
+            'appditto.com/blog'
+          )
         },
         {
           property: 'og:type',
