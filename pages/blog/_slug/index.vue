@@ -23,6 +23,11 @@ import BlogSection from '~/components/sections/BlogSection.vue'
 import { getSinglePost } from '~/api/posts'
 import { getPosts } from '~/api/posts'
 
+// Import postscribe only in browser
+if (process.client) {
+  var postscribe = require('postscribe');
+}
+
 export default {
   layout: 'blog',
   components: {
@@ -55,6 +60,12 @@ export default {
       return formattedDate
     }
   },
+  mounted() {
+    // Load any gists/scripts
+    for (var key in this.scriptReplaceMap) {
+      postscribe(`#gist_${key}`, this.scriptReplaceMap[key]);
+    }
+  },
   async asyncData({ params }) {
     let post = await getSinglePost(params.slug)
     const posts = await getPosts('4')
@@ -64,7 +75,18 @@ export default {
         postThree.push(singlePost)
       }
     })
-    return { post: post, posts: postThree }
+    // Find all script tags
+    let scriptRegex = /<script(.*?)<\/script>/g
+    let result;
+    let ret = {}
+    let i = 0
+    // Replace scripts with a placeholder, we'll defer loading until later
+    post.html.match(scriptRegex).forEach((element) => {
+      post.html = post.html.replace(element, `<div id="gist_${i}">&nbsp</div>`)
+      ret[i] = element  
+      i++    
+    })
+    return { post: post, posts: postThree, scriptReplaceMap: ret }
   },
   data() {
     return {
