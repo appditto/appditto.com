@@ -25,7 +25,7 @@ import { getPosts } from '~/api/posts'
 
 // Import postscribe only in browser
 if (process.client) {
-  var postscribe = require('postscribe');
+  var postscribe = require('postscribe')
 }
 
 export default {
@@ -63,7 +63,7 @@ export default {
   mounted() {
     // Load any gists/scripts
     for (var key in this.scriptReplaceMap) {
-      postscribe(`#gist_${key}`, this.scriptReplaceMap[key]);
+      postscribe(`#gist_${key}`, this.scriptReplaceMap[key])
     }
   },
   async asyncData({ params }) {
@@ -77,15 +77,20 @@ export default {
     })
     // Find all script tags
     let scriptRegex = /<script(.*?)<\/script>/g
-    let result;
+    let result
     let ret = {}
     let i = 0
     // Replace scripts with a placeholder, we'll defer loading until later
-    post.html.match(scriptRegex).forEach((element) => {
-      post.html = post.html.replace(element, `<div id="gist_${i}">&nbsp</div>`)
-      ret[i] = element  
-      i++    
-    })
+    if (post.html.match(scriptRegex)) {
+      post.html.match(scriptRegex).forEach(element => {
+        post.html = post.html.replace(
+          element,
+          `<div id="gist_${i}">&nbsp</div>`
+        )
+        ret[i] = element
+        i++
+      })
+    }
     return { post: post, posts: postThree, scriptReplaceMap: ret }
   },
   data() {
