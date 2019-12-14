@@ -303,10 +303,33 @@ pre {
   border: solid 1px rgba($dark, 0.1);
 }
 
+
 // Ghost styles
-$font-size-p: 1.2rem;
-$font-size-line-height: 2rem;
-$font-size-code: 1rem;
+
+@mixin font-size-p() {
+  font-size: 1.1rem;
+
+  @include respond-above(md) {
+    font-size: 1.2rem;
+  }
+}
+
+@mixin font-size-code() {
+  font-size: 0.9rem;
+
+  @include respond-above(md) {
+    font-size: 1rem;
+  }
+}
+
+@mixin font-line-height-p() {
+  line-height: 1.8rem;
+
+  @include respond-above(md) {
+    line-height: 2rem;
+  }
+}
+
 $font-family-p: 'Lora',
 serif;
 $header-height: 5rem;
@@ -360,8 +383,8 @@ strong {
 }
 
 .content>div>p {
-  font-size: $font-size-p;
-  line-height: $font-size-line-height;
+  @include font-size-p;
+  @include font-line-height-p;
   font-family: $font-family-p;
   font-weight: 400;
   margin-top: 1.5rem;
@@ -370,8 +393,8 @@ strong {
 
 .content>div>ul,
 .content>div>ol {
-  font-size: $font-size-p !important;
-  line-height: $font-size-line-height;
+  @include font-size-p;
+  @include font-line-height-p;
   font-family: $font-family-p !important;
   font-weight: 400 !important;
   margin-top: 1.5rem;
@@ -391,23 +414,25 @@ strong {
   color: rgba(theme-color('dark'), 1) !important;
   background-color: rgba(theme-color('dark'), 0.05);
   padding: 0.15rem 0.45rem;
-  font-size: $font-size-code;
+  @include font-size-code;
   border-radius: 0.25rem;
   border: solid 1px rgba(theme-color('dark'), 0.1);
-  line-height: $font-size-line-height;
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
+  @include font-line-height-p;
+  margin-left: 0.15rem;
+  margin-right: 0.15rem;
 }
 
 .content>div>pre {
   color: rgba(theme-color('dark'), 1) !important;
   background-color: rgba(theme-color('dark'), 0.05);
   padding: 0.75rem 1.25rem;
-  font-size: $font-size-code;
+  @include font-size-code;
   border-radius: 0.25rem;
   border: solid 1px rgba(theme-color('dark'), 0.1);
-  line-height: $font-size-line-height;
+  @include font-line-height-p;
   margin-top: 1.5rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
 }
 
 code {
