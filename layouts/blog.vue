@@ -11,6 +11,8 @@
 *:before,
 *:after {
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .mh100 {
   min-height: 100vh;

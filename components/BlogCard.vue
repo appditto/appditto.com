@@ -4,13 +4,15 @@
       <div class="blog-card overflow-hidden bg-light">
         <b-row align-h="center">
           <b-col>
+            <div class="blog-card-image-container">
+              <img :src="img" :alt="alt" class="blog-card-image" />
+            </div>
             <div class="px-4 pt-4 pb-2">
               <h5 class="text-dark w700">{{ title }}</h5>
               <p class="op-50 text-dark">
                 {{ formatDate(date) }} • {{ readingTime }} min read
               </p>
             </div>
-            <img :src="img" :alt="alt" class="w-100" />
           </b-col>
         </b-row>
       </div>
