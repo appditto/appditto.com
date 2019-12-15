@@ -55,14 +55,14 @@ h5 {
 
 .blog-card {
   border-radius: 0.6rem;
-  box-shadow: 0 1.5rem 3rem -0.5rem rgba($dark, 0.08);
+  box-shadow: 0 1.5rem 3rem -0.5rem rgba($dark, 0.1);
   transition: all 0.25s ease;
   transform: scale(1);
 }
 
 .blog-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 2rem 4rem -0.66 rgba($dark, 0.04);
+  box-shadow: 0 2rem 4rem -0.66rem rgba($dark, 0.2);
 }
 
 .blog-card-image-container {
@@ -364,6 +364,12 @@ $header-height: 5rem;
 
 .kg-image-card {
   text-align: center;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  @include respond-above(md) {
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
 }
 
 .embedly-card {
@@ -375,6 +381,8 @@ figcaption {
   font-size: 0.9rem;
   opacity: 0.6;
   margin-top: 0.75rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 main > h1 {
