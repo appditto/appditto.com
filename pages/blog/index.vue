@@ -151,7 +151,6 @@ export default {
   },
   async asyncData() {
     const posts = await getPosts('all')
-    console.log(posts)
     return { posts: posts }
   },
   data() {
