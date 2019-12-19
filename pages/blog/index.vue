@@ -61,10 +61,29 @@
       </div>
       <!-- Large Screens -->
       <div class="d-none d-lg-block">
-        <b-row class="py-4 px-5">
+        <b-row class="pt-4 px-5">
+          <b-col>
+            <BlogCardWide
+              :img="
+                posts[0].feature_image.split('images')[0] +
+                  'images/size/w600' +
+                  posts[0].feature_image.split('images')[1]
+              "
+              :alt="posts[0].title"
+              :title="posts[0].title"
+              :excerpt="posts[0].excerpt"
+              :url="'/blog/' + posts[0].slug"
+              :date="posts[0].published_at"
+              :readingTime="posts[0].reading_time"
+            />
+          </b-col>
+        </b-row>
+        <b-row class="pb-4 px-5">
           <b-col>
             <BlogCard
-              v-for="(post, index) in posts.filter((a, i) => i % 3 === 0)"
+              v-for="(post, index) in posts
+                .slice(1)
+                .filter((a, i) => i % 3 === 0)"
               :key="index"
               :img="
                 post.feature_image.split('images')[0] +
@@ -80,7 +99,9 @@
           </b-col>
           <b-col>
             <BlogCard
-              v-for="(post, index) in posts.filter((a, i) => i % 3 === 1)"
+              v-for="(post, index) in posts
+                .slice(1)
+                .filter((a, i) => i % 3 === 1)"
               :key="index"
               :img="
                 post.feature_image.split('images')[0] +
@@ -96,7 +117,9 @@
           </b-col>
           <b-col>
             <BlogCard
-              v-for="(post, index) in posts.filter((a, i) => i % 3 === 2)"
+              v-for="(post, index) in posts
+                .slice(1)
+                .filter((a, i) => i % 3 === 2)"
               :key="index"
               :img="
                 post.feature_image.split('images')[0] +
@@ -117,15 +140,18 @@
 </template>
 <script>
 import BlogCard from '~/components/BlogCard.vue'
+import BlogCardWide from '~/components/BlogCardWide.vue'
 import { getPosts } from '~/api/posts'
 
 export default {
   layout: 'blog',
   components: {
-    BlogCard
+    BlogCard,
+    BlogCardWide
   },
   async asyncData() {
     const posts = await getPosts('all')
+    console.log(posts)
     return { posts: posts }
   },
   data() {
