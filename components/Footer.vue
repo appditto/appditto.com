@@ -10,7 +10,7 @@
       <SocialButton name="Dribbble" url="dribbble.com/appditto" />
     </b-row>
     <b-row align-h="center" class="mt-4">
-      <p class="text-center text-white w700">© {{year}}, Appditto LLC.</p>
+      <p class="text-center text-white w700">© 2020, Appditto LLC.</p>
     </b-row>
   </b-container>
 </template>
@@ -21,12 +21,6 @@ export default Vue.extend({
   name: 'Footer',
   components: {
     SocialButton
-  },
-  data() {
-    var d = new Date()
-    return {
-      year: d.getFullYear()
-    }
   }
 })
 </script>
