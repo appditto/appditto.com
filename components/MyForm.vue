@@ -12,21 +12,18 @@
           >
             <!-- Success State -->
             <b-row align-h="center" v-if="formSuccess && !formFail">
-              <b-col cols="12" class="d-flex justify-content-center"
-                ><h4
+              <b-col cols="12" class="d-flex justify-content-center">
+                <h4
                   class="text-light w800 mx-2 text-center"
                   :class="{ 'text-danger': hasNameError }"
                 >
-                  Thanks for reaching out!<br class="d-none d-lg-block" />
-                  We'll get back to you soon.
-                </h4></b-col
-              >
-              <b-col cols="12" class="d-flex justify-content-center"
-                ><img
-                  src="~assets/images/misc-icons/tick.svg"
-                  alt="Tick"
-                  class="mt-2 tick"
-              /></b-col>
+                  Thanks for reaching out!
+                  <br class="d-none d-lg-block" />We'll get back to you soon.
+                </h4>
+              </b-col>
+              <b-col cols="12" class="d-flex justify-content-center">
+                <img src="~assets/images/misc-icons/tick.svg" alt="Tick" class="mt-2 tick" />
+              </b-col>
               <b-col cols="12" lg="8">
                 <b-btn
                   variant="light"
@@ -34,27 +31,20 @@
                   rounded
                   @click="turnFormToIdle"
                   class="w800 px-4 mt-4 grow-2 text-success btn-shdw-dark w-100"
-                >
-                  Send Another Message
-                </b-btn>
+                >Send Another Message</b-btn>
               </b-col>
             </b-row>
             <!-- Error State-->
             <b-row align-h="center" v-if="!formSuccess && formFail">
-              <b-col cols="12" class="d-flex justify-content-center"
-                ><h5
+              <b-col cols="12" class="d-flex justify-content-center">
+                <h5
                   class="text-white w800 mx-2 text-center"
                   :class="{ 'text-danger': hasNameError }"
-                >
-                  Something went wrong. Please try again.
-                </h5></b-col
-              >
-              <b-col cols="12" class="d-flex justify-content-center"
-                ><img
-                  src="~assets/images/misc-icons/error.svg"
-                  alt="Error"
-                  class="mt-2 tick"
-              /></b-col>
+                >Something went wrong. Please try again.</h5>
+              </b-col>
+              <b-col cols="12" class="d-flex justify-content-center">
+                <img src="~assets/images/misc-icons/error.svg" alt="Error" class="mt-2 tick" />
+              </b-col>
               <b-col cols="12" lg="6">
                 <b-btn
                   variant="light"
@@ -62,20 +52,13 @@
                   rounded
                   @click="turnFormToIdle"
                   class="w800 px-4 mt-4 grow-2 text-danger btn-shdw-dark w-100"
-                >
-                  Try Again
-                </b-btn>
+                >Try Again</b-btn>
               </b-col>
             </b-row>
             <!-- Idle State-->
             <b-row align-h="center" v-if="!formSuccess && !formFail">
               <b-col cols="12" md="6" class="mt-3">
-                <h5
-                  class="text-primary w800 mx-2"
-                  :class="{ 'text-danger': hasNameError }"
-                >
-                  Name
-                </h5>
+                <h5 class="text-primary w800 mx-2" :class="{ 'text-danger': hasNameError }">Name</h5>
                 <div class="form-group">
                   <input
                     class="form-control"
@@ -90,18 +73,11 @@
                   <small
                     class="text-danger"
                     :style="{ visibility: hasNameError ? 'visible' : 'hidden' }"
-                  >
-                    Name is required
-                  </small>
+                  >Name is required</small>
                 </div>
               </b-col>
               <b-col cols="12" md="6" class="mt-3">
-                <h5
-                  class="text-primary w800 mx-2"
-                  :class="{ 'text-danger': hasEmailError }"
-                >
-                  Email
-                </h5>
+                <h5 class="text-primary w800 mx-2" :class="{ 'text-danger': hasEmailError }">Email</h5>
                 <div class="form-group">
                   <input
                     class="form-control"
@@ -117,18 +93,14 @@
                     :style="{
                       visibility: hasEmailError ? 'visible' : 'hidden'
                     }"
-                  >
-                    Invalid email
-                  </small>
+                  >Invalid email</small>
                 </div>
               </b-col>
               <b-col cols="12" class="mt-2">
                 <h5
                   class="text-primary w800 mx-2"
                   :class="{ 'text-danger': hasMessageError }"
-                >
-                  Message
-                </h5>
+                >Message</h5>
                 <div class="form-group">
                   <textarea
                     class="form-control"
@@ -144,9 +116,7 @@
                     :style="{
                       visibility: hasMessageError ? 'visible' : 'hidden'
                     }"
-                  >
-                    Message must be at least 50 characters
-                  </small>
+                  >Message must be at least 50 characters</small>
                 </div>
               </b-col>
               <b-col cols="12" lg="6" class="d-flex justify-content-center">
@@ -239,15 +209,15 @@ export default Vue.extend({
       this.formSuccess = true
       this.formFail = false
       formCard.style.transform = 'scale(0.9)'
-      formCard.style.borderColor = '#2EE093'
-      formCard.style.backgroundColor = '#2EE093'
+      formCard.style.borderColor = '#00998C'
+      formCard.style.backgroundColor = '#00998C'
     },
     turnFormToIdle() {
       var formCard = document.getElementById('formCard')
       this.formSuccess = false
       this.formFail = false
       formCard.style.transform = 'scale(1)'
-      formCard.style.borderColor = '#4082ff'
+      formCard.style.borderColor = '#515EFF'
       formCard.style.backgroundColor = '#ffffff'
     },
     turnFormToFail() {

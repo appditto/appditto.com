@@ -1,8 +1,8 @@
-$theme-colors: ('primary': #4082ff,
+$theme-colors: ('primary': #515EFF,
   'danger': #ff6351,
   'dark': #383c44,
   'light': #ffffff,
-  'success': #2ee093);
+  'success': #00998C);
 @import 'mixins.scss';
 // Include Bootstrap and BootstrapVue SCSS files
 @import '~bootstrap/scss/bootstrap.scss';
@@ -694,4 +694,18 @@ a.kg-bookmark-container {
 
 .break-word {
   word-break: break-word;
+}
+
+.bg-gradient{
+  background: rgb(64,130,255);
+  background: linear-gradient(135deg, rgba(64,130,255,1) 0%, rgba(96,64,255,1) 100%);
+}
+
+.btn-primary{
+  @include bg-button-gradient();
+  border: none;
+}
+
+.btn-primary:hover{
+  border: none;
 }

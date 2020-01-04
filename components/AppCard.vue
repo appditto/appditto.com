@@ -3,7 +3,7 @@
     <a :href="'https://' + website" target="_blank">
       <div class="my-card">
         <b-col class="p-0">
-          <div class="my-card-top bg-primary py-3">
+          <div class="my-card-top bg-gradient py-3">
             <b-col>
               <b-row align-h="center">
                 <img
@@ -21,9 +21,7 @@
           </div>
           <div class="my-card-bottom py-4 px-2">
             <b-col>
-              <p class="text-center text-primary w700 h5">
-                User Rating
-              </p>
+              <p class="text-center text-primary w700 h5">User Rating</p>
               <b-row align-h="center">
                 <img
                   :src="
@@ -41,11 +39,13 @@
                   size="lg"
                   rounded
                   class="mt-3 mx-2 grow-2 btn-shdw-primary px-2"
-                  ><img
+                >
+                  <img
                     src="~/assets/images/buttons/playstore-button.svg"
                     alt="Play Store Button"
                     class="store-button"
-                /></b-btn>
+                  />
+                </b-btn>
                 <b-btn
                   :href="'https://' + appStore"
                   target="_blank"
@@ -53,11 +53,13 @@
                   size="lg"
                   rounded
                   class="mt-3 mx-2 grow-2 btn-shdw-primary px-2"
-                  ><img
+                >
+                  <img
                     src="~/assets/images/buttons/appstore-button.svg"
                     alt="App Store Button"
                     class="store-button"
-                /></b-btn>
+                  />
+                </b-btn>
               </b-row>
             </b-col>
           </div>

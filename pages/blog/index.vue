@@ -158,8 +158,8 @@ export default {
       blogPageDescription:
         "We're building beautiful apps for businesses in record time and writing stories all about apps.",
       blogPageTitle: 'Appditto | Blog',
-      blogPagePreview: 'https://appditto.com/images/blog-preview.jpg',
-      blogPageThemeColor: '#4082ff'
+      blogPagePreview: 'https://appditto.com/images/blog-preview.png',
+      blogPageThemeColor: '#515EFF'
     }
   },
   head() {

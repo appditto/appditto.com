@@ -95,7 +95,7 @@ export default {
   },
   data() {
     return {
-      postPageThemeColor: '#4082ff'
+      postPageThemeColor: '#515EFF'
     }
   },
   head() {

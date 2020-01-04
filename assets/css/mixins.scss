@@ -23,3 +23,8 @@
     @warn 'Invalid grid-breakpoint: #{$grid-breakpoint}.';
   }
 }
+
+@mixin bg-button-gradient() {
+  background: rgb(64,130,255);
+  background: linear-gradient(135deg, rgba(64,130,255,1) 0%, rgba(96,64,255,1) 100%);
+}

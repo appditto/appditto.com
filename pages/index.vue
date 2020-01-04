@@ -1,7 +1,7 @@
 <template>
   <div>
+    <HeroSection />
     <b-container fluid class="my-container-big">
-      <HeroSection />
       <SingleCodeBaseSection />
       <FastAndEfficientSection />
       <CuttingEdgeTechSection />
@@ -50,8 +50,8 @@ export default {
       homePageDescription:
         "We're building beautiful apps for businesses in record time, using cutting-edge tech.",
       homePageTitle: 'Appditto | Beautiful apps in record time',
-      homePagePreview: 'https://appditto.com/images/preview.jpg',
-      homePageThemeColor: '#4082ff'
+      homePagePreview: 'https://appditto.com/images/preview.png',
+      homePageThemeColor: '#515EFF'
     }
   },
   head() {
