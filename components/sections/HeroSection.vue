@@ -2,8 +2,7 @@
   <section class="bg-hero pt-5 position-relative" id="landing">
     <b-container fluid class="my-container-big pt-5 pt-md-4 px-md-5 position-relative">
       <div class="circle-app-icon"></div>
-      <div class="waterdrop-app-icon d-none d-md-block"></div>
-      <div class="waterdrop-app-icon-small d-md-none"></div>
+      <div class="waterdrop-app-icon"></div>
       <div class="square-app-icon d-none d-lg-block"></div>
       <b-row align-v="center" align-h="center" class="pl-md-1">
         <b-col cols="12" md="6" class="pb-lg-5 mb-md-4 mb-lg-5 pl-lg-4">
@@ -49,10 +48,15 @@ export default Vue.extend({
 
 <style scoped>
 .bg-hero {
-  background-image: url('~assets/images/bg-hero.svg');
+  background-image: url('~assets/images/bg-hero-small.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 70% 100%;
+}
+@media only screen and (min-width: 768px) {
+  .bg-hero {
+    background-image: url('~assets/images/bg-hero.svg');
+  }
 }
 .iphone {
   position: absolute;
@@ -117,18 +121,18 @@ export default Vue.extend({
     rgba(80, 95, 255, 1) 100%
   );
   animation-name: moveAndRotate;
-  animation-duration: 6s;
+  animation-duration: 8s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   transform: translateY(0) rotateZ(0deg);
 }
 
-.waterdrop-app-icon,
-.waterdrop-app-icon-small {
+.waterdrop-app-icon {
   position: absolute;
   width: 5rem;
   height: 5rem;
-  top: 5rem;
+  left: calc(60% + 2.5rem);
+  top: 2.5rem;
   border-radius: 3.5rem 3.5rem 1rem 3.5rem;
   background: rgb(64, 130, 255);
   background: linear-gradient(
@@ -137,20 +141,17 @@ export default Vue.extend({
     rgba(84, 88, 255, 1) 100%
   );
   animation-name: moveAndRotate;
-  animation-duration: 8s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   transform: translateY(0) rotateZ(0deg);
 }
 
-.waterdrop-app-icon {
-  left: calc(25% + 2.5rem);
-  top: 5rem;
-}
-
-.waterdrop-app-icon-small {
-  left: calc(60% + 2.5rem);
-  top: 2.5rem;
+@media only screen and (min-width: 992px) {
+  .waterdrop-app-icon {
+    left: calc(25% + 2.5rem);
+    top: 5rem;
+  }
 }
 
 .square-app-icon {
@@ -167,7 +168,7 @@ export default Vue.extend({
     rgba(85, 87, 255, 1) 100%
   );
   animation-name: moveAndRotate;
-  animation-duration: 10s;
+  animation-duration: 12s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   transform: translateY(0) rotateZ(0deg);
@@ -184,16 +185,41 @@ export default Vue.extend({
     transform: translateY(0) rotateZ(0deg);
   }
 }
-
+@media only screen and (min-width: 768px) {
+  @keyframes iphone {
+    0% {
+      transform: translateY(0) rotateZ(0deg);
+    }
+    50% {
+      transform: translateY(-2.5rem) rotateZ(-2deg);
+    }
+    100% {
+      transform: translateY(0) rotateZ(0deg);
+    }
+  }
+}
 @keyframes iphone {
   0% {
     transform: translateY(0) rotateZ(0deg);
   }
   50% {
-    transform: translateY(-2.5rem) rotateZ(-2deg);
+    transform: translateY(-2rem) rotateZ(-2deg);
   }
   100% {
     transform: translateY(0) rotateZ(0deg);
+  }
+}
+@media only screen and (min-width: 768px) {
+  @keyframes galaxy {
+    0% {
+      transform: translateY(0) rotateZ(0deg);
+    }
+    50% {
+      transform: translateY(-2.5rem) rotateZ(1.5deg);
+    }
+    100% {
+      transform: translateY(0) rotateZ(0deg);
+    }
   }
 }
 @keyframes galaxy {
@@ -201,7 +227,7 @@ export default Vue.extend({
     transform: translateY(0) rotateZ(0deg);
   }
   50% {
-    transform: translateY(-2.5rem) rotateZ(1.5deg);
+    transform: translateY(-2rem) rotateZ(1.5deg);
   }
   100% {
     transform: translateY(0) rotateZ(0deg);
