@@ -106,7 +106,7 @@ export default {
       homePageDescription:
         'We respect your privacy and understand that it is very important.',
       homePageTitle: 'Appditto | Natrium Privacy Policy',
-      homePagePreview: 'https://appditto.com/images/preview.png',
+      homePagePreview: 'https://appditto.com/images/privacypolicy-preview.png',
       homePageThemeColor: '#515EFF'
     }
   },
