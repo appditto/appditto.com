@@ -21,7 +21,6 @@ export async function getPosts(count) {
       resultWithoutPolicies.push(item)
     }
   });
-  console.log(result)
   return resultWithoutPolicies
 }
 
@@ -43,7 +42,6 @@ export async function getNatriumPrivacyPolicy() {
     .catch(err => {
       console.error(err)
     });
-  console.log(result)
   return result
 }
 
@@ -55,7 +53,6 @@ export async function getNatriumEULA() {
     .catch(err => {
       console.error(err)
     });
-  console.log(result)
   return result
 }
 
@@ -67,7 +64,6 @@ export async function getKaliumPrivacyPolicy() {
     .catch(err => {
       console.error(err)
     });
-  console.log(result)
   return result
 }
 
@@ -79,7 +75,6 @@ export async function getKaliumEULA() {
     .catch(err => {
       console.error(err)
     });
-  console.log(result)
   return result
 }
 
@@ -91,7 +86,6 @@ export async function getBlaisePrivacyPolicy() {
     .catch(err => {
       console.error(err)
     });
-  console.log(result)
   return result
 }
 
@@ -103,7 +97,6 @@ export async function getBlaiseEULA() {
     .catch(err => {
       console.error(err)
     });
-  console.log(result)
   return result
 }
 
