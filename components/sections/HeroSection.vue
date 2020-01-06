@@ -5,7 +5,7 @@
       <div class="waterdrop-app-icon"></div>
       <div class="square-app-icon d-none d-lg-block"></div>
       <b-row align-v="center" align-h="center" class="pl-md-1">
-        <b-col cols="12" md="6" class="pb-lg-5 mb-md-4 mb-lg-5 pl-lg-4">
+        <b-col cols="12" md="6" class="pb-lg-5 mb-md-5 pl-lg-4">
           <h1 class="text-center text-md-left w700 mt-3 text-light">
             We build beautiful apps,
             <br class="d-none d-xl-block" />in record time.
