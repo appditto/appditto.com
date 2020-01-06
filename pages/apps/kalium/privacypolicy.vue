@@ -1,27 +1,27 @@
 <template>
   <div class="py-5">
     <b-container fluid class="my-container-medium py-4">
-      <h1 class="text-center w700 h2">{{natriumPrivacyPolicy.title}}</h1>
+      <h1 class="text-center w700 h2">{{kaliumPrivacyPolicy.title}}</h1>
       <div class="content">
-        <div v-html="natriumPrivacyPolicy.html"></div>
+        <div v-html="kaliumPrivacyPolicy.html"></div>
       </div>
     </b-container>
   </div>
 </template>
 <script>
-import { getNatriumPrivacyPolicy } from '~/api/posts'
+import { getKaliumPrivacyPolicy } from '~/api/posts'
 export default {
   layout: 'policy',
   components: {},
   async asyncData() {
-    const natriumPrivacyPolicy = await getNatriumPrivacyPolicy()
-    return { natriumPrivacyPolicy: natriumPrivacyPolicy }
+    const kaliumPrivacyPolicy = await getKaliumPrivacyPolicy()
+    return { kaliumPrivacyPolicy: kaliumPrivacyPolicy }
   },
   data() {
     return {
       homePageDescription:
         'We respect your privacy and understand that it is very important. Check out our privacy policy to understand how we handle it.',
-      homePageTitle: 'Appditto | Natrium Privacy Policy',
+      homePageTitle: 'Appditto | Kalium Privacy Policy',
       homePagePreview: 'https://appditto.com/images/privacypolicy-preview.png',
       homePageThemeColor: '#515EFF'
     }

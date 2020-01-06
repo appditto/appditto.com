@@ -46,3 +46,40 @@ export async function getNatriumPrivacyPolicy() {
   console.log(result)
   return result
 }
+
+export async function getNatriumEULA() {
+  let result = await api.posts
+    .read({
+      id: '5e131ba76458685aeb1dc6f0'
+    })
+    .catch(err => {
+      console.error(err)
+    });
+  console.log(result)
+  return result
+}
+
+export async function getKaliumPrivacyPolicy() {
+  let result = await api.posts
+    .read({
+      id: '5e1321066458685aeb1dc70b'
+    })
+    .catch(err => {
+      console.error(err)
+    });
+  console.log(result)
+  return result
+}
+
+export async function getKaliumEULA() {
+  let result = await api.posts
+    .read({
+      id: '5e1321ae6458685aeb1dc71c'
+    })
+    .catch(err => {
+      console.error(err)
+    });
+  console.log(result)
+  return result
+}
+

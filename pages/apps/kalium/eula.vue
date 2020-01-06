@@ -1,28 +1,28 @@
 <template>
   <div class="py-5">
     <b-container fluid class="my-container-medium py-4">
-      <h1 class="text-center w700 h2">{{natriumPrivacyPolicy.title}}</h1>
+      <h1 class="text-center w700 h2">{{kaliumEULA.title}}</h1>
       <div class="content">
-        <div v-html="natriumPrivacyPolicy.html"></div>
+        <div v-html="kaliumEULA.html"></div>
       </div>
     </b-container>
   </div>
 </template>
 <script>
-import { getNatriumPrivacyPolicy } from '~/api/posts'
+import { getKaliumEULA } from '~/api/posts'
 export default {
   layout: 'policy',
   components: {},
   async asyncData() {
-    const natriumPrivacyPolicy = await getNatriumPrivacyPolicy()
-    return { natriumPrivacyPolicy: natriumPrivacyPolicy }
+    const kaliumEULA = await getKaliumEULA()
+    return { kaliumEULA: kaliumEULA }
   },
   data() {
     return {
       homePageDescription:
-        'We respect your privacy and understand that it is very important. Check out our privacy policy to understand how we handle it.',
-      homePageTitle: 'Appditto | Natrium Privacy Policy',
-      homePagePreview: 'https://appditto.com/images/privacypolicy-preview.png',
+        'Kalium is owned, operated and released by Appditto. This end user license agreement is a binding agreement between us and our users.',
+      homePageTitle: 'Appditto | Kalium End User License Agreement ',
+      homePagePreview: 'https://appditto.com/images/eula-preview.png',
       homePageThemeColor: '#515EFF'
     }
   },
