@@ -83,3 +83,27 @@ export async function getKaliumEULA() {
   return result
 }
 
+export async function getBlaisePrivacyPolicy() {
+  let result = await api.posts
+    .read({
+      id: '5e1323a96458685aeb1dc731'
+    })
+    .catch(err => {
+      console.error(err)
+    });
+  console.log(result)
+  return result
+}
+
+export async function getBlaiseEULA() {
+  let result = await api.posts
+    .read({
+      id: '5e1324686458685aeb1dc742'
+    })
+    .catch(err => {
+      console.error(err)
+    });
+  console.log(result)
+  return result
+}
+
