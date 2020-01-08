@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="px-0 pb-1" v-bind:class="{'homeNavbar':!isBlog} ">
+  <b-container fluid class="px-0 pb-1" v-bind:class="{'homeNavbar':!isBlog&&!isErrorPage } ">
     <div class="my-container-big">
       <b-row align-h="between" align-v="center" class="py-3 px-2">
         <nuxt-link v-if="!isBlog" to="/">
@@ -32,7 +32,8 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'Navbar',
   props: {
-    isBlog: false
+    isBlog: false,
+    isErrorPage: false
   }
 })
 </script>

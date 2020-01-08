@@ -2,7 +2,7 @@
   <div>
     <Navbar />
     <nuxt class="mh100" />
-    <Footer />
+    <Footer :hasBackground="true" :hasTopMargin="true" />
   </div>
 </template>
 

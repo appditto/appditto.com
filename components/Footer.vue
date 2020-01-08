@@ -1,5 +1,9 @@
 <template>
-  <b-container fluid class="bg-gradient pt-4 pb-1 mt-5">
+  <b-container
+    fluid
+    class="pt-4 pb-1"
+    v-bind:class="{'bg-gradient': hasBackground, 'mt-5': hasTopMargin}"
+  >
     <b-row align-h="center">
       <SocialButton name="Twitter" url="twitter.com/appditto" />
       <SocialButton name="Medium" url="medium.com/@appditto" />
@@ -19,6 +23,10 @@ import Vue from 'vue'
 import SocialButton from '~/components/SocialButton.vue'
 export default Vue.extend({
   name: 'Footer',
+  props: {
+    hasBackground: true,
+    hasTopMargin: true
+  },
   components: {
     SocialButton
   }

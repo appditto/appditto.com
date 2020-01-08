@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt class="mh100" />
+    <nuxt />
   </div>
 </template>
 
@@ -9,8 +9,5 @@
 *:before,
 *:after {
   margin: 0;
-}
-.mh100 {
-  min-height: 100vh;
 }
 </style>

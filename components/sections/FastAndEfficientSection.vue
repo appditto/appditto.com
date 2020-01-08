@@ -41,7 +41,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 .fast-and-efficient {
   position: absolute;
   left: 0;

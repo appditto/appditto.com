@@ -2,7 +2,7 @@
   <div class="pt-5rem">
     <Navbar :isBlog="true" id="navbarPostPage" />
     <nuxt class="mh100" />
-    <Footer />
+    <Footer :hasBackground="true" :hasTopMargin="true" />
   </div>
 </template>
 
