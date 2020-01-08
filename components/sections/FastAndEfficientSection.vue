@@ -13,7 +13,23 @@
         </h5>
       </b-col>
       <b-col cols="11" md="5" class="mt-4 mt-md-0" order="1" order-md="2">
-        <img src="~/assets/images/fast-efficient.svg" alt="Fast and efficient" class="w-100" />
+        <div class="w-100 position-relative">
+          <img
+            src="~/assets/images/fast-and-efficient/fast-and-efficient-layer-0.svg"
+            alt="Fast And Efficient Layer 0"
+            class="w-100"
+          />
+          <img
+            src="~/assets/images/fast-and-efficient/fast-and-efficient-layer-1.svg"
+            alt="Fast And Efficient Layer 1"
+            class="fast-and-efficient fast-and-efficient-layer-1"
+          />
+          <img
+            src="~/assets/images/fast-and-efficient/fast-and-efficient-layer-2.svg"
+            alt="Fast And Efficient Layer 2"
+            class="fast-and-efficient fast-and-efficient-layer-2"
+          />
+        </div>
       </b-col>
     </b-row>
   </section>
@@ -24,3 +40,41 @@ export default Vue.extend({
   name: 'FastAndEfficientSection'
 })
 </script>
+
+<style>
+.fast-and-efficient {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.fast-and-efficient-layer-1 {
+  transform: translateY(-0.5rem);
+  animation-name: feScaleAndMoveAnimation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-origin: left center;
+}
+.fast-and-efficient-layer-2 {
+  transform: translateY(-0.5rem);
+  animation-name: feScaleAndMoveAnimation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-origin: right center;
+  animation-delay: 1s;
+}
+@keyframes feScaleAndMoveAnimation {
+  0% {
+    transform: translateY(-0.5rem);
+  }
+  50% {
+    transform: translateY(0.5rem);
+  }
+  100% {
+    transform: translateY(-0.5rem);
+  }
+}
+</style>

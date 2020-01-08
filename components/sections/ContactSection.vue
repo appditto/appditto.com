@@ -4,7 +4,19 @@
       <b-col cols="12">
         <b-row align-h="center">
           <b-col cols="12" md="5">
-            <img src="~/assets/images/chat.svg" alt="Chat" class="w-100" />
+            <div class="w-100 position-relative">
+              <img src="~/assets/images/chat/chat-layer-0.svg" alt="Chat Layer 0" class="w-100" />
+              <img
+                src="~/assets/images/chat/chat-layer-1.svg"
+                alt="Chat Layer 1"
+                class="chat chat-layer-1"
+              />
+              <img
+                src="~/assets/images/chat/chat-layer-2.svg"
+                alt="Chat Layer 2"
+                class="chat chat-layer-2"
+              />
+            </div>
           </b-col>
         </b-row>
         <h2 class="w800 text-center">Want to have a chat?</h2>
@@ -53,3 +65,41 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style scoped>
+.chat {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.chat-layer-1 {
+  transform: translateY(-0.3rem) scale(1);
+  animation-name: chatAnimation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-origin: left bottom;
+}
+.chat-layer-2 {
+  transform: translateY(-0.3rem) scale(1);
+  animation-name: chatAnimation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-origin: right bottom;
+  animation-delay: 1s;
+}
+@keyframes chatAnimation {
+  0% {
+    transform: translateY(-0.3rem) scale(1);
+  }
+  50% {
+    transform: translateY(0.3rem) scale(0.98);
+  }
+  100% {
+    transform: translateY(-0.3rem) scale(1);
+  }
+}
+</style>
