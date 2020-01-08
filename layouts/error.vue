@@ -20,7 +20,10 @@
             <h1 class="text-white w700 h1 text-center">Oops...</h1>
             <h2 class="text-white w400 h5 text-center">This page doesn't exist.</h2>
           </div>
-          <h1 class="text-white w700 h3 text-center mt-40" v-else>An error occurred</h1>
+          <div v-else class="mt-3 mt-md-4">
+            <h1 class="text-white w700 h1 text-center">Oops...</h1>
+            <h2 class="text-white w400 h5 text-center">An error occurred.</h2>
+          </div>
           <b-row align-h="center" align-v="center">
             <nuxt-link to="/">
               <b-btn
