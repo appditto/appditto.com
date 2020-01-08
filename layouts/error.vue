@@ -3,7 +3,7 @@
     <Navbar :isErrorPage="true" />
     <b-container
       fluid
-      class="my-container-big flex-grow-100 d-flex align-items-center justify-content-center my-5"
+      class="my-container-big flex-grow-100 d-flex align-items-center justify-content-center my-5 mx-auto"
     >
       <b-row align-h="center" align-v="center">
         <b-col cols="12">
@@ -24,12 +24,12 @@
             <h1 class="text-white w700 h1 text-center">Oops...</h1>
             <h2 class="text-white w400 h5 text-center">An error occurred.</h2>
           </div>
-          <b-row align-h="center" align-v="center">
+          <b-row align-h="center" align-v="center" class="mt-4">
             <nuxt-link to="/">
               <b-btn
                 rounded
                 size="lg"
-                class="w800 grow-2 btn-light text-primary btn-shadow-dark px-4 px-md-5 mt-2"
+                class="w800 grow-2 btn-light text-primary btn-shadow-dark px-4 px-md-5"
               >Go Back Home</b-btn>
             </nuxt-link>
           </b-row>
