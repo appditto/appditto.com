@@ -18,11 +18,11 @@
           </b-row>
           <div v-if="error.statusCode === 404" class="mt-3 mt-md-4">
             <h1 class="text-white w700 h1 text-center">Oops...</h1>
-            <h2 class="text-white w400 h5 text-center">This page doesn't exist.</h2>
+            <h2 class="text-white w400 h5 text-center mt-2">This page doesn't exist.</h2>
           </div>
           <div v-else class="mt-3 mt-md-4">
             <h1 class="text-white w700 h1 text-center">Oops...</h1>
-            <h2 class="text-white w400 h5 text-center">An error occurred.</h2>
+            <h2 class="text-white w400 h5 text-center mt-2">An error occurred.</h2>
           </div>
           <b-row align-h="center" align-v="center" class="mt-4">
             <nuxt-link to="/">
