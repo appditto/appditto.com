@@ -5,7 +5,7 @@
         <b-row align-h="center">
           <b-col>
             <div class="blog-card-image-container">
-              <img :src="img" :alt="alt" class="blog-card-image" />
+              <v-lazy-image :src="img" :alt="alt" class="blog-card-image" />
             </div>
             <div class="px-4 pt-4 pb-2">
               <h5 class="text-dark w700">{{ title }}</h5>
@@ -19,8 +19,12 @@
 </template>
 <script>
 import Vue from 'vue'
+import VLazyImage from 'v-lazy-image'
 export default Vue.extend({
   name: 'BlogCard',
+  components: {
+    VLazyImage
+  },
   props: {
     title: null,
     alt: null,
