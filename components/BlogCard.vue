@@ -9,9 +9,7 @@
             </div>
             <div class="px-4 pt-4 pb-2">
               <h5 class="text-dark w700">{{ title }}</h5>
-              <p class="op-50 text-dark">
-                {{ formatDate(date) }} • {{ readingTime }} min read
-              </p>
+              <p class="op-75 text-dark">{{ formatDate(date) }} • {{ readingTime }} min read</p>
             </div>
           </b-col>
         </b-row>

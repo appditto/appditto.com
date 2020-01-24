@@ -1,6 +1,6 @@
 <template>
   <b-col cols="12" md="4" class="mt-4 mt-md-0">
-    <a :href="'https://' + website" target="_blank">
+    <a :href="'https://' + website" target="_blank" rel="noopener">
       <div class="my-card">
         <b-col class="p-0">
           <div class="my-card-top bg-gradient py-3">
@@ -35,6 +35,7 @@
                 <b-btn
                   :href="'https://' + playStore"
                   target="_blank"
+                  rel="noopener"
                   variant="primary"
                   size="lg"
                   rounded
@@ -49,6 +50,7 @@
                 <b-btn
                   :href="'https://' + appStore"
                   target="_blank"
+                  rel="noopener"
                   variant="primary"
                   size="lg"
                   rounded

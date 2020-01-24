@@ -3,9 +3,7 @@
     <b-container fluid class="my-container-medium pt-4 pt-md-5">
       <main>
         <h1>{{ post.title }}</h1>
-        <p class="op-50 mt-0">
-          {{ formatDate(post.published_at) }} • {{ post.reading_time }} min read
-        </p>
+        <p class="op-75 mt-0">{{ formatDate(post.published_at) }} • {{ post.reading_time }} min read</p>
         <div class="content">
           <div v-html="post.html"></div>
         </div>

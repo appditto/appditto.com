@@ -3,9 +3,7 @@
     <nuxt-link :to="{ path: url }" class="w-100">
       <div class="blog-card overflow-hidden bg-light">
         <b-row align-h="center" align-v="center" class="d-flex">
-          <div
-            class="blog-card-wide-image-container d-flex justify-content-center pl-3"
-          >
+          <div class="blog-card-wide-image-container d-flex justify-content-center pl-3">
             <img :src="img" :alt="alt" class="blog-card-wide-image" />
           </div>
           <b-col>
@@ -13,12 +11,8 @@
               <div class="pl-4 pr-5 py-4">
                 <div class="position-relative">
                   <div class="blog-card-wide-text">
-                    <h4 class="text-dark w700 break-word">
-                      {{ title }}
-                    </h4>
-                    <p class="op-50 text-dark">
-                      {{ formatDate(date) }} • {{ readingTime }} min read
-                    </p>
+                    <h4 class="text-dark w700 break-word">{{ title }}</h4>
+                    <p class="op-75 text-dark">{{ formatDate(date) }} • {{ readingTime }} min read</p>
                     <p class="text-dark mb-0">{{ excerpt }}</p>
                   </div>
                   <div class="text-gradient"></div>

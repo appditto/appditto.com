@@ -1,5 +1,5 @@
 <template>
-  <a :href="'https://' + url" target="_blank" class="grow-1">
+  <a :href="'https://' + url" target="_blank" rel="noopener" class="grow-1">
     <img
       :src="
         require('~/assets/images/social-icons/' +
