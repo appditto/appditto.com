@@ -79,9 +79,11 @@ export default {
     let result
     let ret = {}
     let i = 0
-    let reg_cloudinary = new RegExp('https://ghost.appditto.com/content/', 'g')
-    let reg_kgimage = new RegExp('class="kg-image', 'g')
-    let reg_imgsrc = new RegExp('<img src=', 'g')
+    let reg_cloudinary = new RegExp(
+      '<img src="https://ghost.appditto.com/content/',
+      'g'
+    )
+    let reg_kgimage = new RegExp('class="kg-image"', 'g')
     let placeholderPath = require('~/assets/images/placeholder.svg')
     // Replace scripts with a placeholder, we'll defer loading until later
     if (post.html.match(scriptRegex)) {
@@ -96,13 +98,11 @@ export default {
     }
     post.html = post.html.replace(
       reg_cloudinary,
-      'https://res.cloudinary.com/appditto/image/fetch/q_70,f_auto/https://ghost.appditto.com/content/'
+      '<img src="' +
+        placeholderPath +
+        '" data-src="https://res.cloudinary.com/appditto/image/fetch/q_70,f_auto/https://ghost.appditto.com/content/'
     )
     post.html = post.html.replace(reg_kgimage, 'class="kg-image lazyload')
-    post.html = post.html.replace(
-      reg_imgsrc,
-      '<img ' + 'src="' + placeholderPath + '"' + ' data-src='
-    )
     return { post: post, posts: postThree, scriptReplaceMap: ret }
   },
   data() {
