@@ -96,7 +96,7 @@ export default {
     }
     post.html = post.html.replace(
       reg_cloudinary,
-      'https://res.cloudinary.com/appditto/image/fetch/q_70,f_auto,w_auto/https://ghost.appditto.com/content/'
+      'https://res.cloudinary.com/appditto/image/fetch/q_70,f_auto/https://ghost.appditto.com/content/'
     )
     post.html = post.html.replace(reg_kgimage, 'class="kg-image lazyload')
     post.html = post.html.replace(

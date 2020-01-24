@@ -7,7 +7,7 @@
             <div class="blog-card-image-container">
               <img
                 :src="require('~/assets/images/placeholder.svg')"
-                :data-src="'https://res.cloudinary.com/appditto/image/fetch/q_50,f_auto,w_auto/'+ img"
+                :data-src="'https://res.cloudinary.com/appditto/image/fetch/q_70,f_auto/'+ img"
                 :alt="alt"
                 class="blog-card-image lazyload"
               />
