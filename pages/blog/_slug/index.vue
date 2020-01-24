@@ -78,6 +78,7 @@ export default {
     let result
     let ret = {}
     let i = 0
+    let reg_cloudinary = new RegExp('https://ghost.appditto.com/content/', 'g')
     // Replace scripts with a placeholder, we'll defer loading until later
     if (post.html.match(scriptRegex)) {
       post.html.match(scriptRegex).forEach(element => {
@@ -89,6 +90,10 @@ export default {
         i++
       })
     }
+    post.html = post.html.replace(
+      reg_cloudinary,
+      'https://res.cloudinary.com/appditto/image/fetch/q_auto,f_auto,dpr_auto/https://ghost.appditto.com/content/'
+    )
     return { post: post, posts: postThree, scriptReplaceMap: ret }
   },
   data() {

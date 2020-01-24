@@ -4,7 +4,11 @@
       <div class="blog-card overflow-hidden bg-light">
         <b-row align-h="center" align-v="center" class="d-flex">
           <div class="blog-card-wide-image-container d-flex justify-content-center pl-3">
-            <img :src="img" :alt="alt" class="blog-card-wide-image" />
+            <img
+              :src="'https://res.cloudinary.com/appditto/image/fetch/q_auto,f_auto,dpr_auto/'+ img"
+              :alt="alt"
+              class="blog-card-wide-image"
+            />
           </div>
           <b-col>
             <div class="py-2">
