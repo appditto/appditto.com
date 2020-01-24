@@ -5,11 +5,11 @@
         <b-row align-h="center">
           <b-col>
             <div class="blog-card-image-container">
-              <v-lazy-image
-                :src-placeholder="require('~/assets/images/placeholder.svg')"
-                :src="'https://res.cloudinary.com/appditto/image/fetch/q_50,f_auto,w_auto/'+ img"
+              <img
+                :src="require('~/assets/images/placeholder.svg')"
+                :data-src="'https://res.cloudinary.com/appditto/image/fetch/q_50,f_auto,w_auto/'+ img"
                 :alt="alt"
-                class="blog-card-image"
+                class="blog-card-image lazyload"
               />
             </div>
             <div class="px-4 pt-4 pb-2">
@@ -24,12 +24,9 @@
 </template>
 <script>
 import Vue from 'vue'
-import VLazyImage from 'v-lazy-image'
+import 'lazysizes'
 export default Vue.extend({
   name: 'BlogCard',
-  components: {
-    VLazyImage
-  },
   props: {
     title: null,
     alt: null,
@@ -66,13 +63,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style scoped>
-.v-lazy-image {
-  opacity: 0.5;
-  transition: all 0.5s;
-}
-.v-lazy-image-loaded {
-  opacity: 1;
-}
-</style>

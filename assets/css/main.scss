@@ -710,3 +710,12 @@ a.kg-bookmark-container {
 .btn-primary:hover{
   border: none;
 }
+
+.lazyload,
+.lazyloading {
+	opacity: 0.5;
+}
+.lazyloaded {
+	opacity: 1;
+	transition: all 0.5s;
+}
