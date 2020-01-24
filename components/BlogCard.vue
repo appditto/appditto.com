@@ -5,7 +5,12 @@
         <b-row align-h="center">
           <b-col>
             <div class="blog-card-image-container">
-              <v-lazy-image :src="img" :alt="alt" class="blog-card-image" />
+              <v-lazy-image
+                :src-placeholder="require('~/assets/images/placeholder.svg')"
+                :src="img"
+                :alt="alt"
+                class="blog-card-image"
+              />
             </div>
             <div class="px-4 pt-4 pb-2">
               <h5 class="text-dark w700">{{ title }}</h5>
@@ -61,3 +66,13 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style scoped>
+.v-lazy-image {
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+.v-lazy-image-loaded {
+  opacity: 1;
+}
+</style>
