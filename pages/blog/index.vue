@@ -8,11 +8,7 @@
             <BlogCard
               v-for="(post, index) in posts"
               :key="index"
-              :img="
-                post.feature_image.split('images')[0] +
-                  'images/size/w600' +
-                  post.feature_image.split('images')[1]
-              "
+              :img="post.feature_image"
               :alt="post.title"
               :title="post.title"
               :url="'/blog/' + post.slug"
@@ -29,11 +25,7 @@
             <BlogCard
               v-for="(post, index) in posts.filter((a, i) => i % 2 === 0)"
               :key="index"
-              :img="
-                post.feature_image.split('images')[0] +
-                  'images/size/w600' +
-                  post.feature_image.split('images')[1]
-              "
+              :img="post.feature_image"
               :alt="post.title"
               :title="post.title"
               :url="'/blog/' + post.slug"
@@ -45,11 +37,7 @@
             <BlogCard
               v-for="(post, index) in posts.filter((a, i) => i % 2 === 1)"
               :key="index"
-              :img="
-                post.feature_image.split('images')[0] +
-                  'images/size/w600' +
-                  post.feature_image.split('images')[1]
-              "
+              :img="post.feature_image"
               :alt="post.title"
               :title="post.title"
               :url="'/blog/' + post.slug"
@@ -64,11 +52,7 @@
         <b-row class="pt-4 px-5">
           <b-col>
             <BlogCardWide
-              :img="
-                posts[0].feature_image.split('images')[0] +
-                  'images/size/w600' +
-                  posts[0].feature_image.split('images')[1]
-              "
+              :img="posts[0].feature_image"
               :alt="posts[0].title"
               :title="posts[0].title"
               :excerpt="posts[0].excerpt"
@@ -85,11 +69,7 @@
                 .slice(1)
                 .filter((a, i) => i % 3 === 0)"
               :key="index"
-              :img="
-                post.feature_image.split('images')[0] +
-                  'images/size/w600' +
-                  post.feature_image.split('images')[1]
-              "
+              :img="post.feature_image"
               :alt="post.title"
               :title="post.title"
               :url="'/blog/' + post.slug"
@@ -103,11 +83,7 @@
                 .slice(1)
                 .filter((a, i) => i % 3 === 1)"
               :key="index"
-              :img="
-                post.feature_image.split('images')[0] +
-                  'images/size/w600' +
-                  post.feature_image.split('images')[1]
-              "
+              :img="post.feature_image"
               :alt="post.title"
               :title="post.title"
               :url="'/blog/' + post.slug"
@@ -121,11 +97,7 @@
                 .slice(1)
                 .filter((a, i) => i % 3 === 2)"
               :key="index"
-              :img="
-                post.feature_image.split('images')[0] +
-                  'images/size/w600' +
-                  post.feature_image.split('images')[1]
-              "
+              :img="post.feature_image"
               :alt="post.title"
               :title="post.title"
               :url="'/blog/' + post.slug"

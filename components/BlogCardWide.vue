@@ -5,7 +5,7 @@
         <b-row align-h="center" align-v="center" class="d-flex">
           <div class="blog-card-wide-image-container d-flex justify-content-center pl-3">
             <img
-              :src="'https://res.cloudinary.com/appditto/image/fetch/q_auto,f_auto,dpr_auto/'+ img"
+              :src="'https://res.cloudinary.com/appditto/image/fetch/q_70,f_auto,w_auto/'+ img"
               :alt="alt"
               class="blog-card-wide-image"
             />

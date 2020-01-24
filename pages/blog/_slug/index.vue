@@ -92,7 +92,7 @@ export default {
     }
     post.html = post.html.replace(
       reg_cloudinary,
-      'https://res.cloudinary.com/appditto/image/fetch/q_auto,f_auto,dpr_auto/https://ghost.appditto.com/content/'
+      'https://res.cloudinary.com/appditto/image/fetch/q_70,f_auto,w_auto/https://ghost.appditto.com/content/'
     )
     return { post: post, posts: postThree, scriptReplaceMap: ret }
   },

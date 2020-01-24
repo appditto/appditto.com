@@ -9,7 +9,7 @@ export default {
     },
     {
       'http-equiv': 'Accept-CH',
-      content: 'DPR'
+      content: 'DPR, Width'
     },
     {
       name: 'viewport',

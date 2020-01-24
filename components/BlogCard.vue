@@ -7,8 +7,9 @@
             <div class="blog-card-image-container">
               <v-lazy-image
                 :src-placeholder="require('~/assets/images/placeholder.svg')"
-                :src="'https://res.cloudinary.com/appditto/image/fetch/q_auto,f_auto,dpr_auto/'+ img"
+                :src="'https://res.cloudinary.com/appditto/image/fetch/q_50,f_auto,w_auto/'+ img"
                 :alt="alt"
+                sizes="100vw"
                 class="blog-card-image"
               />
             </div>
