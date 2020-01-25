@@ -83,7 +83,7 @@ export default {
       '<img src="https://ghost.appditto.com/content/',
       'g'
     )
-    let reg_kgimage = new RegExp('class="kg-image"', 'g')
+    let reg_kgimage = new RegExp('class="kg-image', 'g')
     let placeholderPath = require('~/assets/images/placeholder.svg')
     // Replace scripts with a placeholder, we'll defer loading until later
     if (post.html.match(scriptRegex)) {
