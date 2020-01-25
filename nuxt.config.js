@@ -52,6 +52,7 @@ export default {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    'nuxt-ssr-cache',
   ],
   /*
    ** Axios module configuration
@@ -86,5 +87,27 @@ export default {
         isDev
       }) => isDev ? '[path][name].[ext]' : 'videos/[name].[hash:7].[ext]'
     }
-  }
+  },
+  cache: {
+    useHostPrefix: false,
+    pages: [
+      '/',
+    ],
+
+    key(route, context) {
+      // custom function to return cache key, when used previous
+      // properties (useHostPrefix, pages) are ignored. return 
+      // falsy value to bypass the cache
+    },
+    store: {
+      type: 'memory',
+      // maximum number of pages to store in memory
+      // if limit is reached, least recently used page
+      // is removed.
+      max: 100,
+
+      // number of seconds to store this page in cache
+      ttl: 3600,
+    },
+  },
 }
