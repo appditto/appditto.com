@@ -16,8 +16,6 @@
   </div>
 </template>
 <script>
-import Divider from '~/components/Divider.vue'
-import BlogSection from '~/components/sections/BlogSection.vue'
 import { getSinglePost } from '~/api/posts'
 import { getPosts } from '~/api/posts'
 import 'lazysizes'
@@ -30,8 +28,8 @@ if (process.client) {
 export default {
   layout: 'blog',
   components: {
-    Divider,
-    BlogSection
+    Divider: () => import('~/components/Divider.vue'),
+    BlogSection: () => import('~/components/sections/BlogSection.vue')
   },
   methods: {
     formatDate(date) {

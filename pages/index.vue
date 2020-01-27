@@ -14,32 +14,21 @@
   </div>
 </template>
 <script>
-import HeroSection from '~/components/sections/HeroSection.vue'
-import SingleCodeBaseSection from '~/components/sections/SingleCodeBaseSection.vue'
-import FastAndEfficientSection from '~/components/sections/FastAndEfficientSection.vue'
-import CuttingEdgeTechSection from '~/components/sections/CuttingEdgeTechSection.vue'
-import AppsSection from '~/components/sections/AppsSection.vue'
-import BlogSection from '~/components/sections/BlogSection.vue'
-import ContactSection from '~/components/sections/ContactSection.vue'
-import Navbar from '~/components/Navbar.vue'
-import BlogCard from '~/components/BlogCard.vue'
-import Footer from '~/components/Footer.vue'
-import MyForm from '~/components/MyForm.vue'
 import { getPosts } from '~/api/posts'
 
 export default {
   components: {
-    HeroSection,
-    SingleCodeBaseSection,
-    FastAndEfficientSection,
-    CuttingEdgeTechSection,
-    AppsSection,
-    BlogSection,
-    ContactSection,
-    Navbar,
-    BlogCard,
-    MyForm,
-    Footer
+    HeroSection: () => import('~/components/sections/HeroSection.vue'),
+    SingleCodeBaseSection: () =>
+      import('~/components/sections/SingleCodeBaseSection.vue'),
+    FastAndEfficientSection: () =>
+      import('~/components/sections/FastAndEfficientSection.vue'),
+    CuttingEdgeTechSection: () =>
+      import('~/components/sections/CuttingEdgeTechSection.vue'),
+    AppsSection: () => import('~/components/sections/AppsSection.vue'),
+    BlogSection: () => import('~/components/sections/BlogSection.vue'),
+    ContactSection: () => import('~/components/sections/ContactSection.vue'),
+    BlogCard: () => import('~/components/BlogCard.vue')
   },
   async asyncData() {
     const posts = await getPosts('all')

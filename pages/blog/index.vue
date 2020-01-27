@@ -111,15 +111,13 @@
   </div>
 </template>
 <script>
-import BlogCard from '~/components/BlogCard.vue'
-import BlogCardWide from '~/components/BlogCardWide.vue'
 import { getPosts } from '~/api/posts'
 
 export default {
   layout: 'blog',
   components: {
-    BlogCard,
-    BlogCardWide
+    BlogCard: () => import('~/components/BlogCard.vue'),
+    BlogCardWide: () => import('~/components/BlogCardWide.vue')
   },
   async asyncData() {
     const posts = await getPosts('all')

@@ -18,12 +18,10 @@
 </style>
 
 <script>
-import Navbar from '~/components/Navbar.vue'
-import Footer from '~/components/Footer.vue'
 export default {
   components: {
-    Navbar,
-    Footer
+    Navbar: () => import('~/components/Navbar.vue'),
+    Footer: () => import('~/components/Footer.vue')
   }
 }
 </script>
