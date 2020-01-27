@@ -48,18 +48,11 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // Nuxt pwa module
-    '@nuxtjs/pwa',
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
   ],
-  pwa: {
-    manifest: {
-      name: 'Appditto',
-    }
-  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
