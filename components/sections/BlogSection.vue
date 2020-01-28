@@ -1,10 +1,12 @@
 <template>
-  <section class="pt-5 pb-4 px-md-5" id="blog">
-    <b-row align-h="center">
-      <b-col cols="12">
-        <h2 class="w800 text-center">{{ isPostPage ? 'More Articles' : 'Read Our Blog' }}</h2>
-      </b-col>
-      <b-col cols="12" md="6" lg="4">
+  <section class="py-8 md:py-12" id="blog">
+    <div class="flex flex-row flex-wrap justify-center">
+      <div class="flex flex-col w-full my-2">
+        <h2
+          class="text-3xl font-extrabold w-full text-center"
+        >{{ isPostPage ? 'More Articles' : 'Read Our Blog' }}</h2>
+      </div>
+      <div class="flex flex-col w-full md:w-1/2 lg:w-1/3">
         <BlogCard
           v-for="(post, index) in posts.slice(0, 1)"
           :key="index"
@@ -15,8 +17,8 @@
           :date="post.published_at"
           :readingTime="post.reading_time"
         />
-      </b-col>
-      <b-col cols="12" md="6" lg="4">
+      </div>
+      <div class="flex flex-col w-full md:w-1/2 lg:w-1/3">
         <BlogCard
           v-for="(post, index) in posts.slice(1, 2)"
           :key="index"
@@ -27,8 +29,8 @@
           :date="post.published_at"
           :readingTime="post.reading_time"
         />
-      </b-col>
-      <b-col cols="12" md="6" lg="4">
+      </div>
+      <div class="flex flex-col w-full md:w-1/2 lg:w-1/3">
         <BlogCard
           v-for="(post, index) in posts.slice(2, 3)"
           :key="index"
@@ -39,8 +41,8 @@
           :date="post.published_at"
           :readingTime="post.reading_time"
         />
-      </b-col>
-    </b-row>
+      </div>
+    </div>
   </section>
 </template>
 <script>

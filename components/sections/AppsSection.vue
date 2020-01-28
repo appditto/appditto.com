@@ -1,8 +1,8 @@
 <template>
-  <section class="py-5 mt-md-4" id="apps">
-    <b-container fluid class="my-container-big px-3">
-      <h2 class="w800 text-center">Check Out Our Apps</h2>
-      <b-row align-v="center" align-h="center" class="mt-0 mt-md-4">
+  <section class="px-5 py-12" id="apps">
+    <div class="container-xl md:mt-4">
+      <h2 class="text-3xl leading-tight font-extrabold text-center">Check Out Our Apps</h2>
+      <div class="flex flex-row flex-wrap justify-center items-center mt-0 mt-md-4">
         <AppCard
           website="natrium.io"
           playStore="play.google.com/store/apps/details?id=co.banano.natriumwallet"
@@ -24,8 +24,8 @@
           appName="Kalium"
           rating="4.5"
         />
-      </b-row>
-    </b-container>
+      </div>
+    </div>
     <Testimonials />
   </section>
 </template>

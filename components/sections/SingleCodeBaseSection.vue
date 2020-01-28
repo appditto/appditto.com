@@ -1,12 +1,14 @@
 <template>
-  <section class="py-4 py-md-5" id="single-codebase">
-    <b-row align-v="center" align-h="around">
-      <b-col cols="11" md="5" lg="4" class="mt-4 mt-md-0 px-0 pl-md-4">
-        <div class="w-100 position-relative">
+  <section id="single-codebase">
+    <div
+      class="flex flex-row flex-wrap justify-center md:justify-between items-center py-4 md:py-12"
+    >
+      <div class="flex flex-col w-11/12 md:w-5/12 lg:w-1/3">
+        <div class="w-full relative">
           <img
             src="~/assets/images/single-codebase/single-codebase-layer-0.svg"
             alt="Single Codebase Layer 0"
-            class="w-100"
+            class="w-full"
           />
           <img
             src="~/assets/images/single-codebase/single-codebase-layer-1.svg"
@@ -29,21 +31,19 @@
             class="single-codebase single-codebase-layer-4"
           />
         </div>
-      </b-col>
-      <b-col cols="12" md="7" class="px-md-4 px-lg-5">
-        <div class="pl-md-4">
-          <h2 class="text-center text-md-left w800 mt-2 mt-md-0">
-            Less maintenance,
-            <br />more
-            <span class="text-primary">uptime</span>.
-          </h2>
-          <h5 class="w400 mt-3">
-            The apps we build run natively both on iOS and Android, and they are
-            built from a single code base. That means less maintenance and downtime. So, you can focus on making your product or service better instead.
-          </h5>
-        </div>
-      </b-col>
-    </b-row>
+      </div>
+      <div class="flex flex-col w-full md:w-7/12 md:px-8 lg:px-12">
+        <h2 class="text-3xl leading-tight text-center md:text-left font-extrabold mt-3 md:mt-0">
+          Less maintenance,
+          <br />more
+          <span class="text-primary">uptime</span>.
+        </h2>
+        <h5 class="font-normal mt-3 text-xl">
+          The apps we build run natively both on iOS and Android, and they are
+          built from a single code base. That means less maintenance and downtime. So, you can focus on making your product or service better instead.
+        </h5>
+      </div>
+    </div>
   </section>
 </template>
 <script>

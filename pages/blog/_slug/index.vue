@@ -1,18 +1,20 @@
 <template>
   <div>
-    <b-container fluid class="my-container-medium pt-4 pt-md-5">
+    <div class="container-md mx-auto px-6 pt-6 md:pt-12">
       <main>
         <h1>{{ post.title }}</h1>
-        <p class="op-75 mt-0">{{ formatDate(post.published_at) }} • {{ post.reading_time }} min read</p>
+        <p
+          class="opacity-75 mt-0"
+        >{{ formatDate(post.published_at) }} • {{ post.reading_time }} min read</p>
         <div class="content">
           <div v-html="post.html"></div>
         </div>
       </main>
       <Divider />
-    </b-container>
-    <b-container fluid class="my-container-big">
+    </div>
+    <div class="container-xl px-6">
       <BlogSection :posts="posts" :isPostPage="true" />
-    </b-container>
+    </div>
   </div>
 </template>
 <script>

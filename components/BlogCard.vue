@@ -1,8 +1,8 @@
 <template>
-  <b-row align-h="center" class="p-3">
-    <nuxt-link :to="{ path: url }" class="w-100">
-      <div class="blog-card overflow-hidden bg-light">
-        <b-row align-h="center">
+  <div class="flex flex-row flex-wrap p-3">
+    <nuxt-link :to="{ path: url }" class="w-full">
+      <div class="blog-card bg-light">
+        <div class="flex flex-row flex-wrap">
           <b-col>
             <div class="blog-card-image-container">
               <img
@@ -12,15 +12,17 @@
                 class="blog-card-image lazyload"
               />
             </div>
-            <div class="px-4 pt-4 pb-2">
-              <h5 class="text-dark w700">{{ title }}</h5>
-              <p class="op-75 text-dark">{{ formatDate(date) }} • {{ readingTime }} min read</p>
+            <div class="px-6 py-6">
+              <h5 class="text-xl leading-snug text-dark font-bold">{{ title }}</h5>
+              <p
+                class="opacity-75 text-dark mt-2"
+              >{{ formatDate(date) }} • {{ readingTime }} min read</p>
             </div>
           </b-col>
-        </b-row>
+        </div>
       </div>
     </nuxt-link>
-  </b-row>
+  </div>
 </template>
 <script>
 import Vue from 'vue'

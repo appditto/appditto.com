@@ -1,11 +1,13 @@
 <template>
-  <div class="py-4 py-md-5">
-    <b-container fluid class="my-container-medium py-4">
-      <h1 class="text-center w700 h2">{{kaliumPrivacyPolicy.title}}</h1>
+  <div class="w-full">
+    <div class="container-md px-6 py-12 md:py-20">
+      <h1
+        class="text-3xl md:text-4xl leading-tight text-center font-bold"
+      >{{kaliumPrivacyPolicy.title}}</h1>
       <div class="content">
         <div v-html="kaliumPrivacyPolicy.html"></div>
       </div>
-    </b-container>
+    </div>
   </div>
 </template>
 <script>

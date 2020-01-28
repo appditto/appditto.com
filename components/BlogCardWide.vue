@@ -1,34 +1,27 @@
 <template>
-  <b-row align-h="center" class="p-3">
-    <nuxt-link :to="{ path: url }" class="w-100">
-      <div class="blog-card overflow-hidden bg-light">
-        <b-row align-h="center" align-v="center" class="d-flex">
-          <div class="blog-card-wide-image-container d-flex justify-content-center pl-3">
+  <div class="flex flex-row flex-wrap justify-center px-3">
+    <nuxt-link :to="{ path: url }" class="w-full">
+      <div class="blog-card bg-light">
+        <div class="flex flex-row justify-center items-stretch">
+          <div class="flex flex-col lg:w-1/3 relative overflow-hidden">
             <img
               :src="require('~/assets/images/placeholder.svg')"
               :data-src="'https://res.cloudinary.com/appditto/image/fetch/q_70,f_auto/'+ img"
               :alt="alt"
-              class="blog-card-wide-image lazyload"
+              class="lazyload absolute h-full object-cover"
             />
           </div>
-          <b-col>
-            <div class="py-2">
-              <div class="pl-4 pr-5 py-4">
-                <div class="position-relative">
-                  <div class="blog-card-wide-text">
-                    <h4 class="text-dark w700 break-word">{{ title }}</h4>
-                    <p class="op-75 text-dark">{{ formatDate(date) }} • {{ readingTime }} min read</p>
-                    <p class="text-dark mb-0">{{ excerpt }}</p>
-                  </div>
-                  <div class="text-gradient"></div>
-                </div>
-              </div>
-            </div>
-          </b-col>
-        </b-row>
+          <div class="flex flex-col lg:w-2/3 justify-center px-12 py-8">
+            <h4 class="text-2xl leading-snug text-dark font-bold break-words">{{ title }}</h4>
+            <p
+              class="text-normal opacity-75 text-dark mt-2"
+            >{{ formatDate(date) }} • {{ readingTime }} min read</p>
+            <p class="text-normal text-dark mt-4">{{ excerpt }}</p>
+          </div>
+        </div>
       </div>
     </nuxt-link>
-  </b-row>
+  </div>
 </template>
 <script>
 import Vue from 'vue'

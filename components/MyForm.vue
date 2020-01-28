@@ -1,67 +1,66 @@
 <template>
   <TransitionExpand>
     <div v-if="expanded">
-      <b-row align-h="center" class="px-1">
-        <form @submit="submitForm" class="col-12">
-          <b-col
-            cols="12"
-            md="10"
-            lg="8"
-            class="mx-auto mt-4 px-4 px-md-5 py-4 rounded-2"
-            id="formCard"
-          >
+      <div class="flex flex-row flex-wrap justify-center">
+        <form @submit="submitForm" class="w-full">
+          <div class="w-full md:w-11/12 lg:w-2/3 mx-auto mt-4 px-6 md:px-8 pt-6 pb-8" id="formCard">
             <!-- Success State -->
-            <b-row align-h="center" v-if="formSuccess && !formFail">
-              <b-col cols="12" class="d-flex justify-content-center">
+            <div class="flex flex-row flex-wrap justify-center" v-if="formSuccess && !formFail">
+              <div class="w-full">
                 <h4
-                  class="text-light w800 mx-2 text-center"
+                  class="text-2xl leading-snug text-light font-bold mx-2 text-center"
                   :class="{ 'text-danger': hasNameError }"
                 >
                   Thanks for reaching out!
-                  <br class="d-none d-lg-block" />We'll get back to you soon.
+                  <br class="hidden lg:block" />We'll get back to you soon.
                 </h4>
-              </b-col>
-              <b-col cols="12" class="d-flex justify-content-center">
-                <img src="~assets/images/misc-icons/tick.svg" alt="Tick" class="mt-2 tick" />
-              </b-col>
-              <b-col cols="12" lg="8">
-                <b-btn
-                  variant="light"
-                  size="lg"
-                  rounded
+              </div>
+              <div class="w-full">
+                <img
+                  src="~assets/images/misc-icons/tick.svg"
+                  alt="Tick"
+                  class="mt-4 w-24 h-24 mx-auto"
+                />
+              </div>
+              <div class="w-full lg:w-2/3">
+                <button
                   @click="turnFormToIdle"
-                  class="w800 px-4 mt-4 grow-2 text-success btn-shdw-dark w-100"
-                >Send Another Message</b-btn>
-              </b-col>
-            </b-row>
+                  class="text-xl text-success bg-light font-bold px-4 py-2 mt-6 grow-2 btn-shdw-dark w-full rounded"
+                >Send Another Message</button>
+              </div>
+            </div>
             <!-- Error State-->
-            <b-row align-h="center" v-if="!formSuccess && formFail">
-              <b-col cols="12" class="d-flex justify-content-center">
+            <div class="flex flex-row flex-wrap justify-center" v-if="!formSuccess && formFail">
+              <div class="w-full">
                 <h5
-                  class="text-white w800 mx-2 text-center"
+                  class="text-2xl leading-snug text-light font-bold mx-2 text-center"
                   :class="{ 'text-danger': hasNameError }"
                 >Something went wrong. Please try again.</h5>
-              </b-col>
-              <b-col cols="12" class="d-flex justify-content-center">
-                <img src="~assets/images/misc-icons/error.svg" alt="Error" class="mt-2 tick" />
-              </b-col>
-              <b-col cols="12" lg="6">
-                <b-btn
-                  variant="light"
-                  size="lg"
-                  rounded
+              </div>
+              <div class="w-full">
+                <img
+                  src="~assets/images/misc-icons/error.svg"
+                  alt="Error"
+                  class="mt-4 w-24 h-24 mx-auto"
+                />
+              </div>
+              <div class="w-full lg:w-1/2">
+                <button
                   @click="turnFormToIdle"
-                  class="w800 px-4 mt-4 grow-2 text-danger btn-shdw-dark w-100"
-                >Try Again</b-btn>
-              </b-col>
-            </b-row>
+                  class="text-xl text-danger bg-light font-bold px-4 py-2 mt-6 grow-2 btn-shdw-dark w-full rounded"
+                >Try Again</button>
+              </div>
+            </div>
             <!-- Idle State-->
-            <b-row align-h="center" v-if="!formSuccess && !formFail">
-              <b-col cols="12" md="6" class="mt-3">
-                <h5 class="text-primary w800 mx-2" :class="{ 'text-danger': hasNameError }">Name</h5>
+            <div class="flex flex-row flex-wrap justify-center" v-if="!formSuccess && !formFail">
+              <div class="flex flex-col w-full md:w-1/2 mt-3 md:px-4">
+                <h5
+                  class="text-xl text-primary font-bold mx-2"
+                  :class="{ 'text-danger': hasNameError }"
+                >Name</h5>
                 <div class="form-group">
                   <input
-                    class="form-control"
+                    class="form-control py-1 px-3 mt-2 w-full rounded"
                     type="text"
                     name="name"
                     placeholder="Your name"
@@ -71,16 +70,19 @@
                     v-model="name"
                   />
                   <small
-                    class="text-danger"
+                    class="text-danger px-2"
                     :style="{ visibility: hasNameError ? 'visible' : 'hidden' }"
                   >Name is required</small>
                 </div>
-              </b-col>
-              <b-col cols="12" md="6" class="mt-3">
-                <h5 class="text-primary w800 mx-2" :class="{ 'text-danger': hasEmailError }">Email</h5>
+              </div>
+              <div class="flex flex-col w-full md:w-1/2 mt-3 md:px-4">
+                <h5
+                  class="text-xl text-primary font-bold mx-2"
+                  :class="{ 'text-danger': hasEmailError }"
+                >Email</h5>
                 <div class="form-group">
                   <input
-                    class="form-control"
+                    class="form-control py-1 px-3 mt-2 w-full rounded"
                     type="text"
                     name="email"
                     placeholder="Your email address"
@@ -89,21 +91,21 @@
                     v-model="email"
                   />
                   <small
-                    class="text-danger"
+                    class="text-danger px-2"
                     :style="{
                       visibility: hasEmailError ? 'visible' : 'hidden'
                     }"
                   >Invalid email</small>
                 </div>
-              </b-col>
-              <b-col cols="12" class="mt-2">
+              </div>
+              <div class="flex flex-col w-full mt-3 md:px-4">
                 <h5
-                  class="text-primary w800 mx-2"
+                  class="text-xl text-primary font-bold mx-2"
                   :class="{ 'text-danger': hasMessageError }"
                 >Message</h5>
                 <div class="form-group">
                   <textarea
-                    class="form-control"
+                    class="form-control py-2 px-3 mt-2 w-full"
                     type="text"
                     name="message"
                     placeholder="Your message"
@@ -112,30 +114,27 @@
                     v-model="messageContent"
                   ></textarea>
                   <small
-                    class="text-danger"
+                    class="text-danger px-2"
                     :style="{
                       visibility: hasMessageError ? 'visible' : 'hidden'
                     }"
                   >Message must be at least 50 characters</small>
                 </div>
-              </b-col>
-              <b-col cols="12" lg="6" class="d-flex justify-content-center">
-                <b-btn
-                  variant="primary"
-                  size="lg"
-                  rounded
-                  class="w800 mt-2 grow-2 btn-shdw-primary px-4 w-100"
+              </div>
+              <div class="flex flex-row w-full lg:w-5/12 mt-4">
+                <button
+                  class="text-xl bg-gradient-blue text-light font-bold grow-2 btn-shdw-primary px-4 py-2 w-full rounded"
                   type="submit"
                   :disabled="requestIsLoading"
                 >
                   <span v-if="!requestIsLoading">Send</span>
                   <LoadingAnimation v-if="requestIsLoading" />
-                </b-btn>
-              </b-col>
-            </b-row>
-          </b-col>
+                </button>
+              </div>
+            </div>
+          </div>
         </form>
-      </b-row>
+      </div>
     </div>
   </TransitionExpand>
 </template>

@@ -1,12 +1,14 @@
 <template>
-  <section class="py-4 py-md-5" id="cutting-edge-tech">
-    <b-row align-v="center" align-h="around">
-      <b-col cols="11" md="5" class="mt-4 mt-md-0 px-0">
-        <div class="w-100 position-relative">
+  <section id="cutting-edge-tech">
+    <div
+      class="flex flex-row flex-wrap justify-center md:justify-between items-center py-4 md:py-12"
+    >
+      <div class="flex flex-col w-11/12 md:w-5/12 mt-4 md:mt-0">
+        <div class="w-full relative">
           <img
             src="~/assets/images/cutting-edge/cutting-edge-layer-0.svg"
             alt="Cutting Edge Layer 0"
-            class="w-100"
+            class="w-full"
           />
           <img
             src="~/assets/images/cutting-edge/cutting-edge-layer-1.svg"
@@ -34,20 +36,21 @@
             class="cutting-edge cutting-edge-layer-5"
           />
         </div>
-      </b-col>
-      <b-col cols="12" md="6" class="px-md-4 px-lg-5">
-        <h2 class="text-center text-md-left w800 mt-2 mt-md-0">
+      </div>
+      <div class="flex flex-col w-full md:w-1/2 px-md-4 lg:px-5">
+        <h2 class="text-3xl leading-tight text-center font-extrabold md:text-left mt-2 md:mt-0">
           Always
-          <span class="text-primary">up to date</span> with
+          <span class="text-primary">up to date</span>
+          <br class="hidden lg:block" />with
           <span class="text-primary">cutting-edge</span> tech.
         </h2>
-        <h5 class="w400 mt-3">
+        <h5 class="text-xl font-normal mt-3">
           We’re following upcoming trends in software development very closely,
           to get you ahead of the competition. That’s why we are currently using
           Google’s cross-platform application development framework, Flutter.
         </h5>
-      </b-col>
-    </b-row>
+      </div>
+    </div>
   </section>
 </template>
 <script>

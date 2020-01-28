@@ -38,7 +38,9 @@ export default {
    */
   buildModules: [
     [
-      '@nuxtjs/google-analytics',
+      // Tailwind
+      '@nuxtjs/tailwindcss',
+      // Analytics
       {
         id: 'UA-145357881-3'
       }
@@ -48,8 +50,6 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
   ],

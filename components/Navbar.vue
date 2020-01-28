@@ -1,7 +1,7 @@
 <template>
-  <b-container fluid class="px-0 pb-1" v-bind:class="{'homeNavbar':!isBlog&&!isErrorPage } ">
-    <div class="my-container-big">
-      <b-row align-h="between" align-v="center" class="py-3 px-2">
+  <div class="w-full" v-bind:class="{'absolute top-0 z-50':!isBlog&&!isErrorPage } ">
+    <div class="container-xl px-4 py-4">
+      <div class="flex flex-row justify-between items-center">
         <nuxt-link v-if="!isBlog" to="/">
           <img
             src="~/assets/images/appditto-logos/appditto-logo-horizontal-white.svg"
@@ -17,15 +17,14 @@
           />
         </nuxt-link>
         <nuxt-link :to="isBlog ? '/' : '/blog'">
-          <b-btn
-            rounded
-            v-bind:class="{ 'px-3 btn-primary btn-shdw-primary': isBlog , 'btn-light text-primary btn-shadow-dark px-4 px-md-5': !isBlog }"
-            class="w800 grow-2"
-          >{{ isBlog ? 'Appditto.com' : 'Blog' }}</b-btn>
+          <button
+            v-bind:class="{ 'text-light bg-gradient-blue font-bold btn-shdw-primary px-3 md:px-6 py-2 rounded': isBlog , 'text-primary bg-light font-extrabold btn-shadow-dark px-6 md:px-12 py-2 rounded': !isBlog }"
+            class="text-base grow-2"
+          >{{ isBlog ? 'Appditto.com' : 'Blog' }}</button>
         </nuxt-link>
-      </b-row>
+      </div>
     </div>
-  </b-container>
+  </div>
 </template>
 <script>
 import Vue from 'vue'
@@ -37,11 +36,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style>
-.homeNavbar {
-  position: absolute;
-  top: 0;
-  z-index: 100000;
-}
-</style>

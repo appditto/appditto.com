@@ -1,5 +1,5 @@
 <template>
-  <div class="divider mt-5 mb-3"></div>
+  <div class="divider mt-12 mb-3"></div>
 </template>
 <script>
 import Vue from 'vue'

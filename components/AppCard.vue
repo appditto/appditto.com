@@ -1,11 +1,11 @@
 <template>
-  <b-col cols="12" md="4" class="mt-4 mt-md-0">
+  <div class="w-full md:w-1/3 mt-8 mt-md-0 px-0 md:px-3">
     <a :href="'https://' + website" target="_blank" rel="noopener">
       <div class="my-card">
-        <b-col class="p-0">
-          <div class="my-card-top bg-gradient py-3">
-            <b-col>
-              <b-row align-h="center">
+        <div class="flex flex-col">
+          <div class="my-card-top bg-gradient-blue py-6">
+            <div class="flex flex-col">
+              <div class="flex flex-row justify-center">
                 <img
                   :src="
                     require('~/assets/images/app-icons/' +
@@ -13,16 +13,16 @@
                       '-icon.svg')
                   "
                   :alt="appName"
-                  class="app-icon justify-self-center"
+                  class="w-40 h-40 justify-self-center"
                 />
-              </b-row>
-              <p class="text-center text-white w700 h3">{{ appName }}</p>
-            </b-col>
+              </div>
+              <p class="text-2xl text-center text-light font-bold">{{ appName }}</p>
+            </div>
           </div>
-          <div class="my-card-bottom py-4 px-2">
-            <b-col>
-              <p class="text-center text-primary w700 h5">User Rating</p>
-              <b-row align-h="center">
+          <div class="my-card-bottom py-6 px-2">
+            <div class="flex flex-col">
+              <p class="text-xl text-center text-primary font-bold">User Rating</p>
+              <div class="flex flex-row justify-center mt-1">
                 <img
                   :src="
                     require('~/assets/images/stars/stars-' + rating + '.svg')
@@ -30,45 +30,39 @@
                   :alt="'Star' + rating"
                   class="stars-icon"
                 />
-              </b-row>
-              <b-row align-h="center" class="mt-3">
-                <b-btn
+              </div>
+              <div class="flex flex-row flex-wrap justify-center mt-4">
+                <button
                   :href="'https://' + playStore"
                   target="_blank"
                   rel="noopener"
-                  variant="primary"
-                  size="lg"
-                  rounded
-                  class="mt-3 mx-2 grow-2 btn-shdw-primary px-2"
+                  class="bg-gradient-blue btn-shdw-primary px-3 py-2 mt-3 mx-2 grow-2 rounded"
                 >
                   <img
                     src="~/assets/images/buttons/playstore-button.svg"
                     alt="Play Store Button"
                     class="store-button"
                   />
-                </b-btn>
-                <b-btn
+                </button>
+                <button
                   :href="'https://' + appStore"
                   target="_blank"
                   rel="noopener"
-                  variant="primary"
-                  size="lg"
-                  rounded
-                  class="mt-3 mx-2 grow-2 btn-shdw-primary px-2"
+                  class="bg-gradient-blue btn-shdw-primary px-3 py-2 mt-3 mx-2 grow-2 rounded"
                 >
                   <img
                     src="~/assets/images/buttons/appstore-button.svg"
                     alt="App Store Button"
                     class="store-button"
                   />
-                </b-btn>
-              </b-row>
-            </b-col>
+                </button>
+              </div>
+            </div>
           </div>
-        </b-col>
+        </div>
       </div>
     </a>
-  </b-col>
+  </div>
 </template>
 <script>
 import Vue from 'vue'

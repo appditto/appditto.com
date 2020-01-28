@@ -7,7 +7,7 @@
           '-icon.svg')
       "
       :alt="name"
-      class="social-icon m-3"
+      class="w-12 h-12 m-4"
     />
   </a>
 </template>

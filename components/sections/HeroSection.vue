@@ -1,27 +1,27 @@
 <template>
-  <section class="bg-hero pt-5 position-relative" id="landing">
-    <b-container fluid class="my-container-big pt-5 pt-md-4 px-md-5 position-relative">
+  <section class="bg-hero relative" id="landing">
+    <div class="container-xl pt-24 md:pt-12 relative">
       <div class="circle-app-icon"></div>
       <div class="waterdrop-app-icon"></div>
-      <div class="square-app-icon d-none d-lg-block"></div>
-      <b-row align-v="center" align-h="center" class="pl-md-1">
-        <b-col cols="12" md="6" class="pb-lg-5 mb-md-5 pl-lg-4">
-          <h1 class="text-center text-md-left w700 mt-3 text-light">
+      <div class="square-app-icon hidden lg:block"></div>
+      <div class="flex flex-row flex-wrap justify-center items-center px-5 md:px-16">
+        <div class="flex flex-col w-full md:w-1/2 lg:mb-24">
+          <h1
+            class="text-3xl lg:text-4xl leading-tight text-center md:text-left font-bold mt-3 text-light z-50"
+          >
             We build beautiful apps,
-            <br class="d-none d-xl-block" />in record time.
+            <br class="hidden xl:block" />in record time.
           </h1>
-          <b-row class="px-3 justify-content-center justify-content-md-start">
-            <b-btn
-              href="mailto:hello@appditto.com"
-              variant="light"
-              size="lg"
-              rounded
-              class="w800 text-primary px-5 mt-2 grow-2 btn-shdw-dark"
-            >Let's Talk</b-btn>
-          </b-row>
-        </b-col>
-        <b-col cols="12" md="6" class="mt-4 mt-md-0 position-relative">
-          <img src="~/assets/images/hero-phones-bg.svg" alt="Hero Phones Background" class="w-100" />
+          <div class="flex flex-row justify-center md:justify-start">
+            <a href="mailto:hello@appditto.com">
+              <button
+                class="text-xl font-extrabold text-primary bg-light px-12 py-2 rounded mt-4 mb-5 grow-2 btn-shdw-dark z-50"
+              >Let's Talk</button>
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-col w-full md:w-1/2 mt-4 mt-md-0 relative">
+          <img src="~/assets/images/hero-phones-bg.svg" alt="Hero Phones Background" class="w-full" />
           <img
             src="~/assets/images/hero-galaxy-shadow.svg"
             alt="Galaxy Shadow"
@@ -34,9 +34,9 @@
           />
           <img src="~/assets/images/hero-galaxy.svg" alt="Hero Galaxy" class="galaxy" />
           <img src="~/assets/images/hero-iphone.svg" alt="Hero iPhone" class="iphone" />
-        </b-col>
-      </b-row>
-    </b-container>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 <script>
@@ -243,12 +243,5 @@ export default Vue.extend({
   100% {
     opacity: 0.25;
   }
-}
-
-a:link,
-a:visited,
-a:hover,
-a:active {
-  color: #515eff !important;
 }
 </style>

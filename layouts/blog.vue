@@ -1,22 +1,12 @@
 <template>
-  <div class="pt-5rem">
+  <div class="pt-20">
     <Navbar :isBlog="true" id="navbarPostPage" />
-    <nuxt class="mh100" />
+    <nuxt class="min-h-screen" />
     <Footer :hasBackground="true" :hasTopMargin="true" />
   </div>
 </template>
 
 <style scoped>
-*,
-*:before,
-*:after {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.mh100 {
-  min-height: 100vh;
-}
 .page-enter-active,
 .page-leave-active {
   transition: all 0.2s ease-out;

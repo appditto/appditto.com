@@ -1,10 +1,10 @@
 <template>
   <div>
-    <b-container fluid class="my-container-big">
+    <div class="container-xl pt-3 pb-6 lg:pt-6 px-3 md:px-6 md:pb-20">
       <!-- Small Screens -->
-      <div class="d-md-none">
-        <b-row class="py-3">
-          <b-col cols="12">
+      <div class="md:hidden">
+        <div class="flex flex-row flex-wrap py-3">
+          <div class="flex flex-col w-full">
             <BlogCard
               v-for="(post, index) in posts"
               :key="index"
@@ -15,13 +15,13 @@
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
-          </b-col>
-        </b-row>
+          </div>
+        </div>
       </div>
       <!-- Medium Screens -->
-      <div class="d-none d-md-block d-lg-none">
-        <b-row class="py-4 px-5">
-          <b-col>
+      <div class="hidden md:block lg:hidden">
+        <div class="flex flex-row flex-wrap pt-4 px-5">
+          <div class="w-full md:w-1/2">
             <BlogCard
               v-for="(post, index) in posts.filter((a, i) => i % 2 === 0)"
               :key="index"
@@ -32,8 +32,8 @@
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
-          </b-col>
-          <b-col>
+          </div>
+          <div class="w-full md:w-1/2">
             <BlogCard
               v-for="(post, index) in posts.filter((a, i) => i % 2 === 1)"
               :key="index"
@@ -44,13 +44,13 @@
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
-          </b-col>
-        </b-row>
+          </div>
+        </div>
       </div>
       <!-- Large Screens -->
-      <div class="d-none d-lg-block">
-        <b-row class="pt-4 px-5">
-          <b-col>
+      <div class="hidden lg:block">
+        <div class="flex flex-row flex-wrap pt-4 px-5">
+          <div class="w-full">
             <BlogCardWide
               :img="posts[0].feature_image"
               :alt="posts[0].title"
@@ -60,10 +60,10 @@
               :date="posts[0].published_at"
               :readingTime="posts[0].reading_time"
             />
-          </b-col>
-        </b-row>
-        <b-row class="pb-4 px-5">
-          <b-col>
+          </div>
+        </div>
+        <div class="flex flex-row flex-wrap pt-4 px-5">
+          <div class="w-1/3">
             <BlogCard
               v-for="(post, index) in posts
                 .slice(1)
@@ -76,8 +76,8 @@
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
-          </b-col>
-          <b-col>
+          </div>
+          <div class="w-1/3">
             <BlogCard
               v-for="(post, index) in posts
                 .slice(1)
@@ -90,8 +90,8 @@
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
-          </b-col>
-          <b-col>
+          </div>
+          <div class="w-1/3">
             <BlogCard
               v-for="(post, index) in posts
                 .slice(1)
@@ -104,10 +104,10 @@
               :date="post.published_at"
               :readingTime="post.reading_time"
             />
-          </b-col>
-        </b-row>
+          </div>
+        </div>
       </div>
-    </b-container>
+    </div>
   </div>
 </template>
 <script>

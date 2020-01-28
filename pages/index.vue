@@ -1,16 +1,16 @@
 <template>
   <div>
     <HeroSection />
-    <b-container fluid class="my-container-big">
+    <div class="container-xl px-5 md:px-16">
       <SingleCodeBaseSection />
       <FastAndEfficientSection />
       <CuttingEdgeTechSection />
-    </b-container>
+    </div>
     <AppsSection />
-    <b-container fluid class="my-container-big">
+    <div class="container-xl px-5 md:px-16">
       <BlogSection :posts="posts" />
       <ContactSection />
-    </b-container>
+    </div>
   </div>
 </template>
 <script>

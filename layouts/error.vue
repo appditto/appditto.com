@@ -1,57 +1,31 @@
 <template>
-  <div class="bg-gradient mh100 d-flex flex-column">
+  <div class="bg-gradient-blue min-h-screen flex flex-col">
     <Navbar :isErrorPage="true" />
-    <b-container
-      fluid
-      class="my-container-big flex-grow-100 d-flex align-items-center justify-content-center my-5 mx-auto"
-    >
-      <b-row align-h="center" align-v="center">
-        <b-col cols="12">
-          <b-row align-h="center" align-v="center">
-            <b-col cols="10">
-              <img
-                src="~/assets/images/404.svg"
-                alt="404 Illustration"
-                class="w-100 window-animation"
-              />
-            </b-col>
-          </b-row>
-          <div v-if="error.statusCode === 404" class="mt-3 mt-md-4">
-            <h1 class="text-white w700 h1 text-center">Oops...</h1>
-            <h2 class="text-white w400 h5 text-center mt-2">This page doesn't exist.</h2>
-          </div>
-          <div v-else class="mt-3 mt-md-4">
-            <h1 class="text-white w700 h1 text-center">Oops...</h1>
-            <h2 class="text-white w400 h5 text-center mt-2">An error occurred.</h2>
-          </div>
-          <b-row align-h="center" align-v="center" class="mt-4">
-            <nuxt-link to="/">
-              <b-btn
-                rounded
-                size="lg"
-                class="w800 grow-2 btn-light text-primary btn-shadow-dark px-4 px-md-5"
-              >Go Back Home</b-btn>
-            </nuxt-link>
-          </b-row>
-        </b-col>
-      </b-row>
-    </b-container>
+    <div class="container-xl px-6 flex flex-col flex-grow items-center justify-center my-5 mx-auto">
+      <div class="w-5/6">
+        <img src="~/assets/images/404.svg" alt="404 Illustration" class="w-full window-animation" />
+      </div>
+      <div v-if="error.statusCode === 404" class="mt-3 md:mt-5">
+        <h1 class="text-4xl text-light font-bold h1 text-center">Oops...</h1>
+        <h2 class="text-xl text-light text-center">This page doesn't exist.</h2>
+      </div>
+      <div v-else class="mt-3 md:mt-5">
+        <h1 class="text-white w700 h1 text-center">Oops...</h1>
+        <h2 class="text-xl text-light text-center">An error occurred.</h2>
+      </div>
+      <div class="flex flex-row flex-wrap justify-center items-center mt-5">
+        <nuxt-link to="/">
+          <button
+            class="text-xl bg-light text-primary w800 grow-2 btn-shadow-dark px-6 md:px-12 py-2 rounded"
+          >Go Back Home</button>
+        </nuxt-link>
+      </div>
+    </div>
     <Footer :hasTopMargin="false" />
   </div>
 </template>
 
 <style scoped>
-*,
-*:before,
-*:after {
-  margin: 0;
-}
-.mh100 {
-  min-height: 100vh;
-}
-.flex-grow-100 {
-  flex-grow: 100;
-}
 .window-animation {
   transform: translateY(-0.5rem) rotateZ(-2deg);
   animation-name: windowAnimation;

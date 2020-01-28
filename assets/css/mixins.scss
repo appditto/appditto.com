@@ -1,30 +1,4 @@
-//
-//  RESPOND ABOVE
-//––––––––––––––––––––––––––––––––––––––––––––––––––
-
-// @include respond-above(sm) {}
-@mixin respond-above($grid-breakpoint) {
-
-  // If the grid-breakpoint exists in the map.
-  @if map-has-key($grid-breakpoints, $grid-breakpoint) {
-    // Get the grid-breakpoint value.
-    $grid-breakpoint-value: map-get($grid-breakpoints, $grid-breakpoint);
-
-    // Write the media query.
-    @media (min-width: $grid-breakpoint-value) {
-      @content;
-    }
-
-    // If the grid-breakpoint doesn't exist in the map.
-  }
-
-  @else {
-    // Log a warning.
-    @warn 'Invalid grid-breakpoint: #{$grid-breakpoint}.';
-  }
-}
-
-@mixin bg-button-gradient() {
+@mixin bg-gradient-blue() {
   background: rgb(64,130,255);
   background: linear-gradient(135deg, rgba(64,130,255,1) 0%, rgba(96,64,255,1) 100%);
 }
