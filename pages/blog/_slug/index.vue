@@ -6,9 +6,7 @@
         <p
           class="opacity-75 mt-0"
         >{{ formatDate(post.published_at) }} • {{ post.reading_time }} min read</p>
-        <div class="content">
-          <div v-html="post.html"></div>
-        </div>
+        <div class="content" v-html="post.html"></div>
       </main>
       <Divider />
     </div>

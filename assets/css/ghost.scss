@@ -43,10 +43,10 @@ $font-family-p: 'Lora',
 serif;
 $header-height: 5rem;
 
-p>code,
-ul>li>code,
-ol>li>code,
-pre {
+.content>p>code,
+.content>ul>li>code,
+.content>ol>li>code,
+.content>pre {
     color: $dark;
     background-color: rgba($dark, 0.1);
     padding: 0.15rem 0.3rem;
@@ -64,7 +64,7 @@ pre {
     margin-right: auto;
 }
 
-.kg-image-card {
+.content>.kg-image-card {
     text-align: center;
     margin-left: -1.5rem;
     margin-right: -1.5rem;
@@ -74,7 +74,7 @@ pre {
     }
 }
 
-.embedly-card {
+.content>.embedly-card {
     margin-top: 2rem;
 }
 
@@ -93,14 +93,14 @@ main>h1 {
     @include font-h1;
 }
 
-.content>div>h2 {
+.content>h2 {
     margin-top: 4rem;
     margin-bottom: -0.75rem;
     font-weight: 700;
     @include font-h2;
 }
 
-.content>div>h3 {
+.content>h3 {
     margin-top: 4rem;
     margin-bottom: -0.75rem;
     font-weight: 600;
@@ -111,7 +111,7 @@ strong {
     font-weight: 700 !important;
 }
 
-.content>div>p {
+.content>p {
     @include font-size-p;
     @include font-line-height-p;
     font-family: $font-family-p;
@@ -121,8 +121,8 @@ strong {
     word-break: break-word;
 }
 
-.content>div>ul,
-.content>div>ol {
+.content>ul,
+.content>ol {
     @include font-size-p;
     @include font-line-height-p;
     font-family: $font-family-p !important;
@@ -130,17 +130,17 @@ strong {
     margin-top: 1.5rem;
 }
 
-.content>div>ul>li,
-.content>div>ol>li,
-.content>div>ul>li>strong,
-.content>div>ul>ol>strong {
+.content>ul>li,
+.content>ol>li,
+.content>ul>li>strong,
+.content>ul>ol>strong {
     margin-top: 0.75rem;
     font-family: $font-family-p !important;
 }
 
-.content>div>p>code,
-.content>div>ul>li>code,
-.content>div>ol>li>code {
+.content>p>code,
+.content>ul>li>code,
+.content>ol>li>code {
     color: rgba($dark, 1) !important;
     background-color: rgba($dark, 0.05);
     padding: 0.15rem 0.45rem;
@@ -152,7 +152,7 @@ strong {
     margin-right: 0.15rem;
 }
 
-.content>div>pre {
+.content>pre {
     color: rgba($dark, 1) !important;
     background-color: rgba($dark, 0.05);
     padding: 0.75rem 1.25rem;
@@ -169,20 +169,20 @@ code {
     font-family: 'FiraMono', monospace !important;
 }
 
-.content>div>p>a,
-.content>div>ul>li>a,
-.content>div>ol>li>a,
-.content>div>p>code>a {
+.content>p>a,
+.content>ul>li>a,
+.content>ol>li>a,
+.content>p>code>a {
     font-weight: 700 !important;
     text-decoration: underline !important;
     color: rgba($dark, 1) !important;
 }
 
-.content>div>p>a:hover,
-.content>div>ul>li>a:hover,
-.content>div>ol>li>a:hover,
-.content>div>code>a:hover,
-.content>div>p>code>a:hover {
+.content>p>a:hover,
+.content>ul>li>a:hover,
+.content>ol>li>a:hover,
+.content>code>a:hover,
+.content>p>code>a:hover {
     color: rgba($primary, 1) !important;
 }
 
@@ -294,4 +294,11 @@ a.kg-bookmark-container {
 
 .gist {
     margin-bottom: 2rem;
+}
+
+figure{
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
