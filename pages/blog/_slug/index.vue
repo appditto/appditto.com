@@ -74,6 +74,10 @@ $header-height: 5rem;
   border-radius: 0.15rem;
   border: solid 1px rgba($dark, 0.1);
 }
+
+.content > pre {
+  overflow: scroll;
+}
 .kg-image {
   max-width: 100% !important;
   max-height: 100% !important;
@@ -195,6 +199,15 @@ code {
 .content > code > a:hover,
 .content > p > code > a:hover {
   color: rgba($primary, 1) !important;
+}
+
+.content > ul {
+  list-style-type: disc;
+  padding-left: 2.25rem;
+}
+.content > ol {
+  list-style-type: decimal;
+  padding-left: 2.25rem;
 }
 
 .kg-bookmark-card {
