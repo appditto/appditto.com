@@ -439,9 +439,9 @@ code {
 }
 
 .kg-bookmark-card {
-  width: 100%;
-  position: relative;
-  margin-top: 2rem;
+  width: 100% !important;
+  position: relative !important;
+  margin-top: 2rem !important;
 }
 
 .kg-bookmark-container {
@@ -560,6 +560,5 @@ a.kg-bookmark-container {
   margin-block-end: 0px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  margin: 0px;
 }
 </style>
