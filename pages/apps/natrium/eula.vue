@@ -2,9 +2,7 @@
   <div class="w-full">
     <div class="container-md px-6 py-12 md:py-20">
       <h1 class="text-3xl md:text-4xl leading-tight text-center font-bold">{{natriumEULA.title}}</h1>
-      <div class="content">
-        <div v-html="natriumEULA.html"></div>
-      </div>
+      <div class="content" v-html="natriumEULA.html"></div>
     </div>
   </div>
 </template>

@@ -4,9 +4,7 @@
       <h1
         class="text-3xl md:text-4xl leading-tight text-center font-bold"
       >{{natriumPrivacyPolicy.title}}</h1>
-      <div class="content">
-        <div v-html="natriumPrivacyPolicy.html"></div>
-      </div>
+      <div class="content" v-html="natriumPrivacyPolicy.html"></div>
     </div>
   </div>
 </template>
