@@ -3,7 +3,7 @@
     <nuxt-link :to="{ path: url }" class="w-full">
       <div class="blog-card bg-light">
         <div class="flex flex-row flex-wrap">
-          <b-col>
+          <div class="flex flex-col w-full">
             <div class="blog-card-image-container">
               <img
                 :src="require('~/assets/images/placeholder.svg')"
@@ -18,7 +18,7 @@
                 class="opacity-75 text-dark mt-2"
               >{{ formatDate(date) }} • {{ readingTime }} min read</p>
             </div>
-          </b-col>
+          </div>
         </div>
       </div>
     </nuxt-link>

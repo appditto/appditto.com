@@ -1,12 +1,23 @@
 <template>
   <div class="pt-20">
-    <Navbar :isBlog="true" id="navbarPostPage" />
+    <Navbar :isBlog="true" id="navbarBlog" />
     <nuxt class="min-h-screen" />
     <Footer :hasBackground="true" :hasTopMargin="true" />
   </div>
 </template>
 
-<style scoped>
+<style lang="scss">
+#navbarBlog {
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  transition: all 0.4s ease;
+  z-index: 10000;
+}
+.navbar-shadow {
+  box-shadow: 0 0.5rem 1rem 0 rgba(#000, 0.08);
+}
 .page-enter-active,
 .page-leave-active {
   transition: all 0.2s ease-out;
@@ -20,45 +31,54 @@
 </style>
 
 <script>
+import Navbar from '~/components/Navbar.vue'
 export default {
   components: {
-    Navbar: () => import('~/components/Navbar.vue'),
+    Navbar,
     Footer: () => import('~/components/Footer.vue')
   },
-  mounted() {
-    // Initial state
-    var scrollPos = 0
-    const navbar = document.getElementById('navbarPostPage')
-    // Adding scroll event
-    window.addEventListener('scroll', function() {
+  data: function() {
+    return {
+      scrollPos: 0
+    }
+  },
+  methods: {
+    navbarScroll() {
       // Detects new state and compares it with the new one
       if (
         window.pageYOffset < 50 ||
-        document.body.getBoundingClientRect().top > scrollPos + 10
+        document.body.getBoundingClientRect().top > this.scrollPos + 10
       ) {
-        navbar.style.marginTop = '0rem'
+        navbarBlog.style.marginTop = '0rem'
       } else if (
         window.pageYOffset >= 100 &&
-        document.body.getBoundingClientRect().top < scrollPos - 10
+        document.body.getBoundingClientRect().top < this.scrollPos - 10
       ) {
-        navbar.style.marginTop = '-6rem'
+        navbarBlog.style.marginTop = '-6rem'
       }
       // Saves the new position for iteration.
-      scrollPos = document.body.getBoundingClientRect().top
+      this.scrollPos = document.body.getBoundingClientRect().top
 
       // navbar shadow
       if (
         window.pageYOffset >= 50 &&
-        !navbar.classList.contains('navbar-shadow')
+        !navbarBlog.classList.contains('navbar-shadow')
       ) {
-        navbar.classList.add('navbar-shadow')
+        navbarBlog.classList.add('navbar-shadow')
       } else if (
         window.pageYOffset < 50 &&
-        navbar.classList.contains('navbar-shadow')
+        navbarBlog.classList.contains('navbar-shadow')
       ) {
-        navbar.classList.remove('navbar-shadow')
+        navbarBlog.classList.remove('navbar-shadow')
       }
-    })
+    }
+  },
+  mounted() {
+    // Adding scroll event
+    window.addEventListener('scroll', this.navbarScroll)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.navbarScroll)
   }
 }
 </script>

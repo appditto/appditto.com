@@ -10,7 +10,7 @@
         <h2 class="text-xl text-light text-center">This page doesn't exist.</h2>
       </div>
       <div v-else class="mt-3 md:mt-5">
-        <h1 class="text-white w700 h1 text-center">Oops...</h1>
+        <h1 class="text-4xl text-light font-bold h1 text-center">Oops...</h1>
         <h2 class="text-xl text-light text-center">An error occurred.</h2>
       </div>
       <div class="flex flex-row flex-wrap justify-center items-center mt-5">
@@ -53,11 +53,12 @@
 </style>
 
 <script>
+import Navbar from '~/components/Navbar.vue'
 export default {
   props: ['error'],
   layout: 'policy',
   components: {
-    Navbar: () => import('~/components/Navbar.vue'),
+    Navbar,
     Footer: () => import('~/components/Footer.vue')
   }
 }
