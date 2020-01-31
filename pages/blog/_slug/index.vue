@@ -62,22 +62,25 @@ export default {
       postscribe(`#gist_${key}`, this.scriptReplaceMap[key])
     }
   },
-  async asyncData({ params }) {
+  async asyncData({ error, params }) {
     const getPosts = async () => {
       try {
         return await axios.get('http://localhost:3000/api/ghost/posts')
-      } catch (error) {
-        console.error(error)
+      } catch (e) {
+        console.error(e)
       }
     }
-    const posts = (await getPosts()).data
-    let post
-    posts.forEach(item => {
-      if (item.slug == params.slug) {
-        post = item
-        return
+    const getSinglePost = async () => {
+      try {
+        return await axios.get(
+          'http://localhost:3000/api/ghost/posts/' + params.slug
+        )
+      } catch (e) {
+        console.error(e)
       }
-    })
+    }
+    const post = (await getSinglePost()).data
+    const posts = (await getPosts()).data
     let postThree = []
     posts.forEach(post => {
       if (post.slug != params.slug) {

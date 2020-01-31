@@ -52,20 +52,21 @@ async function start() {
     version: 'v3'
   })
 
+  let imgTagRegex = /<img.*?src="(.*?)"[^\>]+>/g
+  let srcRegex = /src="(.*?)"/g
+  let urlRegex = /(?<=src=")(.*?)(?=")/g
+  let kgImageRegex = /class="kg-image/g
+  let classRegex = /class="(.*?)"/g
+  let cloudinaryUrl30w = 'https://res.cloudinary.com/appditto/image/fetch/w_30,c_limit,q_80,f_auto/'
+  let cloudinaryUrl300w = 'https://res.cloudinary.com/appditto/image/fetch/w_300,c_limit,q_80,f_auto/'
+  let cloudinaryUrl600w = 'https://res.cloudinary.com/appditto/image/fetch/w_600,c_limit,q_80,f_auto/'
+  let cloudinaryUrl900w = 'https://res.cloudinary.com/appditto/image/fetch/w_900,c_limit,q_80,f_auto/'
+  let cloudinaryUrl1200w = 'https://res.cloudinary.com/appditto/image/fetch/w_1200,c_limit,q_80,f_auto/'
+  let cloudinaryUrl1500w = 'https://res.cloudinary.com/appditto/image/fetch/w_1500,c_limit,q_80,f_auto/'
+  let cloudinaryUrl2000w = 'https://res.cloudinary.com/appditto/image/fetch/w_2000,c_limit,q_80,f_auto/'
+
   app.get('/api/ghost/posts', cache(300), async (req, res) => {
     let resultWithoutPolicies = [];
-    let imgTagRegex = /<img.*?src="(.*?)"[^\>]+>/g
-    let srcRegex = /src="(.*?)"/g
-    let urlRegex = /(?<=src=")(.*?)(?=")/g
-    let kgImageRegex = /class="kg-image/g
-    let classRegex = /class="(.*?)"/g
-    let cloudinaryUrl30w = 'https://res.cloudinary.com/appditto/image/fetch/w_30,c_limit,q_80,f_auto/'
-    let cloudinaryUrl300w = 'https://res.cloudinary.com/appditto/image/fetch/w_300,c_limit,q_80,f_auto/'
-    let cloudinaryUrl600w = 'https://res.cloudinary.com/appditto/image/fetch/w_600,c_limit,q_80,f_auto/'
-    let cloudinaryUrl900w = 'https://res.cloudinary.com/appditto/image/fetch/w_900,c_limit,q_80,f_auto/'
-    let cloudinaryUrl1200w = 'https://res.cloudinary.com/appditto/image/fetch/w_1200,c_limit,q_80,f_auto/'
-    let cloudinaryUrl1500w = 'https://res.cloudinary.com/appditto/image/fetch/w_1500,c_limit,q_80,f_auto/'
-    let cloudinaryUrl2000w = 'https://res.cloudinary.com/appditto/image/fetch/w_2000,c_limit,q_80,f_auto/'
     let result = await api.posts
       .browse({
         limit: 'all',
@@ -99,6 +100,47 @@ async function start() {
       post.html = post.html.replace(kgImageRegex, 'class="kg-image lazyload')
     });
     res.json(resultWithoutPolicies)
+  })
+
+  app.get('/api/ghost/posts/:slug', cache(300), async (req, res) => {
+    let result = await api.posts
+      .browse({
+        limit: 'all',
+      })
+      .catch(err => {
+        console.error(err)
+      });
+    // For each post
+    result.forEach(post => {
+      if (post.html.match(imgTagRegex)) {
+        // For each img tag in a post
+        post.html.match(imgTagRegex).forEach(imgTag => {
+          // Match the image src attribute, including the src=
+          let imgSrc = imgTag.match(srcRegex)[0];
+          // Match the url of the src attribute
+          let imgUrl = imgSrc.match(urlRegex)[0];
+          // Replace the image src attribute with datasizes, src, srcset and data-srcset
+          if (imgTag.match(kgImageRegex)) {
+            post.html = post.html.replace(
+              imgSrc,
+              `datasizes="auto" src="${cloudinaryUrl1200w + imgUrl}" srcset="${cloudinaryUrl30w + imgUrl}" data-srcset="${cloudinaryUrl300w + imgUrl} 300w, ${cloudinaryUrl600w + imgUrl} 600w, ${cloudinaryUrl900w + imgUrl} 900w, ${cloudinaryUrl1200w + imgUrl} 1200w, ${cloudinaryUrl1500w + imgUrl} 1500w, ${cloudinaryUrl2000w + imgUrl} 2000w"`
+            )
+          }
+        })
+      }
+      post.html = post.html.replace(kgImageRegex, 'class="kg-image lazyload')
+    });
+    let postCount = 0;
+    for (i = 0; i < result.length; i++) {
+      if (req.params.slug == result[i].slug) {
+        res.json(result[i])
+        break
+      }
+      this.postCount = i;
+    }
+    if (this.postCount = result.length - 1) {
+      res.sendStatus(404)
+    }
   })
 
   // Give nuxt middleware to express
