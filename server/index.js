@@ -52,7 +52,7 @@ async function start() {
     version: 'v3'
   })
 
-  app.get('/api/ghost/posts', cache(100), async (req, res) => {
+  app.get('/api/ghost/posts', cache(300), async (req, res) => {
     let resultWithoutPolicies = [];
     let imgTagRegex = /<img.*?src="(.*?)"[^\>]+>/g
     let srcRegex = /src="(.*?)"/g
