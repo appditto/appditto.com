@@ -15,6 +15,7 @@
 </template>
 <script>
 import { getPosts } from '~/api/posts'
+import axios from 'axios'
 
 export default {
   components: {
@@ -31,7 +32,14 @@ export default {
     BlogCard: () => import('~/components/BlogCard.vue')
   },
   async asyncData() {
-    const posts = await getPosts('all')
+    const getPosts = async () => {
+      try {
+        return await axios.get('http://localhost:3000/api/ghost/posts')
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    const posts = (await getPosts()).data
     return { posts: posts }
   },
   data() {

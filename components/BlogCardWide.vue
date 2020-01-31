@@ -5,8 +5,10 @@
         <div class="flex flex-row justify-center items-stretch">
           <div class="flex flex-col lg:w-1/3 relative overflow-hidden">
             <img
-              :src="require('~/assets/images/placeholder.svg')"
-              :data-src="'https://res.cloudinary.com/appditto/image/fetch/q_70,f_auto/'+ img"
+              :datasizes="'auto'"
+              :src="`https://res.cloudinary.com/appditto/image/fetch/w_900,c_limit,q_80,f_auto/${img}`"
+              :srcset="cloudinaryUrl30w+img"
+              :data-srcset="cloudinaryUrl300w+img+' 300w,'+cloudinaryUrl600w+img+' 600w,'+cloudinaryUrl900w+img+' 900w,'+cloudinaryUrl1200w+img+' 1200w,'+cloudinaryUrl1500w+img+' 1500w, '+cloudinaryUrl2000w+img+' 2000w'"
               :alt="alt"
               class="lazyload absolute h-full object-cover"
             />
@@ -36,6 +38,24 @@ export default Vue.extend({
     date: null,
     readingTime: null,
     excerpt: null
+  },
+  data: function() {
+    return {
+      cloudinaryUrl30w:
+        'https://res.cloudinary.com/appditto/image/fetch/w_30,c_limit,q_80,f_auto/',
+      cloudinaryUrl300w:
+        'https://res.cloudinary.com/appditto/image/fetch/w_300,c_limit,q_80,f_auto/',
+      cloudinaryUrl600w:
+        'https://res.cloudinary.com/appditto/image/fetch/w_600,c_limit,q_80,f_auto/',
+      cloudinaryUrl900w:
+        'https://res.cloudinary.com/appditto/image/fetch/w_900,c_limit,q_80,f_auto/',
+      cloudinaryUrl1200w:
+        'https://res.cloudinary.com/appditto/image/fetch/w_1200,c_limit,q_80,f_auto/',
+      cloudinaryUrl1500w:
+        'https://res.cloudinary.com/appditto/image/fetch/w_1500,c_limit,q_80,f_auto/',
+      cloudinaryUrl2000w:
+        'https://res.cloudinary.com/appditto/image/fetch/w_2000,c_limit,q_80,f_auto/'
+    }
   },
   methods: {
     formatDate(date) {

@@ -66,10 +66,10 @@ $header-height: 5rem;
   overflow: scroll;
 }
 .kg-image {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  width: auto !important;
-  height: auto !important;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   margin-top: 2rem !important;
   margin-left: auto !important;
   margin-right: auto !important;
