@@ -6,7 +6,7 @@
           <div class="flex flex-col lg:w-1/3 relative overflow-hidden">
             <img
               :src="require('~/assets/images/placeholder.svg')"
-              :data-src="'https://res.cloudinary.com/appditto/image/fetch/q_70,f_auto/'+ img"
+              :data-src="'https://res.cloudinary.com/appditto/image/fetch/w_800,c_limit,q_80,f_auto/'+ img"
               :alt="alt"
               class="lazyload absolute h-full object-cover"
             />

@@ -96,9 +96,9 @@ export default {
     }
     post.html = post.html.replace(
       reg_cloudinary,
-      '<img src="' +
+      '<img sizes="100vw" src="' +
         placeholderPath +
-        '" data-src="https://res.cloudinary.com/appditto/image/fetch/q_70,f_auto/https://ghost.appditto.com/content/'
+        '" data-src="https://res.cloudinary.com/appditto/image/fetch/w_1600,c_limit,q_80,f_auto/https://ghost.appditto.com/content/'
     )
     post.html = post.html.replace(reg_kgimage, 'class="kg-image lazyload')
     return { post: post, posts: postThree, scriptReplaceMap: ret }
