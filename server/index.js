@@ -38,12 +38,12 @@ async function start() {
     let srcRegex = /src="(.*?)"/g
     let urlRegex = /(?<=src=")(.*?)(?=")/g
     let kgImageRegex = /class="kg-image/g
-    let cloudinaryUrlW30 = 'https://res.cloudinary.com/appditto/image/fetch/w_30,f_auto/'
-    let cloudinaryUrlW300 = 'https://res.cloudinary.com/appditto/image/fetch/w_300,f_auto/'
-    let cloudinaryUrlW600 = 'https://res.cloudinary.com/appditto/image/fetch/w_600,f_auto/'
-    let cloudinaryUrlW900 = 'https://res.cloudinary.com/appditto/image/fetch/w_900,f_auto/'
-    let cloudinaryUrlW1200 = 'https://res.cloudinary.com/appditto/image/fetch/w_1200,f_auto/'
-    let cloudinaryUrlW1500 = 'https://res.cloudinary.com/appditto/image/fetch/w_1500,f_auto/'
+    let cloudinaryUrlW30 = 'https://res.cloudinary.com/appditto/image/fetch/w_30,c_limit,f_auto/'
+    let cloudinaryUrlW300 = 'https://res.cloudinary.com/appditto/image/fetch/w_300,c_limit,f_auto/'
+    let cloudinaryUrlW600 = 'https://res.cloudinary.com/appditto/image/fetch/w_600,c_limit,f_auto/'
+    let cloudinaryUrlW900 = 'https://res.cloudinary.com/appditto/image/fetch/w_900,c_limit,f_auto/'
+    let cloudinaryUrlW1200 = 'https://res.cloudinary.com/appditto/image/fetch/w_1200,c_limit,f_auto/'
+    let cloudinaryUrlW1500 = 'https://res.cloudinary.com/appditto/image/fetch/w_1500,c_limit,f_auto/'
     let result = await api.posts
       .browse({
         limit: 'all',
