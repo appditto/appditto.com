@@ -8,6 +8,7 @@ var mcache = require('memory-cache');
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
+config.unix_socket = process.env.UNIX_SOCKET === 'true'
 
 // For memory cache
 var cache = (duration) => {
@@ -147,7 +148,11 @@ async function start() {
   app.use(nuxt.render)
 
   // Listen the server
-  app.listen(port, host)
+  if (config.unix_socket) {
+    app.listen('/tmp/appditto.sock')
+  } else {
+    app.listen(port, host)
+  }
   consola.ready({
     message: `Server listening on http://${host}:${port}`,
     badge: true
