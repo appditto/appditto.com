@@ -2,11 +2,11 @@
   <div>
     <div class="container-md mx-auto px-6 pt-6 md:pt-12">
       <main>
-        <h1>{{ post.title }}</h1>
+        <h1>{{ singlePost.title }}</h1>
         <p
           class="opacity-75 mt-0"
-        >{{ formatDate(post.published_at) }} • {{ post.reading_time }} min read</p>
-        <div class="content" v-html="post.html"></div>
+        >{{ formatDate(singlePost.published_at) }} • {{ singlePost.reading_time }} min read</p>
+        <div class="content" v-html="singlePost.html"></div>
       </main>
       <Divider />
     </div>
@@ -19,6 +19,7 @@
 import { getSinglePost } from '~/api/posts'
 import { getPosts } from '~/api/posts'
 import 'lazysizes'
+import axios from 'axios'
 
 // Import postscribe only in browser
 if (process.client) {
@@ -64,6 +65,21 @@ export default {
     }
   },
   async asyncData({ params }) {
+    const getAllPosts = async () => {
+      try {
+        return await axios.get('http://localhost:3000/api/ghost/posts')
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    const allPosts = (await getAllPosts()).data
+    let singlePost
+    allPosts.forEach(item => {
+      if (item.slug == params.slug) {
+        singlePost = item
+        return
+      }
+    })
     let post = await getSinglePost(params.slug)
     const posts = await getPosts('4')
     let postThree = []
@@ -77,12 +93,6 @@ export default {
     let result
     let ret = {}
     let i = 0
-    let reg_cloudinary = new RegExp(
-      '<img src="https://ghost.appditto.com/content/',
-      'g'
-    )
-    let reg_kgimage = new RegExp('class="kg-image', 'g')
-    let placeholderPath = require('~/assets/images/placeholder.svg')
     // Replace scripts with a placeholder, we'll defer loading until later
     if (post.html.match(scriptRegex)) {
       post.html.match(scriptRegex).forEach(element => {
@@ -94,14 +104,12 @@ export default {
         i++
       })
     }
-    post.html = post.html.replace(
-      reg_cloudinary,
-      '<img src="' +
-        placeholderPath +
-        '" data-src="https://res.cloudinary.com/appditto/image/fetch/q_70,f_auto/https://ghost.appditto.com/content/'
-    )
-    post.html = post.html.replace(reg_kgimage, 'class="kg-image lazyload')
-    return { post: post, posts: postThree, scriptReplaceMap: ret }
+    return {
+      post: post,
+      posts: postThree,
+      scriptReplaceMap: ret,
+      singlePost: singlePost
+    }
   },
   data() {
     return {
@@ -308,13 +316,12 @@ $header-height: 5rem;
   overflow: scroll;
 }
 .kg-image {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  width: auto !important;
+  width: 100% !important;
   height: auto !important;
   margin-top: 2rem !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  overflow: hidden !important;
 }
 
 .kg-image-card {
