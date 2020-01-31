@@ -58,7 +58,7 @@ async function start() {
   let urlRegex = /(?<=src=")(.*?)(?=")/g
   let kgImageRegex = /class="kg-image/g
   let classRegex = /class="(.*?)"/g
-  let cloudinaryUrl30w = 'https://res.cloudinary.com/appditto/image/fetch/w_30,pg_1,c_limit,q_80,f_auto/'
+  let cloudinaryUrl100w = 'https://res.cloudinary.com/appditto/image/fetch/w_100,c_limit,q_1,f_auto,pg_1/'
   let cloudinaryUrl300w = 'https://res.cloudinary.com/appditto/image/fetch/w_300,c_limit,q_80,f_auto/'
   let cloudinaryUrl600w = 'https://res.cloudinary.com/appditto/image/fetch/w_600,c_limit,q_80,f_auto/'
   let cloudinaryUrl900w = 'https://res.cloudinary.com/appditto/image/fetch/w_900,c_limit,q_80,f_auto/'
@@ -93,7 +93,7 @@ async function start() {
           if (imgTag.match(kgImageRegex)) {
             post.html = post.html.replace(
               imgSrc,
-              `datasizes="auto" src="${cloudinaryUrl1200w + imgUrl}" srcset="${cloudinaryUrl30w + imgUrl}" data-srcset="${cloudinaryUrl300w + imgUrl} 300w, ${cloudinaryUrl600w + imgUrl} 600w, ${cloudinaryUrl900w + imgUrl} 900w, ${cloudinaryUrl1200w + imgUrl} 1200w, ${cloudinaryUrl1500w + imgUrl} 1500w, ${cloudinaryUrl2000w + imgUrl} 2000w"`
+              `datasizes="auto" src="${cloudinaryUrl1200w + imgUrl}" srcset="${cloudinaryUrl100w + imgUrl}" data-srcset="${cloudinaryUrl300w + imgUrl} 300w, ${cloudinaryUrl600w + imgUrl} 600w, ${cloudinaryUrl900w + imgUrl} 900w, ${cloudinaryUrl1200w + imgUrl} 1200w, ${cloudinaryUrl1500w + imgUrl} 1500w, ${cloudinaryUrl2000w + imgUrl} 2000w"`
             )
           }
         })
@@ -122,7 +122,7 @@ async function start() {
         if (imgTag.match(kgImageRegex)) {
           post.html = post.html.replace(
             imgSrc,
-            `datasizes="auto" src="${cloudinaryUrl1200w + imgUrl}" srcset="${cloudinaryUrl30w + imgUrl}" data-srcset="${cloudinaryUrl300w + imgUrl} 300w, ${cloudinaryUrl600w + imgUrl} 600w, ${cloudinaryUrl900w + imgUrl} 900w, ${cloudinaryUrl1200w + imgUrl} 1200w, ${cloudinaryUrl1500w + imgUrl} 1500w, ${cloudinaryUrl2000w + imgUrl} 2000w"`
+            `datasizes="auto" src="${cloudinaryUrl1200w + imgUrl}" srcset="${cloudinaryUrl100w + imgUrl}" data-srcset="${cloudinaryUrl300w + imgUrl} 300w, ${cloudinaryUrl600w + imgUrl} 600w, ${cloudinaryUrl900w + imgUrl} 900w, ${cloudinaryUrl1200w + imgUrl} 1200w, ${cloudinaryUrl1500w + imgUrl} 1500w, ${cloudinaryUrl2000w + imgUrl} 2000w"`
           )
         }
         post.html = post.html.replace(kgImageRegex, 'class="kg-image lazyload')

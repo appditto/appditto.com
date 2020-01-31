@@ -7,7 +7,7 @@
             <img
               :datasizes="'auto'"
               :src="`https://res.cloudinary.com/appditto/image/fetch/w_900,c_limit,q_80,f_auto/${img}`"
-              :srcset="cloudinaryUrl30w+img"
+              :srcset="cloudinaryUrl100w+img"
               :data-srcset="cloudinaryUrl300w+img+' 300w,'+cloudinaryUrl600w+img+' 600w,'+cloudinaryUrl900w+img+' 900w,'+cloudinaryUrl1200w+img+' 1200w,'+cloudinaryUrl1500w+img+' 1500w, '+cloudinaryUrl2000w+img+' 2000w'"
               :alt="alt"
               class="lazyload absolute h-full object-cover"
@@ -41,8 +41,8 @@ export default Vue.extend({
   },
   data: function() {
     return {
-      cloudinaryUrl30w:
-        'https://res.cloudinary.com/appditto/image/fetch/w_30,pg_1,c_limit,q_80,f_auto/',
+      cloudinaryUrl100w:
+        'https://res.cloudinary.com/appditto/image/fetch/w_100,c_limit,q_1,f_auto,pg_1/',
       cloudinaryUrl300w:
         'https://res.cloudinary.com/appditto/image/fetch/w_300,c_limit,q_80,f_auto/',
       cloudinaryUrl600w:
