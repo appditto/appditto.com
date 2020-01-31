@@ -42,7 +42,7 @@ export default Vue.extend({
   data: function() {
     return {
       cloudinaryUrl30w:
-        'https://res.cloudinary.com/appditto/image/fetch/w_30,c_limit,q_80,f_auto/',
+        'https://res.cloudinary.com/appditto/image/fetch/w_30,pg_1,c_limit,q_80,f_auto/',
       cloudinaryUrl300w:
         'https://res.cloudinary.com/appditto/image/fetch/w_300,c_limit,q_80,f_auto/',
       cloudinaryUrl600w:

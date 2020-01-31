@@ -79,8 +79,10 @@ export default {
         console.error(e)
       }
     }
-    const post = (await getSinglePost()).data
-    const posts = (await getPosts()).data
+    const rawPost = await getSinglePost()
+    const post = rawPost.data
+    const rawPosts = await getPosts()
+    const posts = rawPosts.data
     let postThree = []
     posts.forEach(post => {
       if (post.slug != params.slug) {
