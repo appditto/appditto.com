@@ -83,7 +83,7 @@ export default {
     )
     let reg_kgimage = new RegExp('class="kg-image', 'g')
     let placeholderPath = require('~/assets/images/placeholder.svg')
-    // Replace scripts with a placeholder, we'll defer loading until later
+    // Replace scripts with a placeholder, we'll defer loading until later on
     if (post.html.match(scriptRegex)) {
       post.html.match(scriptRegex).forEach(element => {
         post.html = post.html.replace(
