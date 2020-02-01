@@ -65,12 +65,16 @@ $header-height: 5rem;
 .content > pre {
   overflow: scroll;
 }
+
+.image-wrapper {
+  margin-top: 2rem;
+  overflow: hidden;
+}
 .kg-image {
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
-  margin-top: 2rem !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }

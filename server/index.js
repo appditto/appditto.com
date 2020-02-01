@@ -66,7 +66,7 @@ async function start() {
   let cloudinaryUrl1500w = 'https://res.cloudinary.com/appditto/image/fetch/w_1500,c_limit,q_80,f_auto/'
   let cloudinaryUrl2000w = 'https://res.cloudinary.com/appditto/image/fetch/w_2000,c_limit,q_80,f_auto/'
 
-  app.get('/api/ghost/posts', cache(300), async (req, res) => {
+  app.get('/api/ghost/posts', cache(60), async (req, res) => {
     let resultWithoutPolicies = [];
     let result = await api.posts
       .browse({
@@ -91,6 +91,7 @@ async function start() {
           let imgUrl = imgSrc.match(urlRegex)[0];
           // Replace the image src attribute with datasizes, src, srcset and data-srcset
           if (imgTag.match(kgImageRegex)) {
+            post.html = post.html.replace(imgTag, '<div class="image-wrapper">' + imgTag + '</div>')
             post.html = post.html.replace(
               imgSrc,
               `datasizes="auto" src="${cloudinaryUrl1200w + imgUrl}" srcset="${cloudinaryUrl100w + imgUrl}" data-srcset="${cloudinaryUrl300w + imgUrl} 300w, ${cloudinaryUrl600w + imgUrl} 600w, ${cloudinaryUrl900w + imgUrl} 900w, ${cloudinaryUrl1200w + imgUrl} 1200w, ${cloudinaryUrl1500w + imgUrl} 1500w, ${cloudinaryUrl2000w + imgUrl} 2000w"`
@@ -103,7 +104,7 @@ async function start() {
     res.json(resultWithoutPolicies)
   })
 
-  app.get('/api/ghost/posts/:slug', cache(300), async (req, res) => {
+  app.get('/api/ghost/posts/:slug', cache(60), async (req, res) => {
     let post = await api.posts
       .read({
         slug: req.params.slug
@@ -120,13 +121,14 @@ async function start() {
         let imgUrl = imgSrc.match(urlRegex)[0];
         // Replace the image src attribute with datasizes, src, srcset and data-srcset
         if (imgTag.match(kgImageRegex)) {
+          post.html = post.html.replace(imgTag, '<div class="image-wrapper">' + imgTag + '</div>')
           post.html = post.html.replace(
             imgSrc,
             `datasizes="auto" src="${cloudinaryUrl1200w + imgUrl}" srcset="${cloudinaryUrl100w + imgUrl}" data-srcset="${cloudinaryUrl300w + imgUrl} 300w, ${cloudinaryUrl600w + imgUrl} 600w, ${cloudinaryUrl900w + imgUrl} 900w, ${cloudinaryUrl1200w + imgUrl} 1200w, ${cloudinaryUrl1500w + imgUrl} 1500w, ${cloudinaryUrl2000w + imgUrl} 2000w"`
           )
         }
-        post.html = post.html.replace(kgImageRegex, 'class="kg-image lazyload')
       });
+      post.html = post.html.replace(kgImageRegex, 'class="kg-image lazyload')
       res.json(post)
     } else {
       res.sendStatus(404)

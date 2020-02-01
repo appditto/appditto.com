@@ -9,7 +9,7 @@
                 :datasizes="'auto'"
                 :src="`https://res.cloudinary.com/appditto/image/fetch/w_900,c_limit,q_80,f_auto/${img}`"
                 :srcset="cloudinaryUrl100w+img"
-                :data-srcset="cloudinaryUrl300w+img+' 300w,'+cloudinaryUrl600w+img+' 600w,'+cloudinaryUrl900w+img+' 900w,'+cloudinaryUrl1200w+img+' 1200w,'+cloudinaryUrl1500w+img+' 1500w, '+cloudinaryUrl2000w+img+' 2000w'"
+                :data-srcset="cloudinaryUrl300w+img+' 300w,'+cloudinaryUrl600w+img+' 600w,'+cloudinaryUrl900w+img+' 900w,'+cloudinaryUrl1200w+img+' 1200w'"
                 :alt="alt"
                 class="blog-card-image w-full lazyload"
               />
@@ -50,11 +50,7 @@ export default Vue.extend({
       cloudinaryUrl900w:
         'https://res.cloudinary.com/appditto/image/fetch/w_900,c_limit,q_80,f_auto/',
       cloudinaryUrl1200w:
-        'https://res.cloudinary.com/appditto/image/fetch/w_1200,c_limit,q_80,f_auto/',
-      cloudinaryUrl1500w:
-        'https://res.cloudinary.com/appditto/image/fetch/w_1500,c_limit,q_80,f_auto/',
-      cloudinaryUrl2000w:
-        'https://res.cloudinary.com/appditto/image/fetch/w_2000,c_limit,q_80,f_auto/'
+        'https://res.cloudinary.com/appditto/image/fetch/w_1200,c_limit,q_80,f_auto/'
     }
   },
   methods: {
