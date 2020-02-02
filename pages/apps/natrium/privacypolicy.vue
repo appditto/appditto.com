@@ -9,12 +9,22 @@
   </div>
 </template>
 <script>
-import { getNatriumPrivacyPolicy } from '~/api/posts'
+import axios from 'axios'
 export default {
   layout: 'policy',
   components: {},
   async asyncData() {
-    const natriumPrivacyPolicy = await getNatriumPrivacyPolicy()
+    const getSinglePost = async () => {
+      try {
+        return await axios.get(
+          'http://localhost:3000/api/ghost/posts/natrium-mobile-application-privacy-policy'
+        )
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    const rawPost = await getSinglePost()
+    const natriumPrivacyPolicy = rawPost.data
     return { natriumPrivacyPolicy: natriumPrivacyPolicy }
   },
   data() {

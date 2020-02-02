@@ -7,12 +7,22 @@
   </div>
 </template>
 <script>
-import { getNatriumEULA } from '~/api/posts'
+import axios from 'axios'
 export default {
   layout: 'policy',
   components: {},
   async asyncData() {
-    const natriumEULA = await getNatriumEULA()
+    const getSinglePost = async () => {
+      try {
+        return await axios.get(
+          'http://localhost:3000/api/ghost/posts/natrium-mobile-application-end-user-license-agreement'
+        )
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    const rawPost = await getSinglePost()
+    const natriumEULA = rawPost.data
     return { natriumEULA: natriumEULA }
   },
   data() {
