@@ -4,6 +4,8 @@ const { Nuxt, Builder } = require('nuxt')
 const app = express()
 const GhostContentAPI = require('@tryghost/content-api')
 var mcache = require('memory-cache');
+const fs = require('fs');
+var path = require("path");
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
@@ -53,6 +55,7 @@ async function start() {
     version: 'v3'
   })
 
+  let blogPostsWithoutPolicies = [];
   let imgTagRegex = /<img.*?src="(.*?)"[^\>]+>/g
   let srcRegex = /src="(.*?)"/g
   let urlRegex = /(?<=src=")(.*?)(?=")/g
@@ -65,77 +68,72 @@ async function start() {
   let cloudinaryUrl1200w = 'https://res.cloudinary.com/appditto/image/fetch/w_1200,c_limit,q_80,f_auto/'
   let cloudinaryUrl1500w = 'https://res.cloudinary.com/appditto/image/fetch/w_1500,c_limit,q_80,f_auto/'
   let cloudinaryUrl2000w = 'https://res.cloudinary.com/appditto/image/fetch/w_2000,c_limit,q_80,f_auto/'
-
-  app.get('/api/ghost/posts', cache(1), async (req, res) => {
-    let resultWithoutPolicies = [];
-    let result = await api.posts
-      .browse({
-        limit: 'all',
-      })
-      .catch(err => {
-        console.error(err)
-      });
-    result.forEach(item => {
-      if (item.feature_image) {
-        resultWithoutPolicies.push(item)
-      }
+  let blogPosts = await api.posts
+    .browse({
+      limit: 'all',
+    })
+    .catch(err => {
+      console.error(err)
     });
-    // For each post
-    resultWithoutPolicies.forEach(post => {
-      if (post.html.match(imgTagRegex)) {
-        // For each img tag in a post
-        post.html.match(imgTagRegex).forEach(imgTag => {
-          // Match the image src attribute, including the src=
-          let imgSrc = imgTag.match(srcRegex)[0];
-          // Match the url of the src attribute
-          let imgUrl = imgSrc.match(urlRegex)[0];
-          // Replace the image src attribute with datasizes, src, srcset and data-srcset
-          if (imgTag.match(kgImageRegex)) {
-            post.html = post.html.replace(imgTag, '<div class="image-wrapper">' + imgTag + '</div>')
-            post.html = post.html.replace(
-              imgSrc,
-              `datasizes="auto" src="${cloudinaryUrl1200w + imgUrl}" srcset="${cloudinaryUrl100w + imgUrl}" data-srcset="${cloudinaryUrl300w + imgUrl} 300w, ${cloudinaryUrl600w + imgUrl} 600w, ${cloudinaryUrl900w + imgUrl} 900w, ${cloudinaryUrl1200w + imgUrl} 1200w, ${cloudinaryUrl1500w + imgUrl} 1500w, ${cloudinaryUrl2000w + imgUrl} 2000w"`
-            )
-          }
-        })
-      }
-      post.html = post.html.replace(kgImageRegex, 'class="kg-image lazyload')
-    });
-    res.json(resultWithoutPolicies)
-  })
-
-  app.get('/api/ghost/posts/:slug', cache(1), async (req, res) => {
-    let post = await api.posts
-      .read({
-        slug: req.params.slug,
+  // For each post
+  blogPostsWithoutPolicies.forEach(post => {
+    if (post.html.match(imgTagRegex)) {
+      // For each img tag in a post
+      post.html.match(imgTagRegex).forEach(imgTag => {
+        // Match the image src attribute, including the src=
+        let imgSrc = imgTag.match(srcRegex)[0];
+        // Match the url of the src attribute
+        let imgUrl = imgSrc.match(urlRegex)[0];
+        // Replace the image src attribute with datasizes, src, srcset and data-srcset
+        if (imgTag.match(kgImageRegex)) {
+          post.html = post.html.replace(imgTag, '<div class="image-wrapper">' + imgTag + '</div>')
+          post.html = post.html.replace(
+            imgSrc,
+            `datasizes="auto" src="${cloudinaryUrl1200w + imgUrl}" srcset="${cloudinaryUrl100w + imgUrl}" data-srcset="${cloudinaryUrl300w + imgUrl} 300w, ${cloudinaryUrl600w + imgUrl} 600w, ${cloudinaryUrl900w + imgUrl} 900w, ${cloudinaryUrl1200w + imgUrl} 1200w, ${cloudinaryUrl1500w + imgUrl} 1500w, ${cloudinaryUrl2000w + imgUrl} 2000w"`
+          )
+        }
       })
-      .catch(err => {
-        console.error(err)
-      })
-    if (post !== undefined) {
-      if (post.feature_image !== null) {
-        // For each img tag in a post
-        post.html.match(imgTagRegex).forEach(imgTag => {
-          // Match the image src attribute, including the src=
-          let imgSrc = imgTag.match(srcRegex)[0];
-          // Match the url of the src attribute
-          let imgUrl = imgSrc.match(urlRegex)[0];
-          // Replace the image src attribute with datasizes, src, srcset and data-srcset
-          if (imgTag.match(kgImageRegex)) {
-            post.html = post.html.replace(imgTag, '<div class="image-wrapper">' + imgTag + '</div>')
-            post.html = post.html.replace(
-              imgSrc,
-              `datasizes="auto" src="${cloudinaryUrl1200w + imgUrl}" srcset="${cloudinaryUrl100w + imgUrl}" data-srcset="${cloudinaryUrl300w + imgUrl} 300w, ${cloudinaryUrl600w + imgUrl} 600w, ${cloudinaryUrl900w + imgUrl} 900w, ${cloudinaryUrl1200w + imgUrl} 1200w, ${cloudinaryUrl1500w + imgUrl} 1500w, ${cloudinaryUrl2000w + imgUrl} 2000w"`
-            )
-          }
-        });
-      }
-      if (post.feature_image !== undefined) { post.html = post.html.replace(kgImageRegex, 'class="kg-image lazyload') }
-      res.json(post)
-    } else {
-      res.sendStatus(404)
     }
+    if (post.feature_image !== undefined) { post.html = post.html.replace(kgImageRegex, 'class="kg-image lazyload') }
+  });
+  blogPosts.forEach(item => {
+    if (item.feature_image) {
+      blogPostsWithoutPolicies.push(item)
+    }
+    let itemData = JSON.stringify(item)
+    fs.writeFile('./blog/posts/' + item.slug + '.json', itemData, (err) => {
+      if (err) throw err;
+      console.log('Data written to file');
+    });
+  });
+  let blogDataWithoutPolicies = JSON.stringify(blogPostsWithoutPolicies)
+  fs.writeFile('./blog/blog.json', blogDataWithoutPolicies, (err) => {
+    if (err) throw err;
+    console.log('Data written to file');
+  });
+
+  app.get('/api/ghost/posts', async (req, res) => {
+    fs.access('./blog/blog.json', fs.F_OK, (err) => {
+      if (err) {
+        console.log(err)
+        res.sendStatus(404)
+      } else {
+        res.sendFile('./blog/blog.json', { root: './' });
+      }
+    })
   })
+
+  app.get('/api/ghost/posts/:slug', async (req, res) => {
+    fs.access('./blog/posts/' + req.params.slug + '.json', fs.F_OK, (err) => {
+      if (err) {
+        console.log(err)
+        res.sendStatus(404)
+      } else {
+        res.sendFile('./blog/posts/' + req.params.slug + '.json', { root: './' });
+      }
+    })
+  })
+
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
