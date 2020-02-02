@@ -48,6 +48,12 @@ export default Vue.extend({
 
 <style scoped>
 .bg-hero {
+  background: rgb(64, 130, 255);
+  background: linear-gradient(
+    135deg,
+    rgba(64, 130, 255, 1) 0%,
+    rgba(96, 64, 255, 1) 100%
+  );
   background-image: url('~assets/images/bg-hero-small.svg');
   background-repeat: no-repeat;
   background-size: cover;
