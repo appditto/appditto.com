@@ -1,3 +1,5 @@
+"use strict"
+
 const fs = require('fs');
 const GhostContentAPI = require('@tryghost/content-api')
 
@@ -21,7 +23,7 @@ const updateBlogData = async () => {
     const cloudinaryUrl1200w = 'https://res.cloudinary.com/appditto/image/fetch/w_1200,c_limit,q_80,f_auto/'
     const cloudinaryUrl1500w = 'https://res.cloudinary.com/appditto/image/fetch/w_1500,c_limit,q_80,f_auto/'
     const cloudinaryUrl2000w = 'https://res.cloudinary.com/appditto/image/fetch/w_2000,c_limit,q_80,f_auto/'
-    await api.posts
+    api.posts
         .browse({
             limit: 'all',
         })

@@ -1,3 +1,5 @@
+"use strict"
+
 const express = require('express')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
@@ -49,6 +51,12 @@ async function start() {
       }
     })
   })
+
+  app.post('/api/ghost/postupdated', async (req, res) => {
+    console.log(req)
+    // Update local blog files based on Ghost API
+    blog.updateBlogData()
+  });
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
