@@ -1,7 +1,7 @@
 export default {
   mode: 'universal',
   /*
-   ** Headers of the page
+   *** Headers of the page
    */
   head: {
     meta: [{
