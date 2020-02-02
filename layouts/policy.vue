@@ -158,7 +158,7 @@ strong {
   background-color: rgba($dark, 0.05);
   padding: 0.15rem 0.45rem;
   @include font-size-code;
-  border-radius: 0.25rem;
+  border-radius: 0.4rem;
   border: solid 1px rgba($dark, 0.1);
   @include font-line-height-p;
   margin-left: 0.15rem;
@@ -170,7 +170,7 @@ strong {
   background-color: rgba($dark, 0.05);
   padding: 0.75rem 1.25rem;
   @include font-size-code;
-  border-radius: 0.25rem;
+  border-radius: 0.4rem;
   border: solid 1px rgba($dark, 0.1);
   @include font-line-height-p;
   margin-top: 1.5rem;
