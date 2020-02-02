@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-hero" id="landing">
+  <section class="bg-hero relative" id="landing">
     <div class="container-xl pt-24 md:pt-12 relative">
       <div class="circle-app-icon"></div>
       <div class="waterdrop-app-icon"></div>
