@@ -1,45 +1,39 @@
 <template>
-  <section class="bg-hero-wrapper" id="landing">
-    <div class="bg-hero relative">
-      <div class="container-xl pt-24 md:pt-12 relative">
-        <div class="circle-app-icon"></div>
-        <div class="waterdrop-app-icon"></div>
-        <div class="square-app-icon hidden lg:block"></div>
-        <div class="flex flex-row flex-wrap justify-center items-center px-5 md:px-16">
-          <div class="flex flex-col w-full md:w-1/2 lg:mb-24">
-            <h1
-              class="text-3xl lg:text-4xl leading-tight text-center md:text-left font-bold mt-3 text-light z-50"
-            >
-              We build beautiful apps,
-              <br class="hidden xl:block" />in record time.
-            </h1>
-            <div class="flex flex-row justify-center md:justify-start">
-              <a href="mailto:hello@appditto.com">
-                <button
-                  class="text-xl font-extrabold text-primary bg-light px-12 py-2 rounded mt-4 mb-5 grow-2 btn-shdw-dark z-50"
-                >Let's Talk</button>
-              </a>
-            </div>
+  <section class="bg-hero relative" id="landing">
+    <div class="container-xl pt-24 md:pt-12 relative">
+      <div class="circle-app-icon"></div>
+      <div class="waterdrop-app-icon"></div>
+      <div class="square-app-icon hidden lg:block"></div>
+      <div class="flex flex-row flex-wrap justify-center items-center px-5 md:px-16">
+        <div class="flex flex-col w-full md:w-1/2 lg:mb-24">
+          <h1
+            class="text-3xl lg:text-4xl leading-tight text-center md:text-left font-bold mt-3 text-light z-50"
+          >
+            We build beautiful apps,
+            <br class="hidden xl:block" />in record time.
+          </h1>
+          <div class="flex flex-row justify-center md:justify-start">
+            <a href="mailto:hello@appditto.com">
+              <button
+                class="text-xl font-extrabold text-primary bg-light px-12 py-2 rounded mt-4 mb-5 grow-2 btn-shdw-dark z-50"
+              >Let's Talk</button>
+            </a>
           </div>
-          <div class="flex flex-col w-full md:w-1/2 mt-4 mt-md-0 relative">
-            <img
-              src="~/assets/images/hero-phones-bg.svg"
-              alt="Hero Phones Background"
-              class="w-full"
-            />
-            <img
-              src="~/assets/images/hero-galaxy-shadow.svg"
-              alt="Galaxy Shadow"
-              class="galaxy-shadow"
-            />
-            <img
-              src="~/assets/images/hero-iphone-shadow.svg"
-              alt="iPhone Shadow"
-              class="iphone-shadow"
-            />
-            <img src="~/assets/images/hero-galaxy.svg" alt="Hero Galaxy" class="galaxy" />
-            <img src="~/assets/images/hero-iphone.svg" alt="Hero iPhone" class="iphone" />
-          </div>
+        </div>
+        <div class="flex flex-col w-full md:w-1/2 mt-4 mt-md-0 relative">
+          <img src="~/assets/images/hero-phones-bg.svg" alt="Hero Phones Background" class="w-full" />
+          <img
+            src="~/assets/images/hero-galaxy-shadow.svg"
+            alt="Galaxy Shadow"
+            class="galaxy-shadow"
+          />
+          <img
+            src="~/assets/images/hero-iphone-shadow.svg"
+            alt="iPhone Shadow"
+            class="iphone-shadow"
+          />
+          <img src="~/assets/images/hero-galaxy.svg" alt="Hero Galaxy" class="galaxy" />
+          <img src="~/assets/images/hero-iphone.svg" alt="Hero iPhone" class="iphone" />
         </div>
       </div>
     </div>
@@ -53,35 +47,42 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.bg-hero-wrapper {
+.bg-hero {
   background: rgb(64, 130, 255);
   background: linear-gradient(
       171deg,
       rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0) 78%,
-      rgba(255, 255, 255, 1) 78.1%,
+      rgba(255, 255, 255, 0) 77%,
+      rgba(255, 255, 255, 1) 77.1%,
+      rgba(255, 255, 255, 1) 79%,
+      rgba(255, 255, 255, 0) 79.1%,
+      rgba(255, 255, 255, 0) 81.8%,
+      rgba(255, 255, 255, 1) 81.9%,
       rgba(255, 255, 255, 1) 100%
     ),
+    url('~assets/images/bg-hero-small.svg'),
     linear-gradient(135deg, rgba(64, 130, 255, 1) 0%, rgba(96, 64, 255, 1) 100%);
   background-repeat: no-repeat;
   background-size: cover;
-}
-.bg-hero {
-  background-image: url('~assets/images/bg-hero-small.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 70% 100%;
 }
 @media only screen and (min-width: 768px) {
-  .bg-hero-wrapper {
+  .bg-hero {
     background: rgb(64, 130, 255);
     background: linear-gradient(
         175deg,
         rgba(255, 255, 255, 0) 0%,
         rgba(255, 255, 255, 0) 74%,
         rgba(255, 255, 255, 1) 74.1%,
+        rgba(255, 255, 255, 1) 76%,
+        rgba(255, 255, 255, 0) 76.1%,
+        rgba(255, 255, 255, 0) 78.5%,
+        rgba(255, 255, 255, 1) 78.6%,
         rgba(255, 255, 255, 1) 100%
       ),
+      url('~assets/images/bg-hero.svg'),
       linear-gradient(
         135deg,
         rgba(64, 130, 255, 1) 0%,
@@ -89,9 +90,6 @@ export default Vue.extend({
       );
     background-repeat: no-repeat;
     background-size: cover;
-  }
-  .bg-hero {
-    background-image: url('~assets/images/bg-hero.svg');
   }
 }
 .iphone {
