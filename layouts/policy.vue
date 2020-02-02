@@ -13,7 +13,6 @@ $dark: #383c44;
     font-size: 1.2rem;
   }
 }
-
 @mixin font-line-height-p() {
   line-height: 1.9rem;
   @media only screen and (min-width: 768px) {
@@ -301,7 +300,7 @@ a.kg-bookmark-container {
 }
 
 .kg-bookmark-author {
-  display: none;
+  overflow: hidden;
 }
 
 .gist {
