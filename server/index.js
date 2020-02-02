@@ -107,7 +107,7 @@ async function start() {
   app.get('/api/ghost/posts/:slug', cache(60), async (req, res) => {
     let post = await api.posts
       .read({
-        slug: req.params.slug
+        slug: req.params.slug,
       })
       .catch(err => {
         console.error(err)

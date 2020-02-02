@@ -122,6 +122,11 @@ export default {
       },
       title: this.post.title,
       meta: [
+        // Author
+        {
+          name: 'author',
+          content: 'Appditto'
+        },
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
           hid: 'description',

@@ -301,9 +301,7 @@ a.kg-bookmark-container {
 }
 
 .kg-bookmark-author {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  display: none;
 }
 
 .gist {

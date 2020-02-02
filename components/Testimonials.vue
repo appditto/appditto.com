@@ -4,7 +4,6 @@
     </div>
     <div class="hidden lg:block w-full">
         <svg viewBox="0 0 1440 374" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Testimonials</title>
     <defs>
         <path d="M1061,202.5 C1061,196.70101 1065.70101,192 1071.5,192 L1275.5,192 C1281.29899,192 1286,196.70101 1286,202.5 L1286,291.5 C1286,297.29899 1281.29899,302 1275.5,302 L1087.66,302 L1065.80026,318.39901 C1064.47488,319.393264 1062.59445,319.124835 1061.60019,317.799457 C1061.2106,317.280123 1061,316.648421 1061,315.999202 L1061,202.5 Z" id="path-1"></path>
         <filter x="-12.4%" y="-15.7%" width="124.9%" height="144.1%" filterUnits="objectBoundingBox" id="filter-2">
