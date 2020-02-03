@@ -17,7 +17,7 @@ export default {
     const getSinglePost = async () => {
       try {
         return await axios.get(
-          'http://localhost:3000/api/ghost/posts/blaise-mobile-application-privacy-policy'
+          '/api/ghost/posts/blaise-mobile-application-privacy-policy'
         )
       } catch (e) {
         console.error(e)

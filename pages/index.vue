@@ -34,9 +34,7 @@ export default {
   async asyncData() {
     const getPosts = async () => {
       try {
-        return await axios.get(
-          'http://localhost:3000/api/ghost/last-three-posts'
-        )
+        return await axios.get('/api/ghost/last-three-posts')
       } catch (error) {
         console.error(error)
       }
