@@ -14,7 +14,6 @@
   </div>
 </template>
 <script>
-import { getPosts } from '~/api/posts'
 import 'lazysizes'
 
 export default {
