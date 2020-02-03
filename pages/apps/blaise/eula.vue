@@ -126,7 +126,7 @@ export default {
         // Canonical
         {
           rel: 'canonical',
-          href: 'https://appditto.com/apps/kalium/eula'
+          href: 'https://appditto.com/apps/blaise/eula'
         },
         // Generic Icons
         { rel: 'icon', sizes: '32x32', href: '/favicons/favicon-32.png' },
