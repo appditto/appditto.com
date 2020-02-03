@@ -50,6 +50,16 @@ async function start() {
     })
   })
 
+  app.get('/api/ghost/posts-no-html', async (req, res) => {
+    fs.access('./blog/blog-no-html.json', fs.F_OK, (err) => {
+      if (err) {
+        console.log(err)
+        res.sendStatus(404)
+      }
+      res.sendFile('./blog/blog-no-html.json', { root: './' });
+    })
+  })
+
   app.get('/api/ghost/posts/:slug', async (req, res) => {
     fs.access('./blog/posts/' + req.params.slug + '.json', fs.F_OK, (err) => {
       if (err) {

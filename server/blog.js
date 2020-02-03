@@ -113,16 +113,26 @@ const updateBlogData = async (rawPosts, rawBlogHash) => {
             if (err) throw err;
             console.log(`Updated: blog.json, At: ${Date()}, Timestamp: ${Date.now()}`);
         });
-        let sliceToThreeAndRemoveHtml = data => {
-            let editedData = data.slice(0, 3)
-            editedData.forEach(item => {
+        let sliceToThree = array => {
+            let editedArray = array.slice(0, 3)
+            return editedArray
+        }
+        let removeHtml = array => {
+            let editedArray = array
+            editedArray.forEach(item => {
                 item.html = ''
             })
-            return editedData
+            return editedArray
         }
-        let lastThreePostsDataWithoutPolicies = JSON.stringify(sliceToThreeAndRemoveHtml(data.blogPostsWithoutPolicies))
+        let postsNoHtmlNoPolicy = removeHtml(data.blogPostsWithoutPolicies)
+        let lastThreePostsNoHtmlNoPolicy = sliceToThree(postsNoHtmlNoPolicy)
+        // Update the blog-no-html.json file
+        fs.writeFile('./blog/blog-no-html.json', JSON.stringify(postsNoHtmlNoPolicy), (err) => {
+            if (err) throw err;
+            console.log(`Updated: blog-no-html.json, At: ${Date()}, Timestamp: ${Date.now()}`);
+        });
         // Update the last-three-posts.json file
-        fs.writeFile('./blog/last-three-posts.json', lastThreePostsDataWithoutPolicies, (err) => {
+        fs.writeFile('./blog/last-three-posts.json', JSON.stringify(lastThreePostsNoHtmlNoPolicy), (err) => {
             if (err) throw err;
             console.log(`Updated: last-three-posts.json, At: ${Date()}, Timestamp: ${Date.now()}`);
         });

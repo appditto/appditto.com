@@ -123,7 +123,7 @@ export default {
   async asyncData() {
     const getPosts = async () => {
       try {
-        return await axios.get('http://localhost:3000/api/ghost/posts')
+        return await axios.get('http://localhost:3000/api/ghost/posts-no-html')
       } catch (error) {
         console.error(error)
       }
