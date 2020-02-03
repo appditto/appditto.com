@@ -2,15 +2,47 @@
 
 const fs = require('fs');
 const GhostContentAPI = require('@tryghost/content-api')
+var crypto = require('crypto');
 
-// Get the posts from ghost and parse the HTML
-const updateBlogData = async () => {
+const updateBlogDataOrNot = async () => {
     // Create API instance with site credentials
     const api = new GhostContentAPI({
         url: 'https://ghost.appditto.com',
         key: 'd387ba2cdeb5e3b04118440282',
         version: 'v3'
     })
+    api.posts
+        .browse({
+            limit: 'all',
+        }).catch(err => {
+            console.error(err)
+        }).then(posts => {
+            fs.readFile('./blog/lastupdate.json', (err, data) => {
+                if (err) {
+                    console.log(err)
+                    res.sendStatus(404)
+                }
+                let oldTimestamp = JSON.parse(data)[0].timestamp
+                let newTimestamp = Date.now()
+                let oldHash = JSON.parse(data)[0].hash
+                let newHash = crypto.createHash('md5').update(JSON.stringify(posts)).digest('hex');
+                if (oldHash == newHash) {
+                    // Don't update if it's the same
+                    console.log("Blog content is the same, no need to update")
+                } else if (newTimestamp - oldTimestamp < 500) {
+                    // Don't update if it's too soon
+                    console.log("Too soon to update")
+                } else {
+                    console.log('Old hash is: ' + oldHash)
+                    console.log('New hash is: ' + newHash)
+                    updateBlogData(posts, newHash)
+                }
+            })
+        })
+}
+
+// Get the posts from ghost and parse the HTML
+const updateBlogData = async (rawPosts, rawBlogHash) => {
     const imgTagRegex = /<img.*?src="(.*?)"[^\>]+>/g
     const srcRegex = /src="(.*?)"/g
     const urlRegex = /(?<=src=")(.*?)(?=")/g
@@ -23,58 +55,61 @@ const updateBlogData = async () => {
     const cloudinaryUrl1200w = 'https://res.cloudinary.com/appditto/image/fetch/w_1200,c_limit,q_80,f_auto/'
     const cloudinaryUrl1500w = 'https://res.cloudinary.com/appditto/image/fetch/w_1500,c_limit,q_80,f_auto/'
     const cloudinaryUrl2000w = 'https://res.cloudinary.com/appditto/image/fetch/w_2000,c_limit,q_80,f_auto/'
-    api.posts
-        .browse({
-            limit: 'all',
+    const editRawPostsAndReturnEdited = async (rawBlogHash) => {
+        rawPosts.forEach(post => {
+            // Edit the html of each single post unless they are policies
+            if (post.feature_image !== undefined && post.html.match(imgTagRegex)) {
+                // For each img tag in a post
+                post.html.match(imgTagRegex).forEach(imgTag => {
+                    // Match the image src attribute, including the src=
+                    let imgSrc = imgTag.match(srcRegex)[0];
+                    // Match the url of the src attribute
+                    let imgUrl = imgSrc.match(urlRegex)[0];
+                    // Replace the image src attribute with datasizes, src, srcset and data-srcset
+                    if (imgTag.match(kgImageRegex)) {
+                        post.html = post.html.replace(imgTag, '<div class="image-wrapper">' + imgTag + '</div>')
+                        post.html = post.html.replace(
+                            imgSrc,
+                            `datasizes="auto" src="${cloudinaryUrl1200w + imgUrl}" srcset="${cloudinaryUrl100w + imgUrl}" data-srcset="${cloudinaryUrl300w + imgUrl} 300w, ${cloudinaryUrl600w + imgUrl} 600w, ${cloudinaryUrl900w + imgUrl} 900w, ${cloudinaryUrl1200w + imgUrl} 1200w, ${cloudinaryUrl1500w + imgUrl} 1500w, ${cloudinaryUrl2000w + imgUrl} 2000w"`
+                        )
+                    }
+                })
+            }
+            // Add lazyloading to items with kg-image class
+            if (post.feature_image !== undefined) { post.html = post.html.replace(kgImageRegex, 'class="kg-image lazyload') }
         })
-        .then(posts => {
-            posts.forEach(post => {
-                // Edit the html of each single post unless they are policies
-                if (post.feature_image !== undefined && post.html.match(imgTagRegex)) {
-                    // For each img tag in a post
-                    post.html.match(imgTagRegex).forEach(imgTag => {
-                        // Match the image src attribute, including the src=
-                        let imgSrc = imgTag.match(srcRegex)[0];
-                        // Match the url of the src attribute
-                        let imgUrl = imgSrc.match(urlRegex)[0];
-                        // Replace the image src attribute with datasizes, src, srcset and data-srcset
-                        if (imgTag.match(kgImageRegex)) {
-                            post.html = post.html.replace(imgTag, '<div class="image-wrapper">' + imgTag + '</div>')
-                            post.html = post.html.replace(
-                                imgSrc,
-                                `datasizes="auto" src="${cloudinaryUrl1200w + imgUrl}" srcset="${cloudinaryUrl100w + imgUrl}" data-srcset="${cloudinaryUrl300w + imgUrl} 300w, ${cloudinaryUrl600w + imgUrl} 600w, ${cloudinaryUrl900w + imgUrl} 900w, ${cloudinaryUrl1200w + imgUrl} 1200w, ${cloudinaryUrl1500w + imgUrl} 1500w, ${cloudinaryUrl2000w + imgUrl} 2000w"`
-                            )
-                        }
-                    })
-                }
-                // Add lazyloading to items with kg-image class
-                if (post.feature_image !== undefined) { post.html = post.html.replace(kgImageRegex, 'class="kg-image lazyload') }
-            });
-            return posts
-        }).then(posts => {
-            let blogPostsWithoutPolicies = [];
-            posts.forEach(post => {
-                let postData = JSON.stringify(post)
-                fs.writeFile('./blog/posts/' + post.slug + '.json', postData, (err) => {
-                    if (err) throw err;
-                    console.log(`Updated: ${post.slug}, At: ${Date()}, Timestamp: ${Date.now()}`);
-                });
-                if (post.feature_image) {
-                    blogPostsWithoutPolicies.push(post)
-                }
-            })
-            return blogPostsWithoutPolicies
-        }).then(blogPostsWithoutPolicies => {
-            let blogDataWithoutPolicies = JSON.stringify(blogPostsWithoutPolicies)
-            fs.writeFile('./blog/blog.json', blogDataWithoutPolicies, (err) => {
+        return { posts: rawPosts, rawBlogHash: rawBlogHash }
+    }
+    editRawPostsAndReturnEdited(rawBlogHash).then(data => {
+        let blogPostsWithoutPolicies = [];
+        data.posts.forEach(post => {
+            let postData = JSON.stringify(post)
+            // Update each blog post JSON
+            fs.writeFile('./blog/posts/' + post.slug + '.json', postData, (err) => {
                 if (err) throw err;
-                console.log(`Updated: blog.json, At: ${Date()}, Timestamp: ${Date.now()}`);
+                console.log(`Updated: ${post.slug}, At: ${Date()}, Timestamp: ${Date.now()}`);
             });
+            if (post.feature_image) {
+                blogPostsWithoutPolicies.push(post)
+            }
         })
-        .catch(err => {
-            console.error(err)
-        })
-    return
+        return { blogPostsWithoutPolicies: blogPostsWithoutPolicies, rawBlogHash: rawBlogHash }
+    }).then(data => {
+        let blogDataWithoutPolicies = JSON.stringify(data.blogPostsWithoutPolicies)
+        // Update the blog.json file
+        fs.writeFile('./blog/blog.json', blogDataWithoutPolicies, (err) => {
+            if (err) throw err;
+            console.log(`Updated: blog.json, At: ${Date()}, Timestamp: ${Date.now()}`);
+        });
+        return data.rawBlogHash
+    }).then((rawBlogHash) => {
+        fs.writeFile('./blog/lastupdate.json', JSON.stringify([{ timestamp: Date.now(), hash: rawBlogHash }]), (err) => {
+            if (err) throw err;
+            console.log(`Updated: lastupdate.json, At: ${Date()}, Timestamp: ${Date.now()}`);
+        });
+    }).catch(err => {
+        console.error(err)
+    })
 }
 
-exports.updateBlogData = updateBlogData
+exports.updateBlogDataOrNot = updateBlogDataOrNot

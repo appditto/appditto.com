@@ -28,16 +28,15 @@ async function start() {
   }
 
   // Update local blog files based on Ghost API
-  blog.updateBlogData()
+  blog.updateBlogDataOrNot()
 
   app.get('/api/ghost/posts', async (req, res) => {
     fs.access('./blog/blog.json', fs.F_OK, (err) => {
       if (err) {
         console.log(err)
         res.sendStatus(404)
-      } else {
-        res.sendFile('./blog/blog.json', { root: './' });
       }
+      res.sendFile('./blog/blog.json', { root: './' });
     })
   })
 
@@ -46,16 +45,21 @@ async function start() {
       if (err) {
         console.log(err)
         res.sendStatus(404)
-      } else {
-        res.sendFile('./blog/posts/' + req.params.slug + '.json', { root: './' });
       }
+      res.sendFile('./blog/posts/' + req.params.slug + '.json', { root: './' });
     })
   })
 
   app.post('/api/ghost/postupdated', async (req, res) => {
-    console.log(req)
-    // Update local blog files based on Ghost API
-    blog.updateBlogData()
+    console.log("Postupdated webhook triggered")
+    fs.readFile('./blog/lastupdate.json', (err, data) => {
+      if (err) {
+        console.log(err)
+        res.sendStatus(404)
+      }
+      // Update local blog files based on Ghost API
+      blog.updateBlogDataOrNot()
+    })
   });
 
   // Give nuxt middleware to express
