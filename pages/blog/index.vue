@@ -111,8 +111,7 @@
   </div>
 </template>
 <script>
-import { getPosts } from '~/api/posts'
-import axios from 'axios'
+import 'lazysizes'
 
 export default {
   layout: 'blog',
@@ -120,10 +119,10 @@ export default {
     BlogCard: () => import('~/components/BlogCard.vue'),
     BlogCardWide: () => import('~/components/BlogCardWide.vue')
   },
-  async asyncData() {
+  async asyncData({ $axios }) {
     const getPosts = async () => {
       try {
-        return await axios.get('https://appditto.com/api/ghost/posts-no-html')
+        return await $axios.get('/ghost/posts-no-html')
       } catch (error) {
         console.error(error)
       }

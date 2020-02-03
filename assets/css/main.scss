@@ -252,10 +252,10 @@ textarea {
 
 .lazyload,
 .lazyloading {
-  filter: blur(12px);
+  filter: blur(12px)!important;
   width: 100%!important;
 }
 .lazyloaded {
-  filter: blur(0px);
-  transition: all 0.3s ease;
+  filter: blur(0px)!important;
+  transition: all 0.3s ease!important;
 }

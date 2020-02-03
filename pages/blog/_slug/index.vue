@@ -17,7 +17,6 @@
 </template>
 <script>
 import 'lazysizes'
-import axios from 'axios'
 
 // Import postscribe only in browser
 if (process.client) {
@@ -62,19 +61,17 @@ export default {
       postscribe(`#gist_${key}`, this.scriptReplaceMap[key])
     }
   },
-  async asyncData({ error, params }) {
+  async asyncData({ error, params, $axios }) {
     const getPosts = async () => {
       try {
-        return await axios.get('https://appditto.com/api/ghost/posts-no-html')
+        return await $axios.get('/ghost/posts-no-html')
       } catch (e) {
         console.error(e)
       }
     }
     const getSinglePost = async () => {
       try {
-        return await axios.get(
-          'https://appditto.com/api/ghost/posts/' + params.slug
-        )
+        return await $axios.get('/ghost/posts/' + params.slug)
       } catch (e) {
         console.error(e)
       }

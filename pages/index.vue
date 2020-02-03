@@ -15,7 +15,7 @@
 </template>
 <script>
 import { getPosts } from '~/api/posts'
-import axios from 'axios'
+import 'lazysizes'
 
 export default {
   components: {
@@ -31,12 +31,10 @@ export default {
     ContactSection: () => import('~/components/sections/ContactSection.vue'),
     BlogCard: () => import('~/components/BlogCard.vue')
   },
-  async asyncData() {
+  async asyncData({ $axios }) {
     const getPosts = async () => {
       try {
-        return await axios.get(
-          'https://appditto.com/api/ghost/last-three-posts'
-        )
+        return await $axios.get('/ghost/last-three-posts')
       } catch (error) {
         console.error(error)
       }

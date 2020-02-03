@@ -9,15 +9,14 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
 export default {
   layout: 'policy',
   components: {},
-  async asyncData() {
+  async asyncData({ $axios }) {
     const getSinglePost = async () => {
       try {
-        return await axios.get(
-          'https://appditto.com/api/ghost/posts/blaise-mobile-application-privacy-policy'
+        return await $axios.get(
+          '/ghost/posts/blaise-mobile-application-privacy-policy'
         )
       } catch (e) {
         console.error(e)
