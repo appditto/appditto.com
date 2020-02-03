@@ -4,7 +4,24 @@ const fs = require('fs');
 const GhostContentAPI = require('@tryghost/content-api')
 var crypto = require('crypto');
 
+
 const updateBlogDataOrNot = async () => {
+    fs.readFile('./blog/lastupdate.json', (err, data) => {
+        if (err) {
+            console.log(err)
+            res.sendStatus(404)
+        }
+        let oldTimestamp = JSON.parse(data)[0].timestamp
+        let newTimestamp = Date.now()
+        if (newTimestamp - oldTimestamp < 5000) {
+            // Don't update if it's too soon
+            console.log("Too soon to update")
+        } else {
+            updateBlogDataBasedOnHashOrNot()
+        }
+    })
+}
+const updateBlogDataBasedOnHashOrNot = async () => {
     // Create API instance with site credentials
     const api = new GhostContentAPI({
         url: 'https://ghost.appditto.com',
@@ -22,16 +39,11 @@ const updateBlogDataOrNot = async () => {
                     console.log(err)
                     res.sendStatus(404)
                 }
-                let oldTimestamp = JSON.parse(data)[0].timestamp
-                let newTimestamp = Date.now()
                 let oldHash = JSON.parse(data)[0].hash
                 let newHash = crypto.createHash('md5').update(JSON.stringify(posts)).digest('hex');
                 if (oldHash == newHash) {
                     // Don't update if it's the same
                     console.log("Blog content is the same, no need to update")
-                } else if (newTimestamp - oldTimestamp < 500) {
-                    // Don't update if it's too soon
-                    console.log("Too soon to update")
                 } else {
                     console.log('Old hash is: ' + oldHash)
                     console.log('New hash is: ' + newHash)
