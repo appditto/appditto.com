@@ -9,8 +9,8 @@ const blog = require('./blog.js');
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
-config.dev = process.env.NODE_ENV !== 'production'
-config.unix_socket = process.env.UNIX_SOCKET === 'true'
+config.dev = process.env.NODE_ENV !== production
+config.unix_socket = process.env.UNIX_SOCKET === true
 
 
 async function start() {
