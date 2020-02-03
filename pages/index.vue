@@ -34,7 +34,9 @@ export default {
   async asyncData() {
     const getPosts = async () => {
       try {
-        return await axios.get('/api/ghost/last-three-posts')
+        return await axios.get(
+          'https://appditto.com/api/ghost/last-three-posts'
+        )
       } catch (error) {
         console.error(error)
       }

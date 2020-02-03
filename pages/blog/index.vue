@@ -123,7 +123,7 @@ export default {
   async asyncData() {
     const getPosts = async () => {
       try {
-        return await axios.get('/api/ghost/posts-no-html')
+        return await axios.get('https://appditto.com/api/ghost/posts-no-html')
       } catch (error) {
         console.error(error)
       }

@@ -15,7 +15,7 @@ export default {
     const getSinglePost = async () => {
       try {
         return await axios.get(
-          '/api/ghost/posts/kalium-mobile-application-end-user-license-agreement'
+          'https://appditto.com/api/ghost/posts/kalium-mobile-application-end-user-license-agreement'
         )
       } catch (e) {
         console.error(e)

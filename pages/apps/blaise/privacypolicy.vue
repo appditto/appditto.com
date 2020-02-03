@@ -17,7 +17,7 @@ export default {
     const getSinglePost = async () => {
       try {
         return await axios.get(
-          '/api/ghost/posts/blaise-mobile-application-privacy-policy'
+          'https://appditto.com/api/ghost/posts/blaise-mobile-application-privacy-policy'
         )
       } catch (e) {
         console.error(e)
