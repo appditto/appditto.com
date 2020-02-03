@@ -4,7 +4,7 @@ const fs = require('fs');
 const GhostContentAPI = require('@tryghost/content-api')
 var crypto = require('crypto');
 
-
+// Deciding on updating the blog data or not based on timestamps
 const updateBlogDataOrNot = async () => {
     fs.readFile('./blog/last-update.json', (err, data) => {
         if (err) {
@@ -21,6 +21,8 @@ const updateBlogDataOrNot = async () => {
         }
     })
 }
+
+// Deciding on updating the blog data or not based on hashes/content change
 const updateBlogDataBasedOnHashOrNot = async () => {
     // Create API instance with site credentials
     const api = new GhostContentAPI({
