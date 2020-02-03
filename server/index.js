@@ -40,6 +40,16 @@ async function start() {
     })
   })
 
+  app.get('/api/ghost/last-three-posts', async (req, res) => {
+    fs.access('./blog/last-three-posts.json', fs.F_OK, (err) => {
+      if (err) {
+        console.log(err)
+        res.sendStatus(404)
+      }
+      res.sendFile('./blog/last-three-posts.json', { root: './' });
+    })
+  })
+
   app.get('/api/ghost/posts/:slug', async (req, res) => {
     fs.access('./blog/posts/' + req.params.slug + '.json', fs.F_OK, (err) => {
       if (err) {
@@ -52,7 +62,7 @@ async function start() {
 
   app.post('/api/ghost/postupdated', async (req, res) => {
     console.log("Postupdated webhook triggered")
-    fs.readFile('./blog/lastupdate.json', (err, data) => {
+    fs.readFile('./blog/last-update.json', (err, data) => {
       if (err) {
         console.log(err)
         res.sendStatus(404)

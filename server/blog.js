@@ -6,7 +6,7 @@ var crypto = require('crypto');
 
 
 const updateBlogDataOrNot = async () => {
-    fs.readFile('./blog/lastupdate.json', (err, data) => {
+    fs.readFile('./blog/last-update.json', (err, data) => {
         if (err) {
             console.log(err)
             res.sendStatus(404)
@@ -34,7 +34,7 @@ const updateBlogDataBasedOnHashOrNot = async () => {
         }).catch(err => {
             console.error(err)
         }).then(posts => {
-            fs.readFile('./blog/lastupdate.json', (err, data) => {
+            fs.readFile('./blog/last-update.json', (err, data) => {
                 if (err) {
                     console.log(err)
                     res.sendStatus(404)
@@ -113,11 +113,24 @@ const updateBlogData = async (rawPosts, rawBlogHash) => {
             if (err) throw err;
             console.log(`Updated: blog.json, At: ${Date()}, Timestamp: ${Date.now()}`);
         });
+        let sliceToThreeAndRemoveHtml = data => {
+            let editedData = data.slice(0, 3)
+            editedData.forEach(item => {
+                item.html = ''
+            })
+            return editedData
+        }
+        let lastThreePostsDataWithoutPolicies = JSON.stringify(sliceToThreeAndRemoveHtml(data.blogPostsWithoutPolicies))
+        // Update the last-three-posts.json file
+        fs.writeFile('./blog/last-three-posts.json', lastThreePostsDataWithoutPolicies, (err) => {
+            if (err) throw err;
+            console.log(`Updated: last-three-posts.json, At: ${Date()}, Timestamp: ${Date.now()}`);
+        });
         return data.rawBlogHash
     }).then((rawBlogHash) => {
-        fs.writeFile('./blog/lastupdate.json', JSON.stringify([{ timestamp: Date.now(), hash: rawBlogHash }]), (err) => {
+        fs.writeFile('./blog/last-update.json', JSON.stringify([{ timestamp: Date.now(), hash: rawBlogHash }]), (err) => {
             if (err) throw err;
-            console.log(`Updated: lastupdate.json, At: ${Date()}, Timestamp: ${Date.now()}`);
+            console.log(`Updated: last-update.json, At: ${Date()}, Timestamp: ${Date.now()}`);
         });
     }).catch(err => {
         console.error(err)
