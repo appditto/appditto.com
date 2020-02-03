@@ -9,12 +9,22 @@
   </div>
 </template>
 <script>
-import { getBlaisePrivacyPolicy } from '~/api/posts'
+import axios from 'axios'
 export default {
   layout: 'policy',
   components: {},
   async asyncData() {
-    const blaisePrivacyPolicy = await getBlaisePrivacyPolicy()
+    const getSinglePost = async () => {
+      try {
+        return await axios.get(
+          'http://localhost:3000/api/ghost/posts/blaise-mobile-application-privacy-policy'
+        )
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    const rawPost = await getSinglePost()
+    const blaisePrivacyPolicy = rawPost.data
     return { blaisePrivacyPolicy: blaisePrivacyPolicy }
   },
   data() {

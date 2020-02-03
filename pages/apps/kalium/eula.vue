@@ -7,12 +7,22 @@
   </div>
 </template>
 <script>
-import { getKaliumEULA } from '~/api/posts'
+import axios from 'axios'
 export default {
   layout: 'policy',
   components: {},
   async asyncData() {
-    const kaliumEULA = await getKaliumEULA()
+    const getSinglePost = async () => {
+      try {
+        return await axios.get(
+          'http://localhost:3000/api/ghost/posts/kalium-mobile-application-end-user-license-agreement'
+        )
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    const rawPost = await getSinglePost()
+    const kaliumEULA = rawPost.data
     return { kaliumEULA: kaliumEULA }
   },
   data() {

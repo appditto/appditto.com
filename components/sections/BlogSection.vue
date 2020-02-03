@@ -8,38 +8,32 @@
       </div>
       <div class="flex flex-col w-full md:w-1/2 lg:w-1/3">
         <BlogCard
-          v-for="(post, index) in posts.slice(0, 1)"
-          :key="index"
-          :img="post.feature_image"
-          :alt="post.title"
-          :title="post.title"
-          :url="isPostPage ? post.slug : 'blog/' + post.slug"
-          :date="post.published_at"
-          :readingTime="post.reading_time"
+          :img="posts[0].feature_image"
+          :alt="posts[0].title"
+          :title="posts[0].title"
+          :url="isPostPage ? posts[0].slug : 'blog/' + posts[0].slug"
+          :date="posts[0].published_at"
+          :readingTime="posts[0].reading_time"
         />
       </div>
       <div class="flex flex-col w-full md:w-1/2 lg:w-1/3">
         <BlogCard
-          v-for="(post, index) in posts.slice(1, 2)"
-          :key="index"
-          :img="post.feature_image"
-          :alt="post.title"
-          :title="post.title"
-          :url="isPostPage ? post.slug : 'blog/' + post.slug"
-          :date="post.published_at"
-          :readingTime="post.reading_time"
+          :img="posts[1].feature_image"
+          :alt="posts[1].title"
+          :title="posts[1].title"
+          :url="isPostPage ? posts[1].slug : 'blog/' + posts[1].slug"
+          :date="posts[1].published_at"
+          :readingTime="posts[1].reading_time"
         />
       </div>
       <div class="flex flex-col w-full md:w-1/2 lg:w-1/3">
         <BlogCard
-          v-for="(post, index) in posts.slice(2, 3)"
-          :key="index"
-          :img="post.feature_image"
-          :alt="post.title"
-          :title="post.title"
-          :url="isPostPage ? post.slug : 'blog/' + post.slug"
-          :date="post.published_at"
-          :readingTime="post.reading_time"
+          :img="posts[2].feature_image"
+          :alt="posts[2].title"
+          :title="posts[2].title"
+          :url="isPostPage ? posts[2].slug : 'blog/' + posts[2].slug"
+          :date="posts[2].published_at"
+          :readingTime="posts.reading_time"
         />
       </div>
     </div>

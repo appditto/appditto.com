@@ -13,7 +13,6 @@ $dark: #383c44;
     font-size: 1.2rem;
   }
 }
-
 @mixin font-line-height-p() {
   line-height: 1.9rem;
   @media only screen and (min-width: 768px) {
@@ -65,12 +64,16 @@ $header-height: 5rem;
 .content > pre {
   overflow: scroll;
 }
+
+.image-wrapper {
+  margin-top: 2rem;
+  overflow: hidden;
+}
 .kg-image {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  width: auto !important;
-  height: auto !important;
-  margin-top: 2rem !important;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   margin-left: auto !important;
   margin-right: auto !important;
 }
@@ -155,7 +158,7 @@ strong {
   background-color: rgba($dark, 0.05);
   padding: 0.15rem 0.45rem;
   @include font-size-code;
-  border-radius: 0.25rem;
+  border-radius: 0.4rem;
   border: solid 1px rgba($dark, 0.1);
   @include font-line-height-p;
   margin-left: 0.15rem;
@@ -167,7 +170,7 @@ strong {
   background-color: rgba($dark, 0.05);
   padding: 0.75rem 1.25rem;
   @include font-size-code;
-  border-radius: 0.25rem;
+  border-radius: 0.4rem;
   border: solid 1px rgba($dark, 0.1);
   @include font-line-height-p;
   margin-top: 1.5rem;
