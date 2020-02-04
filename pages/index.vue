@@ -16,16 +16,16 @@
 </template>
 <script>
 import 'lazysizes'
-
+import HeroSection from '~/components/sections/HeroSection.vue'
+import SingleCodeBaseSection from '~/components/sections/SingleCodeBaseSection.vue'
+import FastAndEfficientSection from '~/components/sections/FastAndEfficientSection.vue'
+import CuttingEdgeTechSection from '~/components/sections/CuttingEdgeTechSection.vue'
 export default {
   components: {
-    HeroSection: () => import('~/components/sections/HeroSection.vue'),
-    SingleCodeBaseSection: () =>
-      import('~/components/sections/SingleCodeBaseSection.vue'),
-    FastAndEfficientSection: () =>
-      import('~/components/sections/FastAndEfficientSection.vue'),
-    CuttingEdgeTechSection: () =>
-      import('~/components/sections/CuttingEdgeTechSection.vue'),
+    HeroSection,
+    SingleCodeBaseSection,
+    FastAndEfficientSection,
+    CuttingEdgeTechSection,
     AppsSection: () => import('~/components/sections/AppsSection.vue'),
     BlogSection: () => import('~/components/sections/BlogSection.vue'),
     ContactSection: () => import('~/components/sections/ContactSection.vue'),

@@ -113,12 +113,14 @@
 </template>
 <script>
 import 'lazysizes'
+import BlogCard from '~/components/BlogCard.vue'
+import BlogCardWide from '~/components/BlogCardWide.vue'
 
 export default {
   layout: 'blog',
   components: {
-    BlogCard: () => import('~/components/BlogCard.vue'),
-    BlogCardWide: () => import('~/components/BlogCardWide.vue')
+    BlogCard,
+    BlogCardWide
   },
   async asyncData({ $axios }) {
     const getPosts = async () => {
