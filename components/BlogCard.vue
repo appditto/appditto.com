@@ -7,8 +7,7 @@
             <div class="blog-card-image-container">
               <img
                 :data-sizes="'auto'"
-                :src="`https://res.cloudinary.com/appditto/image/fetch/w_900,c_limit,q_80,f_auto/${img}`"
-                :srcset="cloudinaryUrl100w+img"
+                :src="cloudinaryUrl100w+img"
                 :data-srcset="cloudinaryUrl300w+img+' 300w,'+cloudinaryUrl600w+img+' 600w,'+cloudinaryUrl900w+img+' 900w,'+cloudinaryUrl1200w+img+' 1200w'"
                 :alt="alt"
                 class="blog-card-image w-full lazyload"
