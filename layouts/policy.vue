@@ -71,12 +71,15 @@ $header-height: 5rem;
 }
 .kg-image {
   max-width: 100%;
-  min-width: 50%;
+  min-width: 65%;
   max-height: 100%;
   width: auto;
   height: auto;
   margin-left: auto !important;
   margin-right: auto !important;
+  @media only screen and (min-width: 768px) {
+    min-width: 50%;
+  }
 }
 
 .kg-image-card {
