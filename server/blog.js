@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const GhostContentAPI = require('@tryghost/content-api')
-var crypto = require('crypto');
+const crypto = require('crypto');
 
 // Deciding on updating the blog data or not based on timestamps
 const updateBlogDataOrNot = async () => {
