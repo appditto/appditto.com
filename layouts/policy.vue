@@ -70,8 +70,12 @@ $header-height: 5rem;
   overflow: hidden;
 }
 .kg-image {
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .kg-image-card {
