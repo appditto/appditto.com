@@ -249,3 +249,14 @@ textarea {
   background: rgb(64,130,255);
   background: linear-gradient(135deg, rgba(64,130,255,1) 0%, rgba(96,64,255,1) 100%);
 }
+
+.lazyload,
+.lazyloading {
+  filter: blur(12px) !important;
+  width: 100% !important;
+}
+
+.lazyloaded {
+  filter: blur(0px) !important;
+  transition: all 0.3s ease !important;
+}

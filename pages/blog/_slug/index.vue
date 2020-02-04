@@ -15,17 +15,7 @@
     </div>
   </div>
 </template>
-<style lang="scss">
-.lazyload,
-.lazyloading {
-  filter: blur(12px) !important;
-  width: 100 !important;
-}
-.lazyloaded {
-  filter: blur(0px) !important;
-  transition: all 0.3s ease !important;
-}
-</style>
+
 <script>
 import 'lazysizes'
 
