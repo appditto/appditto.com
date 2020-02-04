@@ -71,6 +71,7 @@ $header-height: 5rem;
 }
 .kg-image {
   max-width: 100%;
+  min-width: 50%;
   max-height: 100%;
   width: auto;
   height: auto;
