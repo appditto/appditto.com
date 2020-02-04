@@ -8,6 +8,7 @@
     </div>
     <AppsSection />
     <div class="container-xl px-5 md:px-16">
+      <div class="lazyloading lazyloaded"></div>
       <BlogSection :posts="posts" />
       <ContactSection />
     </div>

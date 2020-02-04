@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="container-md mx-auto px-6 pt-6 md:pt-12">
+      <div class="lazyloading lazyloaded"></div>
       <main>
         <h1>{{ post.title }}</h1>
         <p

@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="container-xl pt-3 pb-6 lg:pt-6 px-3 md:px-6 md:pb-20">
+      <div class="lazyloading lazyloaded"></div>
       <!-- Small Screens -->
       <div class="md:hidden">
         <div class="flex flex-row flex-wrap py-3">
