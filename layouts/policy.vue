@@ -98,7 +98,7 @@ $header-height: 5rem;
 
 main > h1 {
   font-weight: 700;
-  font-family: 'Butler', 'sans-serif';
+  font-family: 'Butler', serif;
   @include font-h1;
 }
 
