@@ -20,16 +20,21 @@ import HeroSection from '~/components/sections/HeroSection.vue'
 import SingleCodeBaseSection from '~/components/sections/SingleCodeBaseSection.vue'
 import FastAndEfficientSection from '~/components/sections/FastAndEfficientSection.vue'
 import CuttingEdgeTechSection from '~/components/sections/CuttingEdgeTechSection.vue'
+import AppsSection from '~/components/sections/AppsSection.vue'
+import BlogSection from '~/components/sections/BlogSection.vue'
+import ContactSection from '~/components/sections/ContactSection.vue'
+import BlogCard from '~/components/BlogCard.vue'
+
 export default {
   components: {
     HeroSection,
     SingleCodeBaseSection,
     FastAndEfficientSection,
     CuttingEdgeTechSection,
-    AppsSection: () => import('~/components/sections/AppsSection.vue'),
-    BlogSection: () => import('~/components/sections/BlogSection.vue'),
-    ContactSection: () => import('~/components/sections/ContactSection.vue'),
-    BlogCard: () => import('~/components/BlogCard.vue')
+    AppsSection,
+    BlogSection,
+    ContactSection,
+    BlogCard
   },
   async asyncData({ $axios }) {
     const getPosts = async () => {
