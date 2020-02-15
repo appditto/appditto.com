@@ -31,8 +31,8 @@
 </template>
 <script>
 import Vue from 'vue'
-import AppCard from '~/components/AppCard.vue'
-import Testimonials from '~/components/Testimonials.vue'
+import AppCard from '~/components/AppsSection/AppCard.vue'
+import Testimonials from '~/components/AppsSection/Testimonials.vue'
 export default Vue.extend({
   name: 'AppsSection',
   components: {

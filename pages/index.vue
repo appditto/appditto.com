@@ -16,14 +16,14 @@
 </template>
 <script>
 import 'lazysizes'
-import HeroSection from '~/components/sections/HeroSection.vue'
-import SingleCodeBaseSection from '~/components/sections/SingleCodeBaseSection.vue'
-import FastAndEfficientSection from '~/components/sections/FastAndEfficientSection.vue'
-import CuttingEdgeTechSection from '~/components/sections/CuttingEdgeTechSection.vue'
-import AppsSection from '~/components/sections/AppsSection.vue'
-import BlogSection from '~/components/sections/BlogSection.vue'
-import ContactSection from '~/components/sections/ContactSection.vue'
-import BlogCard from '~/components/BlogCard.vue'
+import HeroSection from '~/components/HeroSection.vue'
+import SingleCodeBaseSection from '~/components/SingleCodeBaseSection.vue'
+import FastAndEfficientSection from '~/components/FastAndEfficientSection.vue'
+import CuttingEdgeTechSection from '~/components/CuttingEdgeTechSection.vue'
+import AppsSection from '~/components/AppsSection.vue'
+import BlogSection from '~/components/BlogSection.vue'
+import ContactSection from '~/components/ContactSection.vue'
+import BlogCard from '~/components/BlogSection/BlogCard.vue'
 
 export default {
   components: {

@@ -113,8 +113,8 @@
 </template>
 <script>
 import 'lazysizes'
-import BlogCard from '~/components/BlogCard.vue'
-import BlogCardWide from '~/components/BlogCardWide.vue'
+import BlogCard from '~/components/BlogSection/BlogCard.vue'
+import BlogCardWide from '~/components/BlogSection/BlogCardWide.vue'
 
 export default {
   layout: 'blog',

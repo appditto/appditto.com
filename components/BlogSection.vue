@@ -41,7 +41,7 @@
 </template>
 <script>
 import Vue from 'vue'
-import BlogCard from '~/components/BlogCard.vue'
+import BlogCard from '~/components/BlogSection/BlogCard.vue'
 export default Vue.extend({
   name: 'BlogSection',
   props: {

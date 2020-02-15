@@ -16,7 +16,7 @@
       <div class="flex flex-row flex-wrap justify-center items-center mt-5">
         <nuxt-link to="/">
           <button
-            class="text-xl bg-light text-primary w800 grow-2 btn-shadow-dark px-6 md:px-12 py-2 rounded"
+            class="text-xl font-bold bg-light text-primary w800 grow-2 btn-shadow-dark px-6 md:px-12 py-2 rounded"
           >Go Back Home</button>
         </nuxt-link>
       </div>

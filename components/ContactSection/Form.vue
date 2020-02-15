@@ -140,8 +140,8 @@
 </template>
 <script>
 import Vue from 'vue'
-import TransitionExpand from '~/components/TransitionExpand.vue'
-import LoadingAnimation from '~/components/LoadingAnimation.vue'
+import TransitionExpand from '~/components/ContactSection/Form/TransitionExpand.vue'
+import LoadingAnimation from '~/components/ContactSection/Form/LoadingAnimation.vue'
 import Axios from 'axios'
 export default Vue.extend({
   name: 'MyForm',

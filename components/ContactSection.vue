@@ -37,17 +37,17 @@
         </div>
       </div>
       <!-- FORM -->
-      <MyForm :expanded="expanded" />
+      <Form :expanded="expanded" />
     </div>
   </section>
 </template>
 <script>
 import Vue from 'vue'
-import MyForm from '~/components/MyForm.vue'
+import Form from '~/components/ContactSection/Form.vue'
 export default Vue.extend({
   name: 'ContactSection',
   components: {
-    MyForm
+    Form
   },
   data() {
     return {

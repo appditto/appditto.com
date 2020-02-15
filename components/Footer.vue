@@ -19,7 +19,7 @@
 </template>
 <script>
 import Vue from 'vue'
-import SocialButton from '~/components/SocialButton.vue'
+import SocialButton from '~/components/Footer/SocialButton.vue'
 export default Vue.extend({
   name: 'Footer',
   props: {

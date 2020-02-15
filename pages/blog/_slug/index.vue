@@ -29,7 +29,7 @@ export default {
   layout: 'blog',
   components: {
     Divider: () => import('~/components/Divider.vue'),
-    BlogSection: () => import('~/components/sections/BlogSection.vue')
+    BlogSection: () => import('~/components/BlogSection.vue')
   },
   methods: {
     formatDate(date) {
