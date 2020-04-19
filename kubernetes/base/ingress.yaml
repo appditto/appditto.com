@@ -23,5 +23,5 @@ spec:
           servicePort: 3000
       - path: /inquire
         backend:
-          serviceName: apddito-server-service
+          serviceName: appditto-server-service
           servicePort: 3001
