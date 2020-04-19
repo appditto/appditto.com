@@ -95,7 +95,7 @@ jobs:
           kustomize-version: "3.5.4"
 
       - name: Set image
-        working-directory: ./kubernetes/server
+        working-directory: ./kubernetes/frontend
         run: |
           kustomize edit set image replaceme=${{ secrets.DOCKER_REPO }}/appditto-frontend:${BRANCH_NAME}-${{ env.GITHUB_RUN_ID }}
           kustomize build . > deployment-k.yaml
@@ -105,6 +105,6 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: apply -f ./kubernetes/server/deployment-k.yaml
+          args: apply -f ./kubernetes/frontend/deployment-k.yaml
 
       

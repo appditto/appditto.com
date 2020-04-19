@@ -21,19 +21,19 @@ spec:
         ports:
           - containerPort: 3001
         imagePullPolicy: "Always"
+        env:
+          - name: MAIL_USER
+            valueFrom:
+              secretKeyRef:
+                name: appditto
+                key: mail_user
+          - name: QM_SI_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: appditto
+                key: mail_password        
       imagePullSecrets:
           - name: regcred
-      env:
-        - name: MAIL_USER
-          valueFrom:
-            secretKeyRef:
-              name: appditto
-              key: mail_user
-        - name: MAIL_PASSWORD
-           valueFrom:
-             secretKeyRef:
-              name: appditto
-              key: mail_password
 ---
 kind: Service
 apiVersion: v1
