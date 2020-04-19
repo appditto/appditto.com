@@ -31,7 +31,9 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: appditto
-                key: mail_password        
+                key: mail_password     
+          - name: REDIS_HOST   
+            value: redis-cluster.redis.svc.cluster.local
       imagePullSecrets:
           - name: regcred
 ---
