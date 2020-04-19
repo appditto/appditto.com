@@ -27,7 +27,7 @@ spec:
               secretKeyRef:
                 name: appditto
                 key: mail_user
-          - name: QM_SI_PASSWORD
+          - name: MAIL_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: appditto
