@@ -22,7 +22,7 @@ jobs:
 
       - name: Build and tag
         if: success()
-        run: docker build -t ${{ secrets.DOCKER_REPO }}/appditto-python-server:${BRANCH_NAME}-${{ env.GITHUB_RUN_ID }} .
+        run: docker build -t ${{ secrets.DOCKER_REPO }}/appditto-python-server:${BRANCH_NAME}-${{ env.GITHUB_RUN_ID }} server
 
       - name: Push image   
         if: success()

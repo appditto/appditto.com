@@ -14,14 +14,14 @@ spec:
     - appditto.com
     secretName: appditto-com-server-secret
   rules:
-  - host: natricon-go-server.appditto.com
+  - host: appditto.com
     http:
       paths:
       - path: /
         backend:
-          serviceName: nuxt-appditto-service
+          serviceName: appditto-frontend-service
           servicePort: 3000
       - path: /inquire
         backend:
-          serviceName: apddito-backend-service
+          serviceName: apddito-server-service
           servicePort: 3001

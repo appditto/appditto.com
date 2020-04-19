@@ -1,0 +1,37 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: appditto-frontend-deployment
+  namespace: appditto-com
+  labels:
+    app: appditto-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: appditto-frontend
+  template:
+    metadata:
+      labels:
+        app: appditto-frontend
+    spec:
+      containers:
+      - name: appditto-frontend
+        image: replaceme
+        ports:
+          - containerPort: 3000
+        imagePullPolicy: "Always"
+      imagePullSecrets:
+          - name: regcred
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: appditto-frontend-service
+  namespace: appditto-com
+spec:
+  selector:
+      app: appditto-frontend
+  type: NodePort
+  ports:
+    - port: 3000
