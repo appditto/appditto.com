@@ -7,4 +7,4 @@ RUN pip install --trusted-host pypi.org --no-cache-dir -r requirements.txt
 
 COPY . .
 
-ENTRYPOINT [ "python", "./api.py", "--host 0.0.0.0", "--port 3001",  "--sender appdittoappd@gmail.com"]
+CMD [ "python", "./api.py", "--host 0.0.0.0", "--port 3001",  "--sender appdittoapps@gmail.com"]
