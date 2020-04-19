@@ -1,0 +1,48 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: appditto-server-deployment
+  namespace: appditto-com
+  labels:
+    app: appditto-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: appditto-server
+  template:
+    metadata:
+      labels:
+        app: appditto-server
+    spec:
+      containers:
+      - name: appditto-server
+        image: replaceme
+        ports:
+          - containerPort: 3001
+        imagePullPolicy: "Always"
+      imagePullSecrets:
+          - name: regcred
+      env:
+        - name: MAIL_USER
+          valueFrom:
+            secretKeyRef:
+              name: appditto
+              key: mail_user
+        - name: MAIL_PASSWORD
+           valueFrom:
+             secretKeyRef:
+              name: appditto
+              key: mail_password
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: appditto-server-service
+  namespace: appditto-com
+spec:
+  selector:
+      app: appditto-server
+  type: NodePort
+  ports:
+    - port: 3001

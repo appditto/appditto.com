@@ -27,7 +27,7 @@ const updateBlogDataBasedOnHashOrNot = async () => {
     // Create API instance with site credentials
     const api = new GhostContentAPI({
         url: 'https://ghost.appditto.com',
-        key: 'd387ba2cdeb5e3b04118440282',
+        key: 'da0afc3264680b91127fbf4a84',
         version: 'v3'
     })
     api.posts
