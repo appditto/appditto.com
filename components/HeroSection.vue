@@ -64,15 +64,13 @@ export default Vue.extend({
     linear-gradient(135deg, rgba(64, 130, 255, 1) 0%, rgba(96, 64, 255, 1) 100%);
   background-repeat: no-repeat;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-size: cover;
   background-position: 70% 100%;
 }
 @media only screen and (min-width: 768px) {
   .bg-hero {
     background: rgb(64, 130, 255);
     background: linear-gradient(
-        175deg,
+        176deg,
         rgba(255, 255, 255, 0) 0%,
         rgba(255, 255, 255, 0) 74%,
         rgba(255, 255, 255, 1) 74.1%,
