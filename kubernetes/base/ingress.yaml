@@ -12,6 +12,7 @@ spec:
   tls:
   - hosts:
     - appditto.com
+    - www.appditto.com
     secretName: appditto-com-server-secret
   rules:
   - host: appditto.com
@@ -25,3 +26,15 @@ spec:
         backend:
           serviceName: appditto-server-service
           servicePort: 3001
+  - host: www.appditto.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: appditto-frontend-service
+          servicePort: 3000
+      - path: /inquire
+        backend:
+          serviceName: appditto-server-service
+          servicePort: 3001
+
