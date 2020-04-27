@@ -32,6 +32,7 @@ metadata:
 spec:
   selector:
       app: appditto-frontend
-  type: NodePort
+  type: ClusterIP
   ports:
     - port: 3000
+    - targetPort: 3000
