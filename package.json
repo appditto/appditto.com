@@ -20,7 +20,7 @@
     "nuxt": "^2.12.2"
   },
   "devDependencies": {
-    "@nuxtjs/google-analytics": "^2.2.1",
+    "@nuxtjs/google-analytics": "^2.3.0",
     "@nuxtjs/tailwindcss": "^2.0.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.0.1",
