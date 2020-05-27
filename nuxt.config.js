@@ -40,12 +40,11 @@ module.exports = {
     [
       // Tailwind
       '@nuxtjs/tailwindcss',
-      '@nuxtjs/google-analytics'
     ]
   ],
   // Google Analytics
   googleAnalytics: {
-    id: 'UA-145357881-3'
+    id: 'UA-145357881-3', 
   },
   /*
    ** Nuxt.js modules
@@ -53,6 +52,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/google-analytics'
   ],
   /*
    ** Axios module configuration
