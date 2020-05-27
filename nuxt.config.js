@@ -40,12 +40,13 @@ module.exports = {
     [
       // Tailwind
       '@nuxtjs/tailwindcss',
-      // Analytics
-      {
-        id: 'UA-145357881-3'
-      }
+      '@nuxtjs/google-analytics'
     ]
   ],
+  // Google Analytics
+  googleAnalytics: {
+    id: 'UA-145357881-3'
+  },
   /*
    ** Nuxt.js modules
    */
