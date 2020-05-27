@@ -9,7 +9,7 @@ WORKDIR ${APP_ROOT}
 ADD . ${APP_ROOT}
 
 RUN npm install
-RUN npm run build
+RUN npm run generate
 
 # Expose the app port
 EXPOSE 3000
