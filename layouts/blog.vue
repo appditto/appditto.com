@@ -28,6 +28,20 @@
   opacity: 0;
   transform: translateY(1rem);
 }
+.kg-embed-card {
+  position: relative;
+  margin-top: 1.5rem;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+.kg-embed-card iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 </style>
 
 <script>
