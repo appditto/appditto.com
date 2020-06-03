@@ -30,7 +30,7 @@
 }
 .kg-embed-card {
   position: relative;
-  margin-top: 1.5rem;
+  margin-top: 1.75rem !important;
   padding-bottom: 56.25%; /* 16:9 */
   padding-top: 25px;
   height: 0;
