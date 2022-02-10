@@ -25,7 +25,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.0.1",
     "husky": "^4.2.5",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "nodemon": "^2.0.2",
     "postscribe": "^2.0.8",
     "prettier": "^2.0.5",
