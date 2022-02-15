@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: apddito-com-ingress
@@ -19,22 +19,34 @@ spec:
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: appditto-frontend-service
-          servicePort: 3000
+          service:
+            name: appditto-frontend-service
+            port: 
+              number: 3000
       - path: /inquire
+        pathType: Prefix
         backend:
-          serviceName: appditto-server-service
-          servicePort: 3001
+          service: 
+            name: appditto-server-service
+            port:
+              number: 3001
   - host: www.appditto.com
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: appditto-frontend-service
-          servicePort: 3000
+          service:
+            name: appditto-frontend-service
+            port:
+              number: 3000
       - path: /inquire
+        pathType: Prefix
         backend:
-          serviceName: appditto-server-service
-          servicePort: 3001
+          service:
+            name: appditto-server-service
+            port: 
+              number: 3001
 
