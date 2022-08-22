@@ -8,11 +8,11 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     nginx.ingress.kubernetes.io/configuration-snippet: |
         real_ip_header CF-Connecting-IP;
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
 spec:
   tls:
   - hosts:
     - appditto.com
-    - www.appditto.com
     secretName: appditto-com-server-secret
   rules:
   - host: appditto.com
@@ -31,22 +31,5 @@ spec:
           service: 
             name: appditto-server-service
             port:
-              number: 3001
-  - host: www.appditto.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: appditto-frontend-service
-            port:
-              number: 3000
-      - path: /inquire
-        pathType: Prefix
-        backend:
-          service:
-            name: appditto-server-service
-            port: 
               number: 3001
 

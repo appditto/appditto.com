@@ -33,7 +33,7 @@ spec:
                 name: appditto
                 key: mail_password     
           - name: REDIS_HOST   
-            value: redis-0.redis.svc.cluster.local
+            value: redis.redis
       imagePullSecrets:
           - name: regcred
 ---
