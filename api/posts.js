@@ -4,32 +4,32 @@ import GhostContentAPI from '@tryghost/content-api'
 const api = new GhostContentAPI({
   url: 'https://ghost.appditto.com',
   key: '7b1cf9b8062693a371e7892612',
-  version: 'v5'
+  version: 'v5',
 })
 
 export async function getPosts(count) {
-  let resultWithoutPolicies = [];
+  let resultWithoutPolicies = []
   let result = await api.posts
     .browse({
       limit: count,
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err)
-    });
-  result.forEach(item => {
+    })
+  result.forEach((item) => {
     if (item.feature_image) {
       resultWithoutPolicies.push(item)
     }
-  });
+  })
   return resultWithoutPolicies
 }
 
 export async function getSinglePost(postSlug) {
   return await api.posts
     .read({
-      slug: postSlug
+      slug: postSlug,
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err)
     })
 }
@@ -37,66 +37,65 @@ export async function getSinglePost(postSlug) {
 export async function getNatriumPrivacyPolicy() {
   let result = await api.posts
     .read({
-      id: '5e130df66458685aeb1dc659'
+      id: '5e130df66458685aeb1dc659',
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err)
-    });
+    })
   return result
 }
 
 export async function getNatriumEULA() {
   let result = await api.posts
     .read({
-      id: '5e131ba76458685aeb1dc6f0'
+      id: '5e131ba76458685aeb1dc6f0',
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err)
-    });
+    })
   return result
 }
 
 export async function getKaliumPrivacyPolicy() {
   let result = await api.posts
     .read({
-      id: '5e1321066458685aeb1dc70b'
+      id: '5e1321066458685aeb1dc70b',
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err)
-    });
+    })
   return result
 }
 
 export async function getKaliumEULA() {
   let result = await api.posts
     .read({
-      id: '5e1321ae6458685aeb1dc71c'
+      id: '5e1321ae6458685aeb1dc71c',
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err)
-    });
+    })
   return result
 }
 
 export async function getBlaisePrivacyPolicy() {
   let result = await api.posts
     .read({
-      id: '5e1323a96458685aeb1dc731'
+      id: '5e1323a96458685aeb1dc731',
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err)
-    });
+    })
   return result
 }
 
 export async function getBlaiseEULA() {
   let result = await api.posts
     .read({
-      id: '5e1324686458685aeb1dc742'
+      id: '5e1324686458685aeb1dc742',
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err)
-    });
+    })
   return result
 }
-
