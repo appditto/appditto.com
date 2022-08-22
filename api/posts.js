@@ -3,8 +3,8 @@ import GhostContentAPI from '@tryghost/content-api'
 // Create API instance with site credentials
 const api = new GhostContentAPI({
   url: 'https://ghost.appditto.com',
-  key: 'da0afc3264680b91127fbf4a84',
-  version: 'v3'
+  key: '7b1cf9b8062693a371e7892612',
+  version: 'v5'
 })
 
 export async function getPosts(count) {
