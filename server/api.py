@@ -42,6 +42,7 @@ MAIL_SERVER = options.mail_server
 MAIL_USERNAME = os.getenv('MAIL_USER', 'user')
 MAIL_PASSWORD = os.getenv('MAIL_PASSWORD', '1234')
 REDIS_HOST = os.getenv('REDIS_HOST', 'localhost')
+REDIS_PASSWORD = os.getenv('REDIS_PASSWORD') or None
 
 ### Utils
 
@@ -123,7 +124,7 @@ async def get_app():
         log.server_logger.info("Opening redis connection")
         try:
             app['redis'] = await aioredis.create_redis_pool((REDIS_HOST, 6379),
-                                                db=1, encoding='utf-8', minsize=2, maxsize=15)
+                                                db=1, password=REDIS_PASSWORD, encoding='utf-8', minsize=2, maxsize=15)
         except Exception:
             app['redis'] = None
             log.server_logger.warn('WARNING: Could not connect to Redis, work caching and some other features will not work')
