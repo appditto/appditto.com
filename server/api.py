@@ -61,7 +61,7 @@ async def send_email(message : MIMEText):
     await smtp_client.quit()
 
 def get_real_request_ip(request : web.Request) -> str:
-    host = request.headers.get('X-FORWARDED-FOR',None)
+    host = request.headers.get('CF-Connecting-IP') or request.headers.get('X-FORWARDED-FOR',None)
     if host is None:
         peername = request.transport.get_extra_info('peername')
         if peername is not None:
